@@ -140,7 +140,7 @@
       loadData(window.STATICS_DATA);
     } else {
       try {
-        const resp = await fetch('data/problems.json');
+        const resp = await fetch('data/problems.json?v=3.0');
         const data = await resp.json();
         loadData(data);
       } catch (err) {

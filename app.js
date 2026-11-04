@@ -330,7 +330,116 @@
     displayProblem(nextProblem);
   }
 
-  // Resilient Diagram Loader (Cache-Safe + Multi-Path Discovery)
+  // Multi-Path Candidate Resolvers for GitHub Root Uploads & Local Structure
+  function getProblemCandidates(rawPath) {
+    if (!rawPath) return [];
+    const cleanPath = (rawPath || '').trim();
+    const fname = cleanPath.split('/').pop();
+    const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
+
+    return [
+      // 1. Root batch folders as uploaded directly on GitHub
+      `1_problems_batch1_98files/${fname}`,
+      `2_problems_batch2_98files/${fname}`,
+      `3_problems_batch3_81files/${fname}`,
+      `1_problems_batch1_98files/${altFname}`,
+      `2_problems_batch2_98files/${altFname}`,
+      `3_problems_batch3_81files/${altFname}`,
+
+      // 2. Root part folders as uploaded directly on GitHub
+      `part1/${fname}`,
+      `part2/${fname}`,
+      `part3/${fname}`,
+      `part1/${altFname}`,
+      `part2/${altFname}`,
+      `part3/${altFname}`,
+
+      // 3. Local / GitHub subfolder structure
+      `github-upload-batches/1_problems_batch1_98files/${fname}`,
+      `github-upload-batches/2_problems_batch2_98files/${fname}`,
+      `github-upload-batches/3_problems_batch3_81files/${fname}`,
+      `github-upload-batches/1_problems_batch1_98files/${altFname}`,
+      `github-upload-batches/2_problems_batch2_98files/${altFname}`,
+      `github-upload-batches/3_problems_batch3_81files/${altFname}`,
+
+      // 4. Standard images/ path
+      cleanPath,
+      `images/problems/${fname}`,
+      `images/problems/${altFname}`,
+      `images/problems/part1/${fname}`,
+      `images/problems/part2/${fname}`,
+      `images/problems/part3/${fname}`,
+      `images/problems/part1/${altFname}`,
+      `images/problems/part2/${altFname}`,
+      `images/problems/part3/${altFname}`,
+
+      // 5. Current directory
+      `./${fname}`,
+      `./${altFname}`
+    ];
+  }
+
+  function getSolutionCandidates(rawPath) {
+    if (!rawPath) return [];
+    const cleanPath = (rawPath || '').trim();
+    const fname = cleanPath.split('/').pop();
+    const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
+
+    return [
+      // 1. Root batch folders as uploaded directly on GitHub
+      `4_solutions_batch1_50files/${fname}`,
+      `5_solutions_batch2_49files/${fname}`,
+      `4_solutions_batch1_50files/${altFname}`,
+      `5_solutions_batch2_49files/${altFname}`,
+
+      // 2. Root part folders as uploaded directly on GitHub
+      `solutions/part1/${fname}`,
+      `solutions/part2/${fname}`,
+      `part1/${fname}`,
+      `part2/${fname}`,
+      `part3/${fname}`,
+
+      // 3. Local / GitHub subfolder structure
+      `github-upload-batches/4_solutions_batch1_50files/${fname}`,
+      `github-upload-batches/5_solutions_batch2_49files/${fname}`,
+
+      // 4. Standard images/ path
+      cleanPath,
+      `images/solutions/${fname}`,
+      `images/solutions/${altFname}`,
+      `images/solutions/part1/${fname}`,
+      `images/solutions/part2/${fname}`,
+
+      // 5. Current directory
+      `./${fname}`,
+      `./${altFname}`
+    ];
+  }
+
+  // Preload candidates for upcoming problems
+  function preloadCandidateProblems(problems, count = 5) {
+    if (!Array.isArray(problems) || problems.length === 0) return;
+    for (let i = 0; i < Math.min(count, problems.length); i++) {
+      const p = problems[i];
+      if (p) {
+        if (p.image) {
+          const cands = getProblemCandidates(p.image);
+          if (cands.length > 0) {
+            preloadImage(cands[0]);
+            preloadImage(cands[1]);
+          }
+        }
+        if (p.solution_image) {
+          const sCands = getSolutionCandidates(p.solution_image);
+          if (sCands.length > 0) {
+            preloadImage(sCands[0]);
+          }
+        }
+      }
+    }
+  }
+
+  // Resilient Diagram Loader (Zero-Flicker & Multi-Path Discovery)
   function loadDiagramImage(problem) {
     if (!el.diagramImage) return;
 
@@ -349,27 +458,12 @@
     }
 
     const img = el.diagramImage;
-    const rawPath = (problem.image || '').trim();
-    const fname = rawPath.split('/').pop();
-    const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
-
-    // All possible locations across GitHub uploads, subfolders, and aliases
-    const candidates = [
-      rawPath,
-      `images/problems/${fname}`,
-      `images/problems/${altFname}`,
-      `images/problems/part1/${fname}`,
-      `images/problems/part2/${fname}`,
-      `images/problems/part3/${fname}`,
-      `github-upload-batches/1_problems_batch1_98files/${fname}`,
-      `github-upload-batches/2_problems_batch2_98files/${fname}`,
-      `github-upload-batches/3_problems_batch3_81files/${fname}`,
-      `./${fname}`
-    ];
+    const candidates = getProblemCandidates(problem.image);
+    const fname = (problem.image || '').trim().split('/').pop();
 
     let idx = 0;
     if (el.diagramLoader) el.diagramLoader.classList.remove('hidden');
-    if (el.diagramWrapper) el.diagramWrapper.classList.remove('hidden');
+    if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
     if (el.imagePlaceholder) el.imagePlaceholder.classList.add('hidden');
     if (el.diagramHint) el.diagramHint.classList.add('hidden');
     img.style.opacity = '0';
@@ -377,7 +471,7 @@
 
     function tryNext() {
       if (idx >= candidates.length) {
-        // All paths failed: show helpful placeholder with exact missing file name
+        // All paths failed: show helpful card
         if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
         if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
         if (el.diagramHint) el.diagramHint.classList.add('hidden');
@@ -392,9 +486,9 @@
               <p class="text-xs text-slate-400 mt-0.5">หนังสือ Hibbeler 14th Ed. หน้า ${problem.page_book || '-'}</p>
               <div class="mt-3 flex flex-col items-center gap-1">
                 <span class="px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-[11px] font-mono border border-amber-200 dark:border-amber-800">
-                  ไฟล์ที่ต้องมี: images/problems/${fname}
+                  ไฟล์รูป: ${fname}
                 </span>
-                <span class="text-[10px] text-slate-400">หากเพิ่งอัปโหลดขึ้น GitHub ให้กดรีเฟรชหน้าเว็บอีกครั้ง</span>
+                <span class="text-[10px] text-slate-400">หากเพิ่งอัปเดต app.js ให้กด Ctrl + F5 เพื่อล้างแคช</span>
               </div>
             </div>
           `;
@@ -408,35 +502,35 @@
         return;
       }
 
-      img.onload = function() {
+      // In-memory probe to prevent broken-image icon flicker
+      const probe = new Image();
+      probe.onload = function() {
+        img.src = nextUrl;
+        img.classList.remove('hidden');
+        img.style.opacity = '1';
+        img.onclick = () => openImageModal(img.src);
         if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
         if (el.diagramWrapper) el.diagramWrapper.classList.remove('hidden');
         if (el.imagePlaceholder) el.imagePlaceholder.classList.add('hidden');
         if (el.diagramHint) el.diagramHint.classList.remove('hidden');
-        img.classList.remove('hidden');
-        img.style.opacity = '1';
       };
-
-      img.onerror = function() {
+      probe.onerror = function() {
         tryNext();
       };
-
-      img.src = nextUrl;
-
-      // Handle cached image immediately
-      if (img.complete && img.naturalWidth > 0) {
-        img.onload();
-      }
+      probe.src = nextUrl;
     }
 
     tryNext();
 
     // Background preloader for solution diagram and next candidates
-    if (problem.solution_image) preloadImage(problem.solution_image);
+    if (problem.solution_image) {
+      const sCands = getSolutionCandidates(problem.solution_image);
+      if (sCands.length > 0) preloadImage(sCands[0]);
+    }
     preloadCandidateProblems(state.filteredProblems, 5);
   }
 
-  // Resilient Manual Solution Loader
+  // Resilient Manual Solution Loader (Zero-Flicker & Multi-Path Discovery)
   function loadManualSolutionImage(solutionPath) {
     if (!el.manualSolutionContainer || !el.manualSolutionImage) return;
     if (!solutionPath) {
@@ -445,22 +539,10 @@
     }
 
     const img = el.manualSolutionImage;
-    const fname = solutionPath.split('/').pop();
-    const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
-
-    const candidates = [
-      solutionPath,
-      `images/solutions/${fname}`,
-      `images/solutions/${altFname}`,
-      `images/solutions/part1/${fname}`,
-      `images/solutions/part2/${fname}`,
-      `github-upload-batches/4_solutions_batch1_50files/${fname}`,
-      `github-upload-batches/5_solutions_batch2_49files/${fname}`,
-      `./${fname}`
-    ];
+    const candidates = getSolutionCandidates(solutionPath);
 
     let idx = 0;
-    el.manualSolutionContainer.classList.remove('hidden');
+    el.manualSolutionContainer.classList.add('hidden');
     img.style.opacity = '0';
 
     function tryNext() {
@@ -473,18 +555,18 @@
         tryNext();
         return;
       }
-      img.onload = function() {
-        el.manualSolutionContainer.classList.remove('hidden');
+
+      const probe = new Image();
+      probe.onload = function() {
+        img.src = nextUrl;
         img.style.opacity = '1';
         img.onclick = () => openImageModal(img.src);
+        el.manualSolutionContainer.classList.remove('hidden');
       };
-      img.onerror = function() {
+      probe.onerror = function() {
         tryNext();
       };
-      img.src = nextUrl;
-      if (img.complete && img.naturalWidth > 0) {
-        img.onload();
-      }
+      probe.src = nextUrl;
     }
 
     tryNext();
@@ -834,7 +916,15 @@
 
   // Fullscreen Image Modal
   function openImageModal(imgSrc) {
-    const src = (typeof imgSrc === 'string' && imgSrc) ? imgSrc : (state.currentProblem && state.currentProblem.image);
+    let src = '';
+    if (typeof imgSrc === 'string' && imgSrc) {
+      src = imgSrc;
+    } else if (el.diagramImage && el.diagramImage.src && !el.diagramImage.classList.contains('hidden')) {
+      src = el.diagramImage.src;
+    } else if (state.currentProblem && state.currentProblem.image) {
+      const cands = getProblemCandidates(state.currentProblem.image);
+      src = cands[0] || state.currentProblem.image;
+    }
     if (!src) return;
     if (el.modalImage && el.imageModal) {
       el.modalImage.src = src;
@@ -912,7 +1002,7 @@
     if (el.copyBtn) el.copyBtn.addEventListener('click', copyProblem);
 
     // Image Zoom
-    if (el.diagramImage) el.diagramImage.addEventListener('click', openImageModal);
+    if (el.diagramImage) el.diagramImage.addEventListener('click', () => openImageModal(el.diagramImage.src));
     if (el.imageModal) el.imageModal.addEventListener('click', closeImageModal);
 
     // Difficulty filter buttons

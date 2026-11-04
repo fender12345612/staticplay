@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="th" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StaticsPlay 🚀 แพลตฟอร์มสุ่มโจทย์สถิตยศาสตร์วิศวกรรม | Playful Statics Practice</title>
+  
+  <!-- Google Fonts: Fredoka (Playful Heading), Nunito (Soft Body), Prompt (Thai), Fira Code (Math) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Fredoka', 'Prompt', 'sans-serif'],
+            sans: ['Nunito', 'Prompt', 'sans-serif'],
+            mono: ['Fira Code', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b'
+            },
+            tangerine: {
+              400: '#fb923c',
+              500: '#f97316',
+              600: '#ea580c'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Local Offline KaTeX Math Engine -->
+  <link rel="stylesheet" href="lib/katex/katex.min.css">
+  <script src="lib/katex/katex.min.js"></script>
+  <script src="lib/katex/auto-render.min.js"></script>
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Claymorphism Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-full flex flex-col antialiased">
+
+  <!-- ========================================================================
+       1. STICKY PLAYFUL NAVBAR
+       ======================================================================== -->
+  <header class="sticky top-0 z-40 clay-header shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between gap-4">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 to-brand-600 text-white flex items-center justify-center text-xl shadow-md border-2 border-white/60 transform group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-shapes"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-heading font-bold text-lg sm:text-xl text-brand-900 dark:text-white tracking-wide">
+              Statics<span class="text-tangerine-500">Play</span>
+            </span>
+            <span class="clay-badge clay-badge-easy text-[10px] px-2 py-0.5">
+              v2.5 Hibbeler
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 hidden sm:block">
+            แพลตฟอร์มฝึกโจทย์สถิตยศาสตร์วิศวกรรม
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-1.5 font-heading text-sm text-slate-600 dark:text-slate-300">
+        <a href="#practice" class="px-3.5 py-1.5 rounded-xl hover:bg-white/80 dark:hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-dice mr-1 text-brand-500"></i> สุ่มโจทย์
+        </a>
+        <a href="#catalog" class="px-3.5 py-1.5 rounded-xl hover:bg-white/80 dark:hover:bg-slate-800 transition-colors">
+          <i class="fa-solid fa-book-open mr-1 text-amber-500"></i> คลังบทเรียน (11 บท)
+        </a>
+      </nav>
+
+      <!-- Utility Actions -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Cheatsheet Button -->
+        <button id="cheatsheetBtn" title="สูตรคณิตศาสตร์แท้ๆ ประจำบท" class="clay-btn clay-btn-amber text-xs !py-2 !px-3.5 !rounded-xl">
+          <i class="fa-solid fa-square-root-variable text-sm"></i>
+          <span class="hidden sm:inline">สูตรคำนวณ</span>
+        </button>
+
+
+
+        <!-- Start Practice Quick CTA -->
+        <a href="#practice" class="clay-btn clay-btn-primary text-xs !py-2 !px-4 !rounded-xl shadow-xs">
+          <i class="fa-solid fa-bolt text-amber-300"></i>
+          <span>เริ่มสุ่มโจทย์</span>
+        </a>
+
+        <!-- Dark/Light Theme Toggle -->
+        <button id="themeToggleBtn" title="สลับโหมดมืด/สว่าง" class="clay-btn clay-btn-secondary !p-2.5 !rounded-xl text-slate-600 dark:text-slate-200">
+          <i id="themeToggleIcon" class="fa-solid fa-sun text-amber-500 text-base"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       2. PLAYFUL HERO SECTION WITH CLAYMORPHISM BADGES & CTAs
+       ======================================================================== -->
+  <section class="relative pt-10 pb-16 sm:pt-14 sm:pb-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+      
+      <!-- Top Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/90 border-2 border-brand-200/60 dark:border-slate-700 shadow-sm text-xs font-bold text-brand-700 dark:text-brand-400 mb-6 animate-bounce">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        <span>🎉 อัปเดตใหม่! รวมเฉลยคู่มืออาจารย์ Hibbeler 14th Ed. ครบ 285+ ข้อ</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight max-w-4xl">
+        พิชิตโจทย์วิชา <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-500 to-tangerine-500">Statics</span><br class="hidden sm:inline">
+        สนุก มั่นใจ พร้อมสอบเกรด A 🚀
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="mt-4 sm:mt-6 text-base sm:text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-medium leading-relaxed">
+        แพลตฟอร์มการเรียนรู้และสุ่มฝึกทำโจทย์วิชาสถิตยศาสตร์วิศวกรรม (Engineering Mechanics: Statics) แยกบทได้ 11 บทเรียน พร้อมวิธีทำทีละขั้นตอน และสูตรคณิตศาสตร์แท้ 100%
+      </p>
+
+      <!-- Main Hero CTAs -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href="#practice" class="clay-btn clay-btn-primary text-base sm:text-lg !py-3.5 !px-8 !rounded-2xl">
+          <i class="fa-solid fa-gamepad text-lg mr-1 text-amber-300"></i>
+          <span>เข้าห้องสุ่มโจทย์ทันที (Start Practice)</span>
+        </a>
+        <a href="#catalog" class="clay-btn clay-btn-secondary text-base sm:text-lg !py-3.5 !px-7 !rounded-2xl">
+          <i class="fa-solid fa-layer-group text-brand-500 mr-1"></i>
+          <span>ดูคลังหลักสูตร 11 บท</span>
+        </a>
+      </div>
+
+      <!-- 4 Floating Clay Feature Cards -->
+      <div class="mt-12 sm:mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-5xl">
+        
+        <!-- Card 1 -->
+        <div class="clay-card p-4 sm:p-5 flex flex-col items-center text-center animate-float-1">
+          <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-3 border-2 border-amber-300/60">
+            <i class="fa-solid fa-cubes-stacked"></i>
+          </div>
+          <span class="font-heading font-bold text-slate-900 dark:text-white text-base">285+ คลังโจทย์</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 mt-1">Fundamental & แบบฝึกหัดท้ายบทครบ</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="clay-card p-4 sm:p-5 flex flex-col items-center text-center animate-float-2">
+          <div class="w-12 h-12 rounded-2xl bg-brand-100 dark:bg-brand-950/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xl mb-3 border-2 border-brand-300/60">
+            <i class="fa-solid fa-square-root-variable"></i>
+          </div>
+          <span class="font-heading font-bold text-slate-900 dark:text-white text-base">สมการแท้ KaTeX</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 mt-1">เศษส่วนจริง ยกกำลังจริง ไร้ Slash ขีดๆ</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="clay-card p-4 sm:p-5 flex flex-col items-center text-center animate-float-3">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-3 border-2 border-emerald-300/60">
+            <i class="fa-solid fa-filter"></i>
+          </div>
+          <span class="font-heading font-bold text-slate-900 dark:text-white text-base">กรองและแยกบท</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 mt-1">เลือกความยาก 3 ระดับ และแยกบทอิสระ</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="clay-card p-4 sm:p-5 flex flex-col items-center text-center animate-float-4">
+          <div class="w-12 h-12 rounded-2xl bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl mb-3 border-2 border-rose-300/60">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <span class="font-heading font-bold text-slate-900 dark:text-white text-base">เฉลยพร้อมรูปภาพ</span>
+          <span class="text-xs text-slate-500 dark:text-slate-400 mt-1">แสดงวิธีทำและผังแรง FBD ละเอียด</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       3. INTERACTIVE PRACTICE HUB (ตัวสุ่มโจทย์สถิตยศาสตร์แบบ Claymorphism)
+       ======================================================================== -->
+  <section id="practice" class="py-10 scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col gap-6">
+
+      <!-- Section Title -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <div class="inline-flex items-center gap-2 clay-badge clay-badge-easy text-xs mb-1.5">
+            <i class="fa-solid fa-gamepad"></i> Practice Arena
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-slate-900 dark:text-white">
+            ห้องสุ่มฝึกทำโจทย์สถิตยศาสตร์
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+            ตั้งค่าตัวกรองตามบทเรียนหรือระดับความยาก แล้วกดสุ่มเพื่อเริ่มฝึกทำโจทย์ได้ทันที
+          </p>
+        </div>
+
+        <!-- Timer Widget -->
+        <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-white/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 shadow-xs">
+          <div class="flex items-center gap-2 px-3 py-1 font-mono font-bold text-sm text-slate-800 dark:text-slate-100">
+            <i id="timerIcon" class="fa-solid fa-stopwatch text-tangerine-500 text-base"></i>
+            <span id="timerTime" class="tracking-wider">30:00</span>
+          </div>
+          <button id="timerToggleBtn" title="เริ่ม/หยุดจับเวลา" class="clay-btn clay-btn-primary !py-1.5 !px-3.5 !rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs">
+            <i id="timerToggleIcon" class="fa-solid fa-play text-xs"></i>
+            <span id="timerToggleText">เริ่ม</span>
+          </button>
+          <button id="timerResetBtn" title="รีเซ็ตเวลา 30 นาที" class="clay-btn clay-btn-secondary !p-2 !rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 text-xs">
+            <i class="fa-solid fa-rotate-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- FILTER CLAY BENTO PANEL -->
+      <div class="clay-card p-5 sm:p-6 flex flex-col gap-5">
+        
+        <!-- Header & Pool Count -->
+        <div class="flex items-center justify-between border-b border-slate-200/60 dark:border-slate-700/60 pb-3">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded-lg bg-brand-500 text-white flex items-center justify-center text-xs shadow-xs">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 class="font-heading font-bold text-sm sm:text-base text-slate-800 dark:text-slate-200">
+              ตัวกรองระดับความยากและบทเรียน
+            </h3>
+          </div>
+          <span id="poolCountBadge" class="clay-badge bg-brand-100 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300">
+            285 ข้อในตัวเลือก
+          </span>
+        </div>
+
+        <!-- Difficulty Selection -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+          <span class="text-xs font-bold text-slate-600 dark:text-slate-400 min-w-[90px]">
+            ระดับความยาก:
+          </span>
+          <div class="flex flex-wrap items-center gap-2">
+            <button id="diffAllBtn" class="clay-btn clay-btn-secondary !py-1.5 !px-3.5 !rounded-xl text-xs">
+              ทั้งหมด (<span id="countAll">285</span>)
+            </button>
+            <button id="diffEasyBtn" class="clay-btn clay-badge-easy !py-1.5 !px-3.5 !rounded-xl text-xs">
+              🟢 ง่าย (<span id="countEasy">100</span>)
+            </button>
+            <button id="diffMediumBtn" class="clay-btn clay-badge-medium !py-1.5 !px-3.5 !rounded-xl text-xs">
+              🟡 ปานกลาง (<span id="countMedium">95</span>)
+            </button>
+            <button id="diffHardBtn" class="clay-btn clay-badge-hard !py-1.5 !px-3.5 !rounded-xl text-xs">
+              🔴 ยาก (<span id="countHard">90</span>)
+            </button>
+          </div>
+        </div>
+
+        <!-- Chapter Filter Chips -->
+        <div class="flex flex-col gap-2">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold text-slate-600 dark:text-slate-400">
+              เลือกบทเรียน (คลิกเลือก/แยกบทได้):
+            </span>
+            <div class="flex items-center gap-2 text-xs">
+              <button id="selectAllChaptersBtn" class="text-brand-600 dark:text-brand-400 font-bold hover:underline">
+                เลือกทุกบท
+              </button>
+              <span class="text-slate-300 dark:text-slate-600">•</span>
+              <button id="clearAllChaptersBtn" class="text-slate-500 hover:text-slate-700 dark:text-slate-400">
+                ล้างการเลือก
+              </button>
+            </div>
+          </div>
+          
+          <div id="chapterChipsContainer" class="flex flex-wrap gap-2 max-h-52 overflow-y-auto pt-1 pb-1">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- MAIN PROBLEM DISPLAY CARD -->
+      <article id="problemCard" class="clay-card overflow-hidden flex flex-col">
+        
+        <!-- Top Bar -->
+        <div class="px-6 py-4 bg-slate-50/80 dark:bg-slate-800/80 border-b border-slate-200/60 dark:border-slate-700/60 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-3">
+            <span id="problemNumber" class="text-lg sm:text-xl font-heading font-extrabold text-brand-600 dark:text-brand-400">
+              ข้อที่ F2-1
+            </span>
+            <span id="difficultyBadge" class="clay-badge clay-badge-easy text-xs">
+              ● ง่าย (Easy)
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span id="pageIndicator" class="text-xs text-slate-500 dark:text-slate-400 hidden sm:inline font-mono">
+              📖 หน้า 50 ในตำรา Hibbeler
+            </span>
+            <button id="bookmarkBtn" title="บันทึกข้อนี้ (B)" class="clay-btn clay-btn-secondary !p-2 !rounded-xl text-slate-400 hover:text-amber-500">
+              <i id="bookmarkIcon" class="fa-regular fa-star text-base"></i>
+            </button>
+            <button id="copyBtn" title="คัดลอกโจทย์" class="clay-btn clay-btn-secondary !p-2 !rounded-xl text-slate-400 hover:text-slate-700">
+              <i class="fa-regular fa-copy text-base"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="p-6 sm:p-8 flex flex-col gap-6">
+          
+          <!-- Category & Problem Statement -->
+          <div>
+            <span id="chapterBadge" class="clay-badge-chapter mb-3 shadow-xs">
+              บทที่ 2: เวกเตอร์ของแรง (Force Vectors)
+            </span>
+
+            <!-- Original English Question -->
+            <h3 id="questionText" class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white leading-relaxed">
+              Determine the magnitude of the resultant force acting on the screw eye and its direction measured clockwise from the x axis.
+            </h3>
+
+            <!-- Thai Objective Box -->
+            <div class="mt-4 p-4 rounded-2xl bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-900/40 flex items-start gap-3">
+              <div class="w-7 h-7 rounded-xl bg-brand-600 text-white flex items-center justify-center text-xs shrink-0 mt-0.5 shadow-xs">
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div>
+                <span class="text-xs font-bold text-brand-900 dark:text-brand-300 block">
+                  เป้าหมายของโจทย์ (Goal / Objective):
+                </span>
+                <p id="questionThaiSummary" class="text-sm text-brand-800 dark:text-brand-200 mt-0.5 font-medium">
+                  คำนวณหาขนาดและทิศทางของแรงลัพธ์ (Resultant Force)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem Diagram / Figure Area (Robust Multi-Fallback & Cache-Safe) -->
+          <div id="diagramContainer" class="clay-inset p-5 flex flex-col items-center justify-center min-h-[240px] relative">
+            
+            <!-- 1. Loading Spinner Overlay -->
+            <div id="diagramLoader" class="hidden flex flex-col items-center justify-center py-8 gap-3">
+              <div class="w-10 h-10 rounded-full border-4 border-brand-200 dark:border-slate-700 border-t-brand-600 dark:border-t-brand-400 animate-spin"></div>
+              <span class="text-xs font-bold text-slate-500 dark:text-slate-400 animate-pulse">กำลังโหลดรูปผังแรง...</span>
+            </div>
+
+            <!-- 2. Actual Image Wrapper (Always in layout so onload fires reliably) -->
+            <div id="diagramWrapper" class="img-zoom-wrapper max-w-full flex items-center justify-center rounded-xl bg-white p-2.5 shadow-sm border border-slate-200/50">
+              <img id="diagramImage" src="" alt="Problem Diagram" class="max-h-[380px] w-auto object-contain rounded-lg transition-opacity duration-200" title="คลิกเพื่อขยายดูรูปขนาดใหญ่">
+            </div>
+
+            <!-- 3. Stylized Placeholder for Missing / Text-only Problems -->
+            <div id="imagePlaceholder" class="hidden text-center py-8 text-slate-400 w-full">
+              <i class="fa-regular fa-image text-3xl mb-2 text-brand-400"></i>
+              <p class="text-xs text-slate-500 dark:text-slate-400">โจทย์ข้อนี้เป็นการคำนวณตามสูตร (ไม่มีรูปประกอบ)</p>
+            </div>
+
+            <!-- Hint -->
+            <span id="diagramHint" class="text-xs text-slate-400 mt-3 flex items-center gap-1.5 font-medium">
+              <i class="fa-solid fa-magnifying-glass-plus text-brand-500"></i> คลิกที่รูปเพื่อขยายภาพแบบเต็มจอ
+            </span>
+          </div>
+
+          <!-- MAIN ACTIONS BAR -->
+          <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-slate-200/60 dark:border-slate-700/60">
+            
+            <!-- History Navigation -->
+            <div class="flex items-center gap-2 w-full sm:w-auto">
+              <button id="prevBtn" title="ข้อก่อนหน้า (←)" class="clay-btn clay-btn-secondary !py-2.5 !px-4 !rounded-xl text-xs font-bold disabled:opacity-40 disabled:pointer-events-none flex-1 sm:flex-none">
+                <i class="fa-solid fa-chevron-left mr-1"></i> ก่อนหน้า
+              </button>
+              <button id="nextBtn" title="ข้อถัดไป (→)" class="clay-btn clay-btn-secondary !py-2.5 !px-4 !rounded-xl text-xs font-bold disabled:opacity-40 disabled:pointer-events-none flex-1 sm:flex-none">
+                ถัดไป <i class="fa-solid fa-chevron-right ml-1"></i>
+              </button>
+            </div>
+
+            <!-- Main Interactive Actions -->
+            <div class="flex items-center gap-3 w-full sm:w-auto">
+              <!-- Toggle Solution Button -->
+              <button id="solutionToggleBtn" class="clay-btn clay-btn-secondary !py-3 !px-5 !rounded-2xl text-xs sm:text-sm font-bold flex-1 sm:flex-none">
+                <i id="solutionIcon" class="fa-solid fa-lightbulb text-amber-500 text-base"></i>
+                <span id="solutionToggleText">แสดงเฉลย (Show Solution)</span>
+                <kbd class="hidden md:inline text-[10px] font-mono opacity-60 bg-slate-200 dark:bg-slate-700 px-1.5 py-0.5 rounded">S</kbd>
+              </button>
+
+              <!-- Randomize New Problem Button -->
+              <button id="randomBtn" class="clay-btn clay-btn-primary !py-3 !px-7 !rounded-2xl text-xs sm:text-sm font-bold flex-1 sm:flex-none">
+                <i id="diceIcon" class="fa-solid fa-dice text-lg text-amber-300"></i>
+                <span>สุ่มโจทย์ใหม่</span>
+                <span class="hidden md:inline text-[10px] font-mono bg-brand-700 px-2 py-0.5 rounded text-white/90">Space</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- SOLUTION SECTION (ACCORDION) -->
+          <section id="solutionSection" class="hidden mt-2 p-6 sm:p-7 rounded-3xl bg-emerald-50/70 dark:bg-emerald-950/20 border-2 border-emerald-300 dark:border-emerald-800/60 flex flex-col gap-6">
+            
+            <!-- Solution Header -->
+            <div class="flex items-center justify-between border-b border-emerald-200/80 dark:border-emerald-800/50 pb-3">
+              <div class="flex items-center gap-3 text-emerald-900 dark:text-emerald-300 font-heading font-bold text-base sm:text-lg">
+                <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-sm shadow-xs">
+                  <i class="fa-solid fa-check"></i>
+                </div>
+                <span>เฉลยและแสดงวิธีทำอย่างละเอียด (Step-by-Step Solution)</span>
+              </div>
+              <span class="clay-badge clay-badge-easy text-xs font-mono">
+                Hibbeler Verified
+              </span>
+            </div>
+
+            <!-- Theory Box -->
+            <div class="p-4 rounded-2xl bg-white/90 dark:bg-slate-900/90 border border-emerald-200/80 dark:border-emerald-800/60 flex items-start gap-3">
+              <i class="fa-solid fa-graduation-cap text-emerald-600 text-lg mt-0.5"></i>
+              <div>
+                <span class="text-xs font-bold text-slate-800 dark:text-slate-200 block">
+                  หลักการและทฤษฎีที่ใช้ (Approach):
+                </span>
+                <p id="theoryText" class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  การวิเคราะห์ตามสมการสมดุลของสถิตยศาสตร์
+                </p>
+              </div>
+            </div>
+
+            <!-- Final Answer Box -->
+            <div id="finalAnswerContainer" class="p-5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-emerald-400 dark:border-emerald-600 shadow-sm">
+              <div class="flex items-center gap-2 mb-2.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                <span class="text-xs font-heading font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300">
+                  คำตอบสุดท้าย (Final Answers):
+                </span>
+              </div>
+              <div id="finalAnswerList" class="flex flex-col gap-2 pt-1">
+                <!-- KaTeX Math rendered by app.js -->
+              </div>
+            </div>
+
+            <!-- Step-by-Step Calculations -->
+            <div>
+              <span class="text-xs font-heading font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 block mb-3">
+                ขั้นตอนการคำนวณและสมการ (Mathematical Calculations):
+              </span>
+              <div id="solutionStepsText" class="flex flex-col gap-2 overflow-x-auto">
+                <!-- KaTeX Math rendered by app.js -->
+              </div>
+            </div>
+
+            <!-- Official Solution Image Drawer (from Static เฉลย.pdf) -->
+            <div id="manualSolutionContainer" class="hidden mt-2 p-4 rounded-2xl bg-white/90 dark:bg-slate-900 border border-emerald-300/80 dark:border-emerald-800/60 flex flex-col items-center">
+              <div class="w-full flex items-center justify-between mb-2">
+                <span class="text-xs font-heading font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+                  <i class="fa-solid fa-file-signature text-emerald-600"></i> แผนภาพเฉลยจากคู่มืออาจารย์ (Official Manual Diagram):
+                </span>
+                <span class="text-[11px] text-slate-400">คลิกที่รูปเพื่อขยาย</span>
+              </div>
+              <div class="img-zoom-wrapper max-w-full rounded-xl bg-white p-2 border border-slate-200/60 shadow-xs">
+                <img id="manualSolutionImage" src="" alt="Official Solution Diagram" class="max-h-[420px] w-auto object-contain rounded-lg">
+              </div>
+            </div>
+
+          </section>
+
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       4. COURSE CATALOG PREVIEW (คลังหลักสูตร 11 บทเรียน)
+       ======================================================================== -->
+  <section id="catalog" class="py-14 sm:py-20 bg-white/60 dark:bg-slate-900/40 border-y border-slate-200/60 dark:border-slate-800 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Title -->
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-2 clay-badge clay-badge-medium text-xs mb-2">
+          <i class="fa-solid fa-graduation-cap"></i> Complete Syllabus
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-slate-900 dark:text-white">
+          คลังบทเรียนสถิตยศาสตร์ (Course Catalog Preview)
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          เนื้อหาครอบคลุมตามหลักสูตรวิศวกรรมศาสตร์มาตรฐานสากลทั้ง 11 บทเรียน คลิกบทไหนเพื่อสุ่มโจทย์บทนั้นได้ทันที!
+        </p>
+      </div>
+
+      <!-- 11 Chapters Clay Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        
+        <!-- Ch 1 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-easy text-[11px]">บทที่ 1</span>
+              <span class="text-xs text-slate-400 font-mono">21 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              หลักการทั่วไป (General Principles)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              ระบบหน่วยเอสไอ (SI Units), คำนำหน้าหน่วย (Prefixes), และการคำนวณน้ำหนัก \(W = mg\)
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(1)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 1
+          </button>
+        </div>
+
+        <!-- Ch 2 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 2</span>
+              <span class="text-xs text-slate-400 font-mono">43 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              เวกเตอร์ของแรง (Force Vectors)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              การรวมแรง 2D/3D, กฎโคไซน์-ไซน์, เวกเตอร์คาร์ทีเซียน, และผลคูณสเกลาร์ (Dot Product)
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(2)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 2
+          </button>
+        </div>
+
+        <!-- Ch 3 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-easy text-[11px]">บทที่ 3</span>
+              <span class="text-xs text-slate-400 font-mono">21 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              สมดุลของอนุภาค (Equilibrium of Particle)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              สมการสมดุล \(\Sigma F = 0\), แรงดึงในเส้นเชือก, สปริง และผังวัตถุอิสระ (FBD)
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(3)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 3
+          </button>
+        </div>
+
+        <!-- Ch 4 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 4</span>
+              <span class="text-xs text-slate-400 font-mono">54 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              ระบบแรงลัพธ์และโมเมนต์ (Moments & Resultants)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              โมเมนต์รอบจุด \(\vec{M} = \vec{r} \times \vec{F}\), โมเมนต์รอบแกน, แรงคู่ควบ, และแรงกระจาย
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(4)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 4
+          </button>
+        </div>
+
+        <!-- Ch 5 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 5</span>
+              <span class="text-xs text-slate-400 font-mono">22 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              สมดุลวัตถุเกร็ง (Rigid Body Equilibrium)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              สมดุล 2 มิติและ 3 มิติ, แรงปฏิกิริยาที่ฐานรองรับ (Roller, Pin, Fixed Support)
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(5)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 5
+          </button>
+        </div>
+
+        <!-- Ch 6 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 6</span>
+              <span class="text-xs text-slate-400 font-mono">36 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              การวิเคราะห์โครงสร้าง (Trusses & Frames)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              วิธีข้อต่อ (Method of Joints), วิธีตัดหน้าตัด (Sections), และโครงสร้างเฟรม/เครื่องจักรกล
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(6)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 6
+          </button>
+        </div>
+
+        <!-- Ch 7 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 7</span>
+              <span class="text-xs text-slate-400 font-mono">28 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              แรงภายในในคาน (Internal Forces)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              แรงแนวแกน (N), แรงเฉือน (V), โมเมนต์ดัด (M), และการเขียนแผนภาพ V-x และ M-x
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(7)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 7
+          </button>
+        </div>
+
+        <!-- Ch 8 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 8</span>
+              <span class="text-xs text-slate-400 font-mono">19 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              ความเสียดทาน (Friction)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              กฎแรงเสียดทานคูลอมบ์ \(F = \mu_s N\), ลิ่ม (Wedges), สกรู, และสายพานแบน
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(8)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 8
+          </button>
+        </div>
+
+        <!-- Ch 9 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 9</span>
+              <span class="text-xs text-slate-400 font-mono">31 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              จุดศูนย์ถ่วงและเซนทรอยด์ (Centroids)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              เซนทรอยด์ของเส้น พื้นที่ และปริมาตรเชิงประกอบ, และทฤษฎีบทของปัปปุส-กุลดินัส
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(9)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 9
+          </button>
+        </div>
+
+        <!-- Ch 10 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 10</span>
+              <span class="text-xs text-slate-400 font-mono">18 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              โมเมนต์ความเฉื่อย (Moments of Inertia)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              โมเมนต์ความเฉื่อยของพื้นที่ \(I = \int y^2 dA\), ทฤษฎีแกนขนาน, และโมเมนต์ขั้ว \(J_O\)
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(10)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 10
+          </button>
+        </div>
+
+        <!-- Ch 11 -->
+        <div class="clay-card p-5 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 11</span>
+              <span class="text-xs text-slate-400 font-mono">14 ข้อ</span>
+            </div>
+            <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
+              งานเสมือน (Virtual Work)
+            </h4>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
+              หลักการของงานเสมือน \(\delta U = 0\) และฟังก์ชันพลังงานศักย์เพื่อตรวจสอบเสถียรภาพ
+            </p>
+          </div>
+          <button onclick="filterAndPracticeChapter(11)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
+            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 11
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+<!-- ========================================================================
+       8. CHEATSHEET MODAL (สมการคณิตศาสตร์แท้ 11 บทเรียน)
+       ======================================================================== -->
+  <div id="cheatsheetModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="clay-card !bg-white dark:!bg-slate-900 max-w-4xl w-full max-h-[88vh] overflow-hidden flex flex-col border-2 border-white/80">
+      
+      <!-- Header -->
+      <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/60">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-amber-500 text-white flex items-center justify-center text-base shadow-xs">
+            <i class="fa-solid fa-square-root-variable"></i>
+          </div>
+          <div>
+            <h3 class="font-heading font-bold text-base sm:text-lg">สรุปสูตรคำนวณวิชาสถิตยศาสตร์ (Statics Formulas)</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">สมการและสัญลักษณ์คณิตศาสตร์มาตรฐานครบทั้ง 11 บท</p>
+          </div>
+        </div>
+        <button id="closeCheatsheetBtn" class="clay-btn clay-btn-secondary !p-2 !rounded-xl text-slate-400 hover:text-slate-700">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      
+      <!-- Content -->
+      <div id="cheatsheetContent" class="p-6 overflow-y-auto space-y-6 text-sm divide-y divide-slate-100 dark:divide-slate-800">
+        
+        <!-- บทที่ 1 -->
+        <div class="pt-2">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 1</span>
+            <span>หลักการทั่วไป (General Principles)</span>
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">น้ำหนัก (Weight):</span>
+              $$W = m \cdot g \quad \left(g = 9.81\,\frac{\text{m}}{\text{s}^2} = 32.2\,\frac{\text{ft}}{\text{s}^2}\right)$$
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">คำนำหน้าหน่วยเอสไอ (SI Prefixes):</span>
+              $$\text{kilo (k)} = 10^3, \quad \text{mega (M)} = 10^6, \quad \text{giga (G)} = 10^9$$
+              $$\text{milli (m)} = 10^{-3}, \quad \text{micro (}\mu\text{)} = 10^{-6}, \quad \text{nano (n)} = 10^{-9}$$
+            </div>
+          </div>
+        </div>
+
+        <!-- บทที่ 2 -->
+        <div class="pt-4">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 2</span>
+            <span>เวกเตอร์ของแรง (Force Vectors)</span>
+          </h4>
+          <div class="space-y-2.5 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">กฎของโคไซน์และกฎของไซน์ (Triangle Rule):</span>
+              $$C = \sqrt{A^2 + B^2 - 2AB\cos c}, \quad \frac{A}{\sin a} = \frac{B}{\sin b} = \frac{C}{\sin c}$$
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">แรงลัพธ์ 2 มิติ (2D Resultant):</span>
+                $$F_R = \sqrt{\left(\sum F_x\right)^2 + \left(\sum F_y\right)^2}, \quad \theta = \tan^{-1}\left|\frac{\sum F_y}{\sum F_x}\right|$$
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">เวกเตอร์ 3 มิติ (3D Cartesian Vector):</span>
+                $$\vec{F} = F_x\hat{i} + F_y\hat{j} + F_z\hat{k} = F\vec{u}_F$$
+                $$\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$$
+              </div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">ผลคูณเชิงสเกลาร์ (Dot Product) & การฉายแรง:</span>
+              $$\vec{A}\cdot\vec{B} = AB\cos\theta = A_x B_x + A_y B_y + A_z B_z \implies \theta = \cos^{-1}\left(\frac{\vec{A}\cdot\vec{B}}{AB}\right)$$
+              $$F_{||} = \vec{F}\cdot\vec{u}_a, \quad F_\perp = \sqrt{F^2 - F_{||}^2}$$
+            </div>
+          </div>
+        </div>
+
+        <!-- บทที่ 3 -->
+        <div class="pt-4">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 3</span>
+            <span>สมดุลของอนุภาค (Equilibrium of a Particle)</span>
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">เงื่อนไขสมดุล (Equilibrium):</span>
+              $$\sum \vec{F} = \vec{0} \implies \sum F_x = 0, \quad \sum F_y = 0, \quad \sum F_z = 0$$
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">แรงดึงในสปริง (Hooke's Law):</span>
+              $$F_{sp} = k \cdot s = k(l - l_0)$$
+            </div>
+          </div>
+        </div>
+
+        <!-- บทที่ 4 -->
+        <div class="pt-4">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 4</span>
+            <span>โมเมนต์และระบบแรงลัพธ์ (Resultants & Moments)</span>
+          </h4>
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">โมเมนต์รอบจุด (Moment of a Force):</span>
+                $$M_O = F \cdot d \quad \text{หรือ} \quad \vec{M}_O = \vec{r} \times \vec{F}$$
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">โมเมนต์รอบแกน (Moment about an Axis):</span>
+                $$M_a = \vec{u}_a \cdot (\vec{r} \times \vec{F}) = \begin{vmatrix} u_{ax} & u_{ay} & u_{az} \\ r_x & r_y & r_z \\ F_x & F_y & F_z \end{vmatrix}$$
+              </div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">การลดรูปแรงกระจาย (Distributed Loading):</span>
+              $$F_R = \int_0^L w(x)\,dx = \text{พื้นที่ใต้กราฟ}, \quad \bar{x} = \frac{\int_0^L x \cdot w(x)\,dx}{F_R}$$
+            </div>
+          </div>
+        </div>
+
+        <!-- บทที่ 5 & 6 -->
+        <div class="pt-4">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 5 & 6</span>
+            <span>สมดุลวัตถุเกร็ง และโครงสร้าง (Rigid Body & Trusses)</span>
+          </h4>
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">สมการสมดุลวัตถุเกร็ง (Equilibrium):</span>
+              $$\sum F_x = 0, \quad \sum F_y = 0, \quad \sum M_O = 0$$
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">การวิเคราะห์โครงถัก (Method of Joints & Sections):</span>
+              $$m = 2j - r \quad (\text{ชิ้นส่วนรับแรงเป็นศูนย์: ข้อต่อ 2 ชิ้นไม่ร่วมแนว หรือ 3 ชิ้นร่วมแนว 2 ชิ้น})$$
+            </div>
+          </div>
+        </div>
+
+        <!-- บทที่ 7 & 8 -->
+        <div class="pt-4">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 7 & 8</span>
+            <span>แรงภายใน และความเสียดทาน (Internal Forces & Friction)</span>
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">ความสัมพันธ์เชิงอนุพันธ์ของคาน:</span>
+              $$\frac{dV}{dx} = -w(x), \quad \frac{dM}{dx} = V(x)$$
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">กฎความเสียดทาน & สายพานแบน:</span>
+              $$F_{\max} = \mu_s N, \quad \frac{T_2}{T_1} = e^{\mu \beta}$$
+            </div>
+          </div>
+        </div>
+
+        <!-- บทที่ 9 - 11 -->
+        <div class="pt-4">
+          <h4 class="font-heading font-bold text-base text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-lg bg-brand-100 dark:bg-brand-950/60 text-xs font-mono">บทที่ 9 - 11</span>
+            <span>เซนทรอยด์ โมเมนต์ความเฉื่อย และงานเสมือน</span>
+          </h4>
+          <div class="space-y-2 text-xs sm:text-sm">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">เซนทรอยด์พื้นที่เชิงประกอบ:</span>
+                $$\bar{x} = \frac{\sum \tilde{x}_i A_i}{\sum A_i}, \quad \bar{y} = \frac{\sum \tilde{y}_i A_i}{\sum A_i}, \quad \bar{x} = \frac{\int_A x\, dA}{\int_A dA}$$
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+                <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">ทฤษฎีบทแกนขนาน (Parallel-Axis):</span>
+                $$I_x = \bar{I}_{x'} + A d_y^2, \quad k_x = \sqrt{\frac{I_x}{A}}$$
+              </div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60">
+              <span class="font-bold text-slate-700 dark:text-slate-300 block mb-1">หลักการของงานเสมือน & ความเสถียร:</span>
+              $$\delta U = 0, \quad \frac{dV}{d\theta} = 0 \quad \left(\frac{d^2V}{d\theta^2} > 0 \implies \text{เสถียร (Stable)}\right)$$
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FULLSCREEN IMAGE MODAL -->
+  <div id="imageModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md items-center justify-center p-4 cursor-zoom-out">
+    <div class="relative max-w-4xl max-h-[92vh] flex items-center justify-center">
+      <img id="modalImage" src="" alt="Enlarged Diagram" class="max-w-full max-h-[88vh] object-contain rounded-2xl shadow-2xl bg-white p-3 border-2 border-slate-700">
+      <span class="absolute top-4 right-4 bg-black/70 text-white text-xs px-3.5 py-1.5 rounded-full backdrop-blur-sm font-bold">
+        <i class="fa-solid fa-xmark mr-1"></i> คลิกเพื่อปิด (Esc)
+      </span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="mt-auto py-8 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p>StaticsPlay • แพลตฟอร์มการเรียนรู้สถิตยศาสตร์วิศวกรรม (Engineering Mechanics: Statics 14th Ed. R.C. Hibbeler)</p>
+      <div class="flex items-center gap-3">
+        <span class="clay-badge clay-badge-easy text-[10px]">HTML5 + KaTeX</span>
+        <span class="clay-badge clay-badge-medium text-[10px]">UI UX Pro Max</span>
+        <span class="clay-badge clay-badge-hard text-[10px]">100% Offline Ready</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Problem Data Script (Runs locally offline without CORS restrictions) -->
+  <script src="data/problems.js"></script>
+  <!-- Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>

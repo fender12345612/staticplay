@@ -1,0 +1,406 @@
+/* ==========================================================================
+   StaticsPlay - Playful Educational Platform (Engineering Mechanics)
+   Designed with Claymorphism & UI/UX Pro Max Principles
+   Reference: https://uupm.cc/ | Source: R.C. Hibbeler Statics 14th Ed.
+   ========================================================================== */
+
+/* Design Tokens */
+:root {
+  --font-heading: 'Fredoka', 'Prompt', sans-serif;
+  --font-body: 'Nunito', 'Prompt', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  /* Playful Vibrant Palette */
+  --color-primary: #4f46e5;       /* Playful Indigo */
+  --color-primary-light: #818cf8;
+  --color-primary-dark: #3730a3;
+  --color-accent: #ea580c;        /* Energetic Tangerine */
+  --color-accent-light: #f97316;
+  --color-emerald: #059669;       /* Cheerful Mint */
+  --color-emerald-light: #10b981;
+  --color-amber: #d97706;         /* Sunny Gold */
+  --color-amber-light: #f59e0b;
+  --color-rose: #e11d48;          /* Warm Coral */
+  --color-rose-light: #f43f5e;
+  --color-violet: #7c3aed;        /* Creative Purple */
+  --color-violet-light: #8b5cf6;
+  --color-cyan: #0284c7;          /* Sky Blue */
+  --color-cyan-light: #06b6d4;
+
+  --color-bg-canvas: #f0f4ff;
+  --color-bg-card: #ffffff;
+  --color-text-main: #1e1b4b;
+  --color-text-muted: #64748b;
+  --color-text-dim: #94a3b8;
+  --color-border-clay: rgba(255, 255, 255, 0.85);
+
+  /* Clay Shadows (Multi-layered 3D Pillowy Depth) */
+  --clay-shadow-card: 
+    14px 18px 36px rgba(79, 70, 229, 0.12),
+    -6px -6px 20px rgba(255, 255, 255, 0.95),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.9),
+    inset -4px -4px 10px rgba(79, 70, 229, 0.08);
+
+  --clay-shadow-card-hover: 
+    18px 24px 44px rgba(79, 70, 229, 0.18),
+    -8px -8px 24px rgba(255, 255, 255, 0.98),
+    inset 5px 5px 10px rgba(255, 255, 255, 0.9),
+    inset -5px -5px 12px rgba(79, 70, 229, 0.1);
+
+  --clay-shadow-btn: 
+    6px 10px 20px rgba(79, 70, 229, 0.25),
+    -3px -3px 10px rgba(255, 255, 255, 0.8),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.6),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.15);
+
+  --clay-shadow-btn-pressed: 
+    2px 4px 10px rgba(79, 70, 229, 0.2),
+    inset 4px 4px 8px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 5px rgba(255, 255, 255, 0.5);
+
+  --clay-shadow-inset: 
+    inset 3px 4px 8px rgba(0, 0, 0, 0.08),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.85);
+}
+
+/* Dark Theme Claymorphism */
+.dark {
+  --color-bg-canvas: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-text-main: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-dim: #64748b;
+  --color-border-clay: rgba(255, 255, 255, 0.12);
+
+  --clay-shadow-card: 
+    14px 18px 36px rgba(0, 0, 0, 0.45),
+    -4px -4px 16px rgba(255, 255, 255, 0.05),
+    inset 3px 3px 6px rgba(255, 255, 255, 0.1),
+    inset -3px -3px 8px rgba(0, 0, 0, 0.4);
+
+  --clay-shadow-card-hover: 
+    18px 24px 44px rgba(0, 0, 0, 0.6),
+    -6px -6px 20px rgba(255, 255, 255, 0.08),
+    inset 4px 4px 8px rgba(255, 255, 255, 0.12),
+    inset -4px -4px 10px rgba(0, 0, 0, 0.5);
+
+  --clay-shadow-btn: 
+    6px 10px 20px rgba(0, 0, 0, 0.4),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.3),
+    inset -3px -3px 6px rgba(0, 0, 0, 0.35);
+
+  --clay-shadow-inset: 
+    inset 3px 4px 8px rgba(0, 0, 0, 0.4),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.06);
+}
+
+/* Base Document */
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-canvas);
+  color: var(--color-text-main);
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: 
+    radial-gradient(circle at 10% 15%, rgba(129, 140, 248, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 90% 30%, rgba(249, 115, 22, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+    var(--color-bg-canvas);
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Custom Soft Scrollbars */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.03);
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
+}
+
+/* ==========================================================================
+   Claymorphism Components
+   ========================================================================== */
+
+/* Clay Card */
+.clay-card {
+  background: var(--color-bg-card);
+  border-radius: 28px;
+  border: 3px solid var(--color-border-clay);
+  box-shadow: var(--clay-shadow-card);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+}
+
+.clay-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--clay-shadow-card-hover);
+}
+
+/* Clay Card Subtle (nested inside main cards) */
+.clay-card-subtle {
+  background: rgba(248, 250, 252, 0.85);
+  border-radius: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    6px 8px 20px rgba(0, 0, 0, 0.04),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.9),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.04);
+}
+.dark .clay-card-subtle {
+  background: rgba(15, 23, 42, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    6px 8px 20px rgba(0, 0, 0, 0.3),
+    inset 2px 2px 5px rgba(255, 255, 255, 0.06),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Clay Inset Well (for search, diagrams, counters) */
+.clay-inset {
+  border-radius: 20px;
+  box-shadow: var(--clay-shadow-inset);
+  background: rgba(241, 245, 249, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.dark .clay-inset {
+  background: rgba(15, 23, 42, 0.75);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Clay Buttons */
+.clay-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 18px;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2.5px solid rgba(255, 255, 255, 0.65);
+  box-shadow: var(--clay-shadow-btn);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease, background-color 0.15s ease;
+  user-select: none;
+}
+
+.clay-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.04);
+}
+
+.clay-btn:active {
+  transform: translateY(2px) scale(0.97);
+  box-shadow: var(--clay-shadow-btn-pressed);
+}
+
+.clay-btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: #ffffff;
+}
+
+.clay-btn-accent {
+  background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+  color: #ffffff;
+}
+
+.clay-btn-emerald {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  color: #ffffff;
+}
+
+.clay-btn-amber {
+  background: linear-gradient(135deg, #fcd34d 0%, #d97706 100%);
+  color: #ffffff;
+}
+
+.clay-btn-secondary {
+  background: #ffffff;
+  color: var(--color-text-main);
+  box-shadow: 
+    4px 8px 16px rgba(0, 0, 0, 0.08),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.06);
+}
+.dark .clay-btn-secondary {
+  background: #334155;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Clay Badges / Chips */
+.clay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1.5px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    3px 4px 10px rgba(0, 0, 0, 0.06),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.clay-badge-easy {
+  background: #dcfce7;
+  color: #15803d;
+  border-color: #86efac;
+}
+.dark .clay-badge-easy {
+  background: rgba(22, 101, 52, 0.4);
+  color: #86efac;
+  border-color: rgba(134, 239, 172, 0.3);
+}
+
+.clay-badge-medium {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #fcd34d;
+}
+.dark .clay-badge-medium {
+  background: rgba(180, 83, 9, 0.4);
+  color: #fde68a;
+  border-color: rgba(253, 230, 138, 0.3);
+}
+
+.clay-badge-hard {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
+}
+.dark .clay-badge-hard {
+  background: rgba(185, 28, 28, 0.4);
+  color: #fca5a5;
+  border-color: rgba(252, 165, 165, 0.3);
+}
+
+.clay-badge-chapter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  background-color: #e0e7ff;
+  color: #3730a3;
+  border: 1.5px solid #c7d2fe;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.05);
+}
+.dark .clay-badge-chapter {
+  background-color: #1e1b4b !important;
+  color: #c7d2fe !important;
+  border-color: #4338ca !important;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Floating animation for 3D Hero badges */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+@keyframes floatSlowReverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(8px) rotate(-1deg); }
+}
+
+.animate-float-1 { animation: floatSlow 4.5s ease-in-out infinite; }
+.animate-float-2 { animation: floatSlowReverse 5.2s ease-in-out infinite 0.5s; }
+.animate-float-3 { animation: floatSlow 6s ease-in-out infinite 1s; }
+.animate-float-4 { animation: floatSlowReverse 5.8s ease-in-out infinite 1.5s; }
+
+/* 3D Dice Roll Animation */
+@keyframes diceRoll3D {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(180deg) scale(1.15); }
+  50% { transform: rotate(360deg) scale(0.9); }
+  75% { transform: rotate(540deg) scale(1.08); }
+  100% { transform: rotate(720deg) scale(1); }
+}
+.dice-animate {
+  animation: diceRoll3D 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Smooth Card Fade */
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.fade-in {
+  animation: cardFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* KaTeX Formatting in Clay Cards */
+.katex-display {
+  margin: 0.65rem 0 !important;
+  padding: 0.4rem 0 !important;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.katex {
+  font-size: 1.08em !important;
+}
+
+/* Step Calculation Box */
+.calc-step-card {
+  border-left: 4px solid var(--color-primary);
+  background: rgba(248, 250, 252, 0.9);
+  border-radius: 0 16px 16px 0;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+.dark .calc-step-card {
+  border-left-color: var(--color-primary-light);
+  background: rgba(30, 41, 59, 0.65);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Interactive Checkbox Chips */
+.chip-checkbox input:checked + label {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+  color: #ffffff !important;
+  border-color: #6366f1 !important;
+  box-shadow: 
+    4px 6px 16px rgba(79, 70, 229, 0.35),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-2px);
+}
+
+/* Glassmorphism Header */
+.clay-header {
+  background: rgba(240, 244, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+}
+.dark .clay-header {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+}

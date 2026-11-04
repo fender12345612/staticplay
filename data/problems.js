@@ -4,67 +4,67 @@ window.STATICS_DATA = {
       "name_en": "General Principles",
       "name_th": "หลักการทั่วไป",
       "desc": "หน่วยวัด คำนำหน้าเอสไอ และการแปลงหน่วย",
-      "count": 8
+      "count": 6
     },
     "2": {
       "name_en": "Force Vectors",
       "name_th": "เวกเตอร์ของแรง",
       "desc": "การรวมแรง 2D & 3D, เวกเตอร์คาร์ทีเซียน, ผลคูณจุด (Dot Product)",
-      "count": 42
+      "count": 31
     },
     "3": {
       "name_en": "Equilibrium of a Particle",
       "name_th": "สมดุลของอนุภาค",
       "desc": "สมดุลของจุดร่วม 2D & 3D, แรงดึงในเส้นเชือก, สปริง, แผนภาพอิสระ (FBD)",
-      "count": 20
+      "count": 11
     },
     "4": {
       "name_en": "Force System Resultants",
       "name_th": "ผลลัพธ์ของระบบแรงและโมเมนต์",
       "desc": "โมเมนต์รอบจุดและแกน, โมเมนต์คู่ควบ, ระบบแรงสมมูล, แรงกระจาย",
-      "count": 52
+      "count": 42
     },
     "5": {
       "name_en": "Equilibrium of a Rigid Body",
       "name_th": "สมดุลของวัตถุเกร็ง",
       "desc": "แรงปฏิกิริยาที่จุดรองรับ, สมการสมดุลใน 2D & 3D, สองแรงกระทำ",
-      "count": 18
+      "count": 12
     },
     "6": {
       "name_en": "Structural Analysis",
       "name_th": "การวิเคราะห์โครงสร้าง",
       "desc": "โครงถัก (Trusses), วิธีพิจารณาข้อต่อ, วิธีตัดหน้าตัด, โครงเฟรมและเครื่องกล",
-      "count": 36
+      "count": 24
     },
     "7": {
       "name_en": "Internal Forces",
       "name_th": "แรงภายใน",
       "desc": "แรงในแนวแกน, แรงเฉือน, โมเมนต์ดัด, แผนภาพ SFD และ BMD",
-      "count": 28
+      "count": 18
     },
     "8": {
       "name_en": "Friction",
       "name_th": "ความเสียดทาน",
       "desc": "แรงเสียดทานแห้ง, การเริ่มไถล/คว่ำ, ลิ่ม, สกรู, สายพาน",
-      "count": 19
+      "count": 9
     },
     "9": {
       "name_en": "Center of Gravity and Centroid",
       "name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
       "desc": "เซนทรอยด์ของเส้น พื้นที่ ปริมาตร, รูปร่างประกอบ, ทฤษฎีบทพัปพัส",
-      "count": 30
+      "count": 21
     },
     "10": {
       "name_en": "Moments of Inertia",
       "name_th": "โมเมนต์ความเฉื่อย",
       "desc": "โมเมนต์ความเฉื่อยของพื้นที่, ทฤษฎีบทแกนขนาน, รัศมีไจเรชัน",
-      "count": 18
+      "count": 8
     },
     "11": {
       "name_en": "Virtual Work",
       "name_th": "งานเสมือน",
       "desc": "หลักการของงานเสมือน, ฟังก์ชันพลังงานศักย์, ความเสถียรของสมดุล",
-      "count": 14
+      "count": 6
     }
   },
   "total_problems": 188,
@@ -323,7 +323,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "(c) 2553 N = \\sqrt{.55 kN}",
+          "latex": "(c) 2553 N = 2.55 kN",
           "raw": "(c) 2553 N = 2.55 kN"
         },
         {
@@ -335,7 +335,7 @@ window.STATICS_DATA = {
       "final_answers_math": [
         "(a) 58 342 m = 58.3 km",
         "(b) 68.534 s = 68.5 s",
-        "(c) 2553 N = \\sqrt{.55 kN}",
+        "(c) 2553 N = 2.55 kN",
         "(d) 7555 kg = 7.56 Mg"
       ]
     },
@@ -500,7 +500,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "; Fu = \\sqrt{2.0 lb}",
+          "latex": "; Fu = 22.0 lb",
           "raw": "; Fu = 22.0 lb"
         },
         {
@@ -515,7 +515,7 @@ window.STATICS_DATA = {
         }
       ],
       "final_answers_math": [
-        "; Fu = \\sqrt{2.0 lb}",
+        "; Fu = 22.0 lb",
         "; Fv = 15.5 lb"
       ]
     },
@@ -822,13 +822,13 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "F = \\sqrt{36 N}",
+          "latex": "F = 236 N",
           "raw": "F = 236 N"
         }
       ],
       "final_answers_math": [
         "\\tan \\theta = 0.6190 \\theta = 31.76^\\circ = 31.8^\\circa",
-        "F = \\sqrt{36 N}"
+        "F = 236 N"
       ]
     },
     {
@@ -1833,7 +1833,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "FOA = F  \\cdot  uOA = \\sqrt{50 N}",
+          "latex": "FOA = F \\cdot uOA = 250 N",
           "raw": "FOA = F  \\cdot  uOA = 250 N"
         },
         {
@@ -1907,12 +1907,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "(FAO)proj = F  \\cdot  uAO = \\sqrt{44 N}",
+          "latex": "(FAO)proj = F \\cdot uAO = 244 N",
           "raw": "(FAO)proj = F  \\cdot  uAO = 244 N"
         }
       ],
       "final_answers_math": [
-        "(FAO)proj = F  \\cdot  uAO = \\sqrt{44 N}"
+        "(FAO)proj = F \\cdot uAO = 244 N"
       ]
     },
     {
@@ -2178,7 +2178,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "LABC = \\sqrt{1}",
+          "latex": "LABC = 21",
           "raw": "LABC = 21"
         },
         {
@@ -2286,7 +2286,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "Fsp = k(l - l0); 43.35 = \\sqrt{00(0.5 - l0)}",
+          "latex": "Fsp = k(l - l0); 43.35 = 200(0.5 - l0)",
           "raw": "Fsp = k(l - l0); 43.35 = 200(0.5 - l0)"
         },
         {
@@ -2325,12 +2325,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "mA = \\sqrt{0 kg}",
+          "latex": "mA = 20 kg",
           "raw": "mA = 20 kg"
         }
       ],
       "final_answers_math": [
-        "mA = \\sqrt{0 kg}"
+        "mA = 20 kg"
       ]
     },
     {
@@ -2392,7 +2392,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "\\theta = \\sqrt{1.9^\\circ}",
+          "latex": "\\theta = 21.9^\\circ",
           "raw": "u = 21.9°"
         }
       ],
@@ -2400,7 +2400,7 @@ window.STATICS_DATA = {
         "TAB = 379.03 N = 379 N",
         "TBC = 366.11 N = 366 N",
         "TCD = 395 N",
-        "\\theta = \\sqrt{1.9^\\circ}"
+        "\\theta = 21.9^\\circ"
       ]
     },
     {
@@ -2715,7 +2715,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FAC = \\sqrt{02.92 lb} = 203 lb",
+          "latex": "FAC = 202.92 lb = 203 lb",
           "raw": "FAC = 202.92 lb = 203 lb"
         },
         {
@@ -2731,7 +2731,7 @@ window.STATICS_DATA = {
       ],
       "final_answers_math": [
         "FAD = 175.74 lb = 176 lb",
-        "FAC = \\sqrt{02.92 lb} = 203 lb",
+        "FAC = 202.92 lb = 203 lb",
         "FAB = 138.60 lb = 139 lb"
       ]
     },
@@ -3937,17 +3937,17 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "F_x = \\sqrt{00 \\cos 120^\\circ} = 100 N",
+          "latex": "F_x = 200 \\cos 120^\\circ = 100 N",
           "raw": "Fx = 200 cos 120° = 100 N"
         },
         {
           "type": "calc",
-          "latex": "F_y = \\sqrt{00 \\cos 60^\\circ} = 100 N",
+          "latex": "F_y = 200 \\cos 60^\\circ = 100 N",
           "raw": "Fy = 200 cos 60° = 100 N"
         },
         {
           "type": "calc",
-          "latex": "F_z = \\sqrt{00 \\cos 45^\\circ} = 141.42 N",
+          "latex": "F_z = 200 \\cos 45^\\circ = 141.42 N",
           "raw": "Fz = 200 cos 45° = 141.42 N"
         },
         {
@@ -4261,7 +4261,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "5150024 = \\sqrt{40 N}",
+          "latex": "5150024 = 240 N",
           "raw": "5150024 = 240 N"
         },
         {
@@ -4395,12 +4395,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "F = \\sqrt{.33 kN}",
+          "latex": "F = 2.33 kN",
           "raw": "F = 2.33 kN"
         }
       ],
       "final_answers_math": [
-        "F = \\sqrt{.33 kN}"
+        "F = 2.33 kN"
       ]
     },
     {
@@ -5815,14 +5815,14 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "x = \\sqrt{.125 m}",
+          "latex": "x = 2.125 m",
           "raw": "x = 2.125 m"
         }
       ],
       "final_answers_math": [
         "= 800 N",
         "y = 4.50 m",
-        "x = \\sqrt{.125 m}"
+        "x = 2.125 m"
       ]
     },
     {
@@ -5867,7 +5867,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "-600y = \\sqrt{00(1) + 200(1) + 100(3) - 100(3)}",
+          "latex": "-600y = 200(1) + 200(1) + 100(3) - 100(3)",
           "raw": "-600y = 200(1) + 200(1) + 100(3) - 100(3)"
         },
         {
@@ -6053,7 +6053,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "F_R = \\sqrt{7 kNT}",
+          "latex": "F_R = 27 kNT",
           "raw": "FR = 27 kNT"
         },
         {
@@ -6083,7 +6083,7 @@ window.STATICS_DATA = {
         }
       ],
       "final_answers_math": [
-        "F_R = \\sqrt{7 kNT}",
+        "F_R = 27 kNT",
         "d = 1 m"
       ]
     },
@@ -6184,7 +6184,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "F_R = \\sqrt{4.75 kNT}",
+          "latex": "F_R = 24.75 kNT",
           "raw": "FR = 24.75 kNT"
         },
         {
@@ -6204,13 +6204,13 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "d = \\sqrt{.59 m}",
+          "latex": "d = 2.59 m",
           "raw": "d = 2.59 m"
         }
       ],
       "final_answers_math": [
-        "F_R = \\sqrt{4.75 kNT}",
-        "d = \\sqrt{.59 m}"
+        "F_R = 24.75 kNT",
+        "d = 2.59 m"
       ]
     },
     {
@@ -6365,7 +6365,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "By = \\sqrt{60 lb}",
+          "latex": "By = 260 lb",
           "raw": "By = 260 lb"
         },
         {
@@ -6381,7 +6381,7 @@ window.STATICS_DATA = {
       ],
       "final_answers_math": [
         "Ax = 300 lb",
-        "By = \\sqrt{60 lb}",
+        "By = 260 lb",
         "Ay = 140 lb"
       ]
     },
@@ -7314,7 +7314,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint A.",
-          "raw": "Joint A."
+          "raw": "Joint A.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7333,13 +7334,14 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FAB = \\sqrt{25 lb (T)}",
+          "latex": "FAB = 225 lb (T)",
           "raw": "FAB = 225 lb (T)"
         },
         {
           "type": "header",
           "text": "Joint B.",
-          "raw": "Joint B."
+          "raw": "Joint B.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7348,7 +7350,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FBC = \\sqrt{25 lb (T)}",
+          "latex": "FBC = 225 lb (T)",
           "raw": "FBC = 225 lb (T)"
         },
         {
@@ -7359,7 +7361,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint D.",
-          "raw": "Joint D."
+          "raw": "Joint D.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7379,8 +7382,8 @@ window.STATICS_DATA = {
       ],
       "final_answers_math": [
         "FAD = 318.20 lb = 318 lb (C)",
-        "FAB = \\sqrt{25 lb (T)}",
-        "FBC = \\sqrt{25 lb (T)}",
+        "FAB = 225 lb (T)",
+        "FBC = 225 lb (T)",
         "+\\uparrow \\Sigma F_y = 0 \\implies FBD = 0",
         "FCD = 318.20 lb = 318 lb (T)"
       ]
@@ -7409,7 +7412,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint D.",
-          "raw": "Joint D."
+          "raw": "Joint D.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7489,7 +7493,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint B.",
-          "raw": "Joint B."
+          "raw": "Joint B.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7509,7 +7514,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint A.",
-          "raw": "Joint A."
+          "raw": "Joint A.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7529,7 +7535,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint C.",
-          "raw": "Joint C."
+          "raw": "Joint C.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7538,7 +7545,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "+ F_x = 0; -FCD + 200 = 0; FCD = \\sqrt{00 lb (T) }",
+          "latex": "+ F_x = 0; -FCD + 200 = 0; FCD = 200 lb (T)",
           "raw": "+ Fx = 0; -FCD + 200 = 0; FCD = 200 lb (T) Ans."
         }
       ],
@@ -7547,7 +7554,7 @@ window.STATICS_DATA = {
         "+\\uparrow \\Sigma F_y = 0 \\implies 150 - FBC = 0; FBC = 150 lb (C)",
         "+ F_x = 0; FAC\\left(\\frac{4}{5}\\right) = 0; FAC = 0",
         "+\\uparrow \\Sigma F_y = 0 \\implies FAD - 800 = 0; FAD = 800 lb (T)",
-        "+ F_x = 0; -FCD + 200 = 0; FCD = \\sqrt{00 lb (T) }"
+        "+ F_x = 0; -FCD + 200 = 0; FCD = 200 lb (T)"
       ]
     },
     {
@@ -7572,7 +7579,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint C.",
-          "raw": "Joint C."
+          "raw": "Joint C.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7597,7 +7605,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint B.",
-          "raw": "Joint B."
+          "raw": "Joint B.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7611,7 +7620,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "FAB = 0.2887P = \\sqrt{kN}",
+          "latex": "FAB = 0.2887P = 2\\text{ kN}",
           "raw": "FAB = 0.2887P = 2 kN"
         },
         {
@@ -7626,7 +7635,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "P = \\sqrt{.598 kN}",
+          "latex": "P = 2.598 kN",
           "raw": "P = 2.598 kN"
         },
         {
@@ -7636,12 +7645,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "P = \\sqrt{.598 kN} = 2.60 kN",
+          "latex": "P = 2.598 kN = 2.60 kN",
           "raw": "P = 2.598 kN = 2.60 kN"
         }
       ],
       "final_answers_math": [
-        "P = \\sqrt{.598 kN} = 2.60 kN"
+        "P = 2.598 kN = 2.60 kN"
       ]
     },
     {
@@ -7722,7 +7731,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint C.",
-          "raw": "Joint C."
+          "raw": "Joint C.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7747,7 +7757,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint D.",
-          "raw": "Joint D."
+          "raw": "Joint D.",
+          "latex": ""
         },
         {
           "type": "ans",
@@ -7767,7 +7778,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint B.",
-          "raw": "Joint B."
+          "raw": "Joint B.",
+          "latex": ""
         },
         {
           "type": "ans",
@@ -7787,7 +7799,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "Joint A.",
-          "raw": "Joint A."
+          "raw": "Joint A.",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -7859,14 +7872,14 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FBC = \\sqrt{200 lb (C)}",
+          "latex": "FBC = 2200 lb (C)",
           "raw": "FBC = 2200 lb (C)"
         }
       ],
       "final_answers_math": [
         "FCF = 1980 lb (T)",
         "FFE = 800 lb (T)",
-        "FBC = \\sqrt{200 lb (C)}"
+        "FBC = 2200 lb (C)"
       ]
     },
     {
@@ -8192,17 +8205,17 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "4 m = \\sqrt{m + x}",
+          "latex": "4 m = 2\\text{ m} + x",
           "raw": "4 m = 2 m + x"
         },
         {
           "type": "ans",
-          "latex": "x = \\sqrt{m}",
+          "latex": "x = 2\\text{ m}",
           "raw": "x = 2 m"
         }
       ],
       "final_answers_math": [
-        "x = \\sqrt{m}"
+        "x = 2\\text{ m}"
       ]
     },
     {
@@ -8304,12 +8317,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "P = \\sqrt{0 lb}",
+          "latex": "P = 20 lb",
           "raw": "P = 20 lb"
         }
       ],
       "final_answers_math": [
-        "P = \\sqrt{0 lb}"
+        "P = 20 lb"
       ]
     },
     {
@@ -8605,7 +8618,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "+\\uparrow \\Sigma F_y = 0 \\implies T - 2P = 0; T = \\sqrt{P}",
+          "latex": "+\\uparrow \\Sigma F_y = 0 \\implies T - 2P = 0; T = 2P",
           "raw": "+ c Fy = 0; T - 2P = 0; T = 2P"
         },
         {
@@ -8620,7 +8633,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "P = \\sqrt{kN}",
+          "latex": "P = 2\\text{ kN}",
           "raw": "P = 2 kN"
         },
         {
@@ -8635,7 +8648,7 @@ window.STATICS_DATA = {
         }
       ],
       "final_answers_math": [
-        "P = \\sqrt{kN}",
+        "P = 2\\text{ kN}",
         "x = 0.333 m"
       ]
     },
@@ -8702,7 +8715,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "Ax = \\sqrt{12 N}",
+          "latex": "Ax = 212 N",
           "raw": "Ax = 212 N"
         },
         {
@@ -8718,7 +8731,7 @@ window.STATICS_DATA = {
       ],
       "final_answers_math": [
         "By = 824.26 = 824 N",
-        "Ax = \\sqrt{12 N}",
+        "Ax = 212 N",
         "Ay =  N"
       ]
     },
@@ -8828,7 +8841,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FCD = \\sqrt{5 kN (T)}",
+          "latex": "FCD = 25 kN (T)",
           "raw": "FCD = 25 kN (T)"
         },
         {
@@ -8843,7 +8856,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FGF = \\sqrt{9.3 kN (C)}",
+          "latex": "FGF = 29.3 kN (C)",
           "raw": "FGF = 29.3 kN (C)"
         },
         {
@@ -8858,7 +8871,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "FGD = \\sqrt{.253 kN} = 2.25 kN (T)",
+          "latex": "FGD = 2.253 kN = 2.25 kN (T)",
           "raw": "FGD = 2.253 kN = 2.25 kN (T)"
         }
       ],
@@ -8866,9 +8879,9 @@ window.STATICS_DATA = {
         "8.75 - Dx = 0; Dx = 8.75 kN",
         "-13.3 + Dy = 0; Dy = 13.3 kN",
         "\\curvearrowleft +\\Sigma M_{D} = 0 \\implies -8.75142 + MD = 0; MD = 35 kN  \\cdot  m",
-        "FCD = \\sqrt{5 kN (T)}",
-        "FGF = \\sqrt{9.3 kN (C)}",
-        "FGD = \\sqrt{.253 kN} = 2.25 kN (T)"
+        "FCD = 25 kN (T)",
+        "FGF = 29.3 kN (C)",
+        "FGD = 2.253 kN = 2.25 kN (T)"
       ]
     },
     {
@@ -8998,7 +9011,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "Ay = \\sqrt{50 N}",
+          "latex": "Ay = 250 N",
           "raw": "Ay = 250 N"
         },
         {
@@ -9125,7 +9138,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "FDA = \\sqrt{0 kN}",
+          "latex": "FDA = 20 kN",
           "raw": "FDA = 20 kN"
         },
         {
@@ -9496,7 +9509,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "By = \\sqrt{3.25 kN}",
+          "latex": "By = 23.25 kN",
           "raw": "By = 23.25 kN"
         },
         {
@@ -10329,7 +10342,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "การเขียนแผนภาพแรงเฉือน (V-x) และโมเมนต์ดัด (M-x):",
-          "raw": ""
+          "raw": "",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -10371,7 +10385,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "การเขียนแผนภาพแรงเฉือน (V-x) และโมเมนต์ดัด (M-x):",
-          "raw": ""
+          "raw": "",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -10415,7 +10430,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "การเขียนแผนภาพแรงเฉือน (V-x) และโมเมนต์ดัด (M-x):",
-          "raw": ""
+          "raw": "",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -10457,7 +10473,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "การเขียนแผนภาพแรงเฉือน (V-x) และโมเมนต์ดัด (M-x):",
-          "raw": ""
+          "raw": "",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -10499,7 +10516,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "การเขียนแผนภาพแรงเฉือน (V-x) และโมเมนต์ดัด (M-x):",
-          "raw": ""
+          "raw": "",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -10541,7 +10559,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "การเขียนแผนภาพแรงเฉือน (V-x) และโมเมนต์ดัด (M-x):",
-          "raw": ""
+          "raw": "",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -10794,12 +10813,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "P = \\sqrt{47 N}",
+          "latex": "P = 247 N",
           "raw": "P = 247 N"
         }
       ],
       "final_answers_math": [
-        "P = \\sqrt{47 N}"
+        "P = 247 N"
       ]
     },
     {
@@ -10887,7 +10906,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "+\\uparrow \\Sigma F_y = 0 \\implies Nc - 250 lb = 0; Nc = \\sqrt{50 lb}",
+          "latex": "+\\uparrow \\Sigma F_y = 0 \\implies Nc - 250 lb = 0; Nc = 250 lb",
           "raw": "+ c Fy = 0; Nc - 250 lb = 0; Nc = 250 lb"
         },
         {
@@ -11097,7 +11116,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "+ \\alpha F_y = 0; N\u001d = \\sqrt{W \\cos \\theta}",
+          "latex": "+ \\alpha F_y = 0; N\u001d = 2W \\cos \\theta",
           "raw": "+ a Fy = 0; N\u001d = 2 W cos u"
         },
         {
@@ -11156,7 +11175,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "P = \\sqrt{9.4 N}",
+          "latex": "P = 29.4 N",
           "raw": "P = 29.4 N"
         },
         {
@@ -12372,7 +12391,7 @@ window.STATICS_DATA = {
       "formatted_steps": [
         {
           "type": "calc",
-          "latex": "A = \\sqrt{p r L}",
+          "latex": "A = 2\\pi r L",
           "raw": "A = 2p r L"
         },
         {
@@ -12387,7 +12406,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "V = \\sqrt{p r A}",
+          "latex": "V = 2\\pi r A",
           "raw": "V = 2p r A"
         },
         {
@@ -12425,7 +12444,7 @@ window.STATICS_DATA = {
       "formatted_steps": [
         {
           "type": "calc",
-          "latex": "A = \\sqrt{p r L}",
+          "latex": "A = 2\\pi r L",
           "raw": "A = 2p r L"
         },
         {
@@ -12440,7 +12459,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "V = \\sqrt{p r A}",
+          "latex": "V = 2\\pi r A",
           "raw": "V = 2p r A"
         },
         {
@@ -12478,7 +12497,7 @@ window.STATICS_DATA = {
       "formatted_steps": [
         {
           "type": "calc",
-          "latex": "A = \\sqrt{p r L}",
+          "latex": "A = 2\\pi r L",
           "raw": "A = 2p r L"
         },
         {
@@ -12493,7 +12512,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "V = \\sqrt{p r A}",
+          "latex": "V = 2\\pi r A",
           "raw": "V = 2p r A"
         },
         {
@@ -12531,7 +12550,7 @@ window.STATICS_DATA = {
       "formatted_steps": [
         {
           "type": "calc",
-          "latex": "A = \\sqrt{p r L}",
+          "latex": "A = 2\\pi r L",
           "raw": "A = 2p r L"
         },
         {
@@ -12566,7 +12585,7 @@ window.STATICS_DATA = {
         },
         {
           "type": "calc",
-          "latex": "V = \\sqrt{p r A}",
+          "latex": "V = 2\\pi r A",
           "raw": "V = 2p r A"
         },
         {
@@ -13472,12 +13491,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "P = \\sqrt{45.25 cot \\theta \\theta}=60^\\circ = 142 N",
+          "latex": "P = 245.25 \\cot \\theta|_{\\theta=60^\\circ} = 142\\text{ N}",
           "raw": "P = 245.25 cot u u=60° = 142 N"
         }
       ],
       "final_answers_math": [
-        "P = \\sqrt{45.25 cot \\theta \\theta}=60^\\circ = 142 N"
+        "P = 245.25 \\cot \\theta|_{\\theta=60^\\circ} = 142\\text{ N}"
       ]
     },
     {
@@ -13666,7 +13685,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(a)",
-          "raw": "(a)"
+          "raw": "(a)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -13726,7 +13746,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(b)",
-          "raw": "(b)"
+          "raw": "(b)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -13771,7 +13792,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(c)",
-          "raw": "(c)"
+          "raw": "(c)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -13836,7 +13858,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(a)",
-          "raw": "(a)"
+          "raw": "(a)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -13871,7 +13894,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(b)",
-          "raw": "(b)"
+          "raw": "(b)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -13916,7 +13940,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(c)",
-          "raw": "(c)"
+          "raw": "(c)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -14031,7 +14056,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(a)",
-          "raw": "(a)"
+          "raw": "(a)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -14086,7 +14112,8 @@ window.STATICS_DATA = {
         {
           "type": "header",
           "text": "(b)",
-          "raw": "(b)"
+          "raw": "(b)",
+          "latex": ""
         },
         {
           "type": "calc",
@@ -14240,3795 +14267,12 @@ window.STATICS_DATA = {
         },
         {
           "type": "ans",
-          "latex": "\\theta = \\sqrt{0.9^\\circ}",
+          "latex": "\\theta = 20.9^\\circ",
           "raw": "u = 20.9°"
         }
       ],
       "final_answers_math": [
-        "\\theta = \\sqrt{0.9^\\circ}"
-      ]
-    },
-    {
-      "id": "1-9",
-      "chapter": 1,
-      "chapter_name_th": "หลักการทั่วไป",
-      "chapter_name_en": "General Principles",
-      "difficulty": "hard",
-      "page_book": 3,
-      "page_sol": 3,
-      "question_en": "The pascal (Pa) is actually a very small unit of pressure. To show this, convert to . Atmospheric pressure at sea level is in2. How many pascals is this? 14.7 lb> lb>ft2 1 Pa = 1 N>m2 FPO",
-      "question_th_summary": "การคำนวณและแปลงหน่วยตามระบบเอสไอ (SI Units) และคำนำหน้าหน่วย",
-      "image": null,
-      "solution_image": "images/solutions/1-9.webp",
-      "theory_th": "การแปลงหน่วยตามระบบเอสไอ (SI Units) และน้ำหนัก \\(W = m \\cdot g \\quad \\left(g = 9.81\\frac{\\text{m}}{\\text{s}^2} = 32.2\\frac{\\text{ft}}{\\text{s}^2}\\right)\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 1-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 1-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "1-13",
-      "chapter": 1,
-      "chapter_name_th": "หลักการทั่วไป",
-      "chapter_name_en": "General Principles",
-      "difficulty": "hard",
-      "page_book": 4,
-      "page_sol": 4,
-      "question_en": "Convert each of the following to three significant figures: (a) to , (b) to , and (c) 15 ft h to mm s. > > kN>m3 450 lb>ft3 N # m 20 lb # ft",
-      "question_th_summary": "การคำนวณและแปลงหน่วยตามระบบเอสไอ (SI Units) และคำนำหน้าหน่วย",
-      "image": null,
-      "solution_image": "images/solutions/1-13.webp",
-      "theory_th": "การแปลงหน่วยตามระบบเอสไอ (SI Units) และน้ำหนัก \\(W = m \\cdot g \\quad \\left(g = 9.81\\frac{\\text{m}}{\\text{s}^2} = 32.2\\frac{\\text{ft}}{\\text{s}^2}\\right)\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 1-13):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 1-13}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-1",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "easy",
-      "page_book": 7,
-      "page_sol": 7,
-      "question_en": "If and , determine the magnitude of the resultant force acting on the eyebolt and its direction measured clockwise from the positive x axis. T = 6 kN u = 30°",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-1.webp",
-      "solution_image": "images/solutions/2-1.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-2",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "easy",
-      "page_book": 8,
-      "page_sol": 8,
-      "question_en": "If and , determine the magnitude of the resultant force acting on the eyebolt and its direction measured clockwise from the positive x axis. T = 5 kN u = 60°",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-2.webp",
-      "solution_image": "images/solutions/2-2.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-3",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "easy",
-      "page_book": 9,
-      "page_sol": 9,
-      "question_en": "If the magnitude of the resultant force is to be 9 kN directed along the positive x axis,determine the magnitude of force T acting on the eyebolt and its angle .u",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-3.webp",
-      "solution_image": "images/solutions/2-3.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-4",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "easy",
-      "page_book": 10,
-      "page_sol": 10,
-      "question_en": "Determine the magnitude of the resultant force acting on the bracket and its direction measured counterclockwise from the positive u axis.",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-4.webp",
-      "solution_image": "images/solutions/2-4.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-5",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "medium",
-      "page_book": 11,
-      "page_sol": 11,
-      "question_en": "Resolve F1 into components along the u and axes, and determine the magnitudes of these components. v",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-5.webp",
-      "solution_image": "images/solutions/2-5.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-6",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "medium",
-      "page_book": 12,
-      "page_sol": 12,
-      "question_en": "Resolve F2 into components along the u and axes, and determine the magnitudes of these components. v",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-6.webp",
-      "solution_image": "images/solutions/2-6.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-7",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "medium",
-      "page_book": 13,
-      "page_sol": 13,
-      "question_en": "If and the resultant force acts along the positive u axis, determine the magnitude of the resultant force and the angle .u FB = 2 kN",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-7.webp",
-      "solution_image": "images/solutions/2-7.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-8",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "medium",
-      "page_book": 14,
-      "page_sol": 14,
-      "question_en": "If the resultant force is required to act along the positive u axis and have a magnitude of 5 kN, determine the required magnitude of FB and its direction .u",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-8.webp",
-      "solution_image": "images/solutions/2-8.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-9",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "hard",
-      "page_book": 15,
-      "page_sol": 15,
-      "question_en": "The plate is subjected to the two forces at A and B as shown. If , determine the magnitude of the resultant of these two forces and its direction measured clockwise from the horizontal. u = 60°",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-9.webp",
-      "solution_image": "images/solutions/2-9.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-10",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "hard",
-      "page_book": 16,
-      "page_sol": 16,
-      "question_en": "Determine the angle of for connecting member A to the plate so that the resultant force of FA and FB is directed horizontally to the right.Also, what is the magnitude of the resultant force? u",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-10.webp",
-      "solution_image": "images/solutions/2-10.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "2-12",
-      "chapter": 2,
-      "chapter_name_th": "เวกเตอร์ของแรง",
-      "chapter_name_en": "Force Vectors",
-      "difficulty": "hard",
-      "page_book": 17,
-      "page_sol": 17,
-      "question_en": "The device is used for surgical replacement of the knee joint. If the force acting along the leg is 360 N, determine its components along the x and y axes. ¿ 60\u0002 360 N 10\u0002 y x y¿ x¿",
-      "question_th_summary": "คำนวณหาขนาดและทิศทางของแรงลัพธ์ หรือการแตกแรงเข้าแกนพิกัด",
-      "image": "images/problems/2-12.webp",
-      "solution_image": "images/solutions/2-12.webp",
-      "theory_th": "การรวมเวกเตอร์ของแรง, กฎของโคไซน์และไซน์: \\(C = \\sqrt{A^2 + B^2 - 2AB\\cos c}, \\quad \\vec{F} = F_x\\hat{i} + F_y\\hat{j} + F_z\\hat{k}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 2-12):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 2-12}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-1",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "easy",
-      "page_book": 121,
-      "page_sol": 121,
-      "question_en": "Determine the force in each cord for equilibrium of the 200-kg crate. Cord remains horizontal due to the roller at , and has a length of . Set . y = 0.75 m 1.5 m AB C BC",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-1.webp",
-      "solution_image": "images/solutions/3-1.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-2",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "easy",
-      "page_book": 122,
-      "page_sol": 122,
-      "question_en": "If the 1.5-m-long cord can withstand a maximum force of , determine the force in cord and the distance y so that the 200-kg crate can be supported. BC 3500 N AB",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-2.webp",
-      "solution_image": "images/solutions/3-2.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-3",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "easy",
-      "page_book": 123,
-      "page_sol": 123,
-      "question_en": "If the mass of the girder is and its center of mass is located at point G, determine the tension developed in cables , , and for equilibrium. BD BC AB 3 Mg",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-3.webp",
-      "solution_image": "images/solutions/3-3.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-4",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "easy",
-      "page_book": 124,
-      "page_sol": 124,
-      "question_en": "If cables and can withstand a maximum tensile force of , determine the maximum mass of the girder that can be suspended from cable so that neither cable will fail. The center of mass of the girder is located at point . G AB 20 kN BC BD",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-4.webp",
-      "solution_image": "images/solutions/3-4.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-5",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "medium",
-      "page_book": 125,
-      "page_sol": 125,
-      "question_en": "The members of a truss are connected to the gusset plate. If the forces are concurrent at point O, determine the magnitudes of F and T for equilibrium.Take . u = 30°",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-5.webp",
-      "solution_image": "images/solutions/3-5.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-7",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "medium",
-      "page_book": 126,
-      "page_sol": 126,
-      "question_en": "The towing pendant AB is subjected to the force of 50 kN exerted by a tugboat. Determine the force in each of the bridles, BC and BD, if the ship is moving forward with constant velocity. 30\u0002 A B C D 50 kN 20\u0002",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-7.webp",
-      "solution_image": "images/solutions/3-7.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-8",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "medium",
-      "page_book": 127,
-      "page_sol": 127,
-      "question_en": "Members and support the 300-lb crate. Determine the tensile force developed in each member. AB AC A B C 4 ft 4 ft 3 ft",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-8.webp",
-      "solution_image": "images/solutions/3-8.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-9",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "hard",
-      "page_book": 128,
-      "page_sol": 128,
-      "question_en": "If members and can support a maximum tension of and , respectively, determine the largest weight of the crate that can be safely supported. 250 lb 300 lb AB AC A B C 4 ft 4 ft 3 ft",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-9.webp",
-      "solution_image": "images/solutions/3-9.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "3-10",
-      "chapter": 3,
-      "chapter_name_th": "สมดุลของอนุภาค",
-      "chapter_name_en": "Equilibrium of a Particle",
-      "difficulty": "hard",
-      "page_book": 129,
-      "page_sol": 129,
-      "question_en": "The members of a truss are connected to the gusset plate. If the forces are concurrent at point O, determine the magnitudes of F and T for equilibrium.Take . u = 90° x y A O F T B 9 kN C 4 5 3 u",
-      "question_th_summary": "คำนวณหาแรงดึงในเส้นเชือกหรือแรงในสปริงในสภาวะสมดุลของอนุภาค",
-      "image": "images/problems/3-10.webp",
-      "solution_image": "images/solutions/3-10.webp",
-      "theory_th": "สมการสมดุลของอนุภาคในระนาบ: \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum F_z = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 3-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 3-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-1",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "easy",
-      "page_book": 190,
-      "page_sol": 190,
-      "question_en": "If A, B, and D are given vectors, prove the distributive law for the vector cross product, i.e., . A : (B + D) = (A : B) + (A : D)",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-1.webp",
-      "solution_image": "images/solutions/4-1.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-2",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "easy",
-      "page_book": 191,
-      "page_sol": 191,
-      "question_en": "Prove the triple scalar product identity . A # B : C = A : B # C",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-2.webp",
-      "solution_image": "images/solutions/4-2.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-3",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "easy",
-      "page_book": 192,
-      "page_sol": 192,
-      "question_en": "Given the three nonzero vectors A, B, and C, show that if , the three vectors must lie in the same plane. A # (B : C) = 0",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-3.webp",
-      "solution_image": "images/solutions/4-3.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-6",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "medium",
-      "page_book": 193,
-      "page_sol": 193,
-      "question_en": "If , determine the moment produced by the 4-kN force about point A. u = 45° 3 m 0.45 m 4 kN A u",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-6.webp",
-      "solution_image": "images/solutions/4-6.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-7",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "medium",
-      "page_book": 194,
-      "page_sol": 194,
-      "question_en": "If the moment produced by the 4-kN force about point A is clockwise, determine the angle , where . 0° … u … 90° u 10 kN # m 3 m 0.45 m 4 kN A u",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-7.webp",
-      "solution_image": "images/solutions/4-7.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-8",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "medium",
-      "page_book": 195,
-      "page_sol": 195,
-      "question_en": "The handle of the hammer is subjected to the force of Determine the moment of this force about the point A. F = 20 lb. F B A 18 in. 5 in. 30\u0002",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-8.webp",
-      "solution_image": "images/solutions/4-8.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-9",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "hard",
-      "page_book": 196,
-      "page_sol": 196,
-      "question_en": "In order to pull out the nail at B, the force F exerted on the handle of the hammer must produce a clockwise moment of about point A. Determine the required magnitude of force F. 500 lb # in. F B A 18 in. 5 in. 30\u0002",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-9.webp",
-      "solution_image": "images/solutions/4-9.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-10",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "hard",
-      "page_book": 197,
-      "page_sol": 197,
-      "question_en": "The hub of the wheel can be attached to the axle either with negative offset (left) or with positive offset (right). If the tire is subjected to both a normal and radial load as shown, determine the resultant moment of these loads about point O on the axle for both cases. 4 kN 800 N 800 N 4 kN Case 1 Case 2 0.4 m 0.05 m 0.05 m 0.4 m O O",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-10.webp",
-      "solution_image": "images/solutions/4-10.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-11",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "hard",
-      "page_book": 198,
-      "page_sol": 198,
-      "question_en": "The member is subjected to a force of . If , determine the moment produced by F about point A. u = 45° F = 6 kN A 6 m 1.5 m u F \u0003 6 kN",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-11.webp",
-      "solution_image": "images/solutions/4-11.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-11):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-11}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "4-12",
-      "chapter": 4,
-      "chapter_name_th": "ระบบแรงลัพธ์และโมเมนต์",
-      "chapter_name_en": "Force System Resultants",
-      "difficulty": "hard",
-      "page_book": 199,
-      "page_sol": 199,
-      "question_en": "Determine the angle of the force F so that it produces a maximum moment and a minimum moment about point A. Also, what are the magnitudes of these maximum and minimum moments? u (0° … u … 180°) A 6 m 1.5 m u F \u0003 6 kN",
-      "question_th_summary": "คำนวณหาโมเมนต์ของแรงรอบจุด หรือการลดรูประบบแรงลัพธ์",
-      "image": "images/problems/4-12.webp",
-      "solution_image": "images/solutions/4-12.webp",
-      "theory_th": "โมเมนต์ของแรงรอบจุดและระบบแรงลัพธ์: \\(M_O = F \\cdot d, \\quad \\vec{M}_O = \\vec{r} \\times \\vec{F}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 4-12):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 4-12}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "5-1",
-      "chapter": 5,
-      "chapter_name_th": "สมดุลของวัตถุเกร็ง",
-      "chapter_name_en": "Equilibrium of a Rigid Body",
-      "difficulty": "easy",
-      "page_book": 320,
-      "page_sol": 320,
-      "question_en": "Draw the free-body diagram of the 50-kg paper roll which has a center of mass at G and rests on the smooth blade of the paper hauler. Explain the significance of each force acting on the diagram. (See Fig. 5–7b.) B 30\u0002 35 mm A G",
-      "question_th_summary": "คำนวณหาแรงปฏิกิริยาที่จุดรองรับในสภาวะสมดุลของวัตถุเกร็ง",
-      "image": "images/problems/5-1.webp",
-      "solution_image": "images/solutions/5-1.webp",
-      "theory_th": "สมดุลของวัตถุเกร็ง (Rigid Body): \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 5-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 5-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "5-3",
-      "chapter": 5,
-      "chapter_name_th": "สมดุลของวัตถุเกร็ง",
-      "chapter_name_en": "Equilibrium of a Rigid Body",
-      "difficulty": "easy",
-      "page_book": 321,
-      "page_sol": 321,
-      "question_en": "Draw the free-body diagram of the dumpster D of the truck, which has a weight of 5000 lb and a center of gravity at G. It is supported by a pin at A and a pin-connected hydraulic cylinder BC (short link). Explain the significance of each force on the diagram. (See Fig. 5–7b.) 1.5 m 3 m 1 m 20\u0002 30\u0002 B A D G C",
-      "question_th_summary": "คำนวณหาแรงปฏิกิริยาที่จุดรองรับในสภาวะสมดุลของวัตถุเกร็ง",
-      "image": "images/problems/5-3.webp",
-      "solution_image": "images/solutions/5-3.webp",
-      "theory_th": "สมดุลของวัตถุเกร็ง (Rigid Body): \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 5-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 5-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "5-5",
-      "chapter": 5,
-      "chapter_name_th": "สมดุลของวัตถุเกร็ง",
-      "chapter_name_en": "Equilibrium of a Rigid Body",
-      "difficulty": "medium",
-      "page_book": 322,
-      "page_sol": 322,
-      "question_en": "Draw the free-body diagram of the truss that is supported by the cable AB and pin C.Explain the significance of each force acting on the diagram. (See Fig. 5–7b.) A B C 2 m 2 m 2 m 2 m 30\u0002 3 kN 4 kN",
-      "question_th_summary": "คำนวณหาแรงปฏิกิริยาที่จุดรองรับในสภาวะสมดุลของวัตถุเกร็ง",
-      "image": "images/problems/5-5.webp",
-      "solution_image": "images/solutions/5-5.webp",
-      "theory_th": "สมดุลของวัตถุเกร็ง (Rigid Body): \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 5-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 5-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "5-7",
-      "chapter": 5,
-      "chapter_name_th": "สมดุลของวัตถุเกร็ง",
-      "chapter_name_en": "Equilibrium of a Rigid Body",
-      "difficulty": "medium",
-      "page_book": 323,
-      "page_sol": 323,
-      "question_en": "Draw the free-body diagram of the “spanner wrench” subjected to the 20-lb force. The support at A can be considered a pin, and the surface of contact at B is smooth. Explain the significance of each force on the diagram. (See Fig. 5–7b.) A B 6 in. 20 lb 1 in.",
-      "question_th_summary": "คำนวณหาแรงปฏิกิริยาที่จุดรองรับในสภาวะสมดุลของวัตถุเกร็ง",
-      "image": "images/problems/5-7.webp",
-      "solution_image": "images/solutions/5-7.webp",
-      "theory_th": "สมดุลของวัตถุเกร็ง (Rigid Body): \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 5-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 5-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "5-9",
-      "chapter": 5,
-      "chapter_name_th": "สมดุลของวัตถุเกร็ง",
-      "chapter_name_en": "Equilibrium of a Rigid Body",
-      "difficulty": "hard",
-      "page_book": 324,
-      "page_sol": 324,
-      "question_en": "Draw the free-body diagram of the bar, which has a negligible thickness and smooth points of contact at A, B, and C. Explain the significance of each force on the diagram. (See Fig. 5–7b.) 3 in. 5 in. 8 in. A 30\u0002 10 lb 30\u0002 B C",
-      "question_th_summary": "คำนวณหาแรงปฏิกิริยาที่จุดรองรับในสภาวะสมดุลของวัตถุเกร็ง",
-      "image": "images/problems/5-9.webp",
-      "solution_image": "images/solutions/5-9.webp",
-      "theory_th": "สมดุลของวัตถุเกร็ง (Rigid Body): \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 5-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 5-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "5-10",
-      "chapter": 5,
-      "chapter_name_th": "สมดุลของวัตถุเกร็ง",
-      "chapter_name_en": "Equilibrium of a Rigid Body",
-      "difficulty": "hard",
-      "page_book": 325,
-      "page_sol": 325,
-      "question_en": "Draw the free-body diagram of the winch, which consists of a drum of radius 4 in. It is pin-connected at its center C, and at its outer rim is a ratchet gear having a mean radius of 6 in. The pawl AB serves as a two-force member (short link) and prevents the drum from rotating. Explain the significance of each force on the diagram. (See Fig. 5–7b.) 3 in. 2 in. 6 in. B A 500 lb C 4 in.",
-      "question_th_summary": "คำนวณหาแรงปฏิกิริยาที่จุดรองรับในสภาวะสมดุลของวัตถุเกร็ง",
-      "image": "images/problems/5-10.webp",
-      "solution_image": "images/solutions/5-10.webp",
-      "theory_th": "สมดุลของวัตถุเกร็ง (Rigid Body): \\(\\sum F_x = 0, \\quad \\sum F_y = 0, \\quad \\sum M_O = 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 5-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 5-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-1",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "easy",
-      "page_book": 403,
-      "page_sol": 403,
-      "question_en": "Determine the force in each member of the truss, and state if the members are in tension or compression.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-1.webp",
-      "solution_image": "images/solutions/6-1.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-2",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "easy",
-      "page_book": 404,
-      "page_sol": 404,
-      "question_en": "The truss, used to support a balcony, is subjected to the loading shown. Approximate each joint as a pin and determine the force in each member. State whether the members are in tension or compression. Set P2 = 400 lb. P1 = 600 lb,",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-2.webp",
-      "solution_image": "images/solutions/6-2.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-3",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "easy",
-      "page_book": 405,
-      "page_sol": 405,
-      "question_en": "The truss, used to support a balcony, is subjected to the loading shown. Approximate each joint as a pin and determine the force in each member. State whether the members are in tension or compression. Set P2 = 0. P1 = 800 lb,",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-3.webp",
-      "solution_image": "images/solutions/6-3.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-4",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "easy",
-      "page_book": 406,
-      "page_sol": 406,
-      "question_en": "Determine the force in each member of the truss and state if the members are in tension or compression. Assume each joint as a pin. Set P = 4 kN.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-4.webp",
-      "solution_image": "images/solutions/6-4.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-5",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "medium",
-      "page_book": 407,
-      "page_sol": 407,
-      "question_en": "Assume that each member of the truss is made of steel having a mass per length of 4 kg/m. Set , determine the force in each member, and indicate if the members are in tension or compression.Neglect the weight of the gusset plates and assume each joint is a pin. Solve the problem by assuming the weight of each member can be represented as a vertical force, half of which is applied at the end of each member. P = 0",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-5.webp",
-      "solution_image": "images/solutions/6-5.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-6",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "medium",
-      "page_book": 408,
-      "page_sol": 408,
-      "question_en": "Determine the force in each member of the truss and state if the members are in tension or compression. Set and . P2 = 1.5 kN P1 = 2 kN",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-6.webp",
-      "solution_image": "images/solutions/6-6.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-7",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "medium",
-      "page_book": 409,
-      "page_sol": 409,
-      "question_en": "Determine the force in each member of the truss and state if the members are in tension or compression. Set . P1 = P2 = 4 kN",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-7.webp",
-      "solution_image": "images/solutions/6-7.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-8",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "medium",
-      "page_book": 410,
-      "page_sol": 410,
-      "question_en": "Determine the force in each member of the truss, and state if the members are in tension or compression. Set . P = 800 lb",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-8.webp",
-      "solution_image": "images/solutions/6-8.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-9",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "hard",
-      "page_book": 411,
-      "page_sol": 411,
-      "question_en": "Remove the 500-lb force and then determine the greatest force P that can be applied to the truss so that none of the members are subjected to a force exceeding either 800 lb in tension or in compression. 600 lb 3 ft 3 ft 3 ft P 3 ft 500 lb A C B D F E",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-9.webp",
-      "solution_image": "images/solutions/6-9.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-10",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "hard",
-      "page_book": 412,
-      "page_sol": 412,
-      "question_en": "Determine the force in each member of the truss and state if the members are in tension or compression. Set , . P2 = 0 P1 = 800 lb",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-10.webp",
-      "solution_image": "images/solutions/6-10.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-11",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "hard",
-      "page_book": 413,
-      "page_sol": 413,
-      "question_en": "Determine the force in each member of the truss and state if the members are in tension or compression. Set , . P2 = 400 lb P1 = 600 lb",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-11.webp",
-      "solution_image": "images/solutions/6-11.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-11):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-11}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "6-12",
-      "chapter": 6,
-      "chapter_name_th": "การวิเคราะห์โครงสร้าง",
-      "chapter_name_en": "Structural Analysis",
-      "difficulty": "hard",
-      "page_book": 414,
-      "page_sol": 414,
-      "question_en": "Determine the force in each member of the truss and state if the members are in tension or compression. Set , . P2 = 100 lb P1 = 240 lb",
-      "question_th_summary": "วิเคราะห์หาแรงภายในชิ้นส่วนโครงถัก ระบุแรงดึง (T) หรือแรงอัด (C)",
-      "image": "images/problems/6-12.webp",
-      "solution_image": "images/solutions/6-12.webp",
-      "theory_th": "การวิเคราะห์โครงถักด้วยวิธีข้อต่อ (Method of Joints) และวิธีตัดหน้าตัด (Method of Sections)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 6-12):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 6-12}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-1",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "easy",
-      "page_book": 545,
-      "page_sol": 545,
-      "question_en": "Determine the internal normal force and shear force, and the bending moment in the beam at points C and D.Assume the support at B is a roller. Point C is located just to the right of the 8-kip load.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-1.webp",
-      "solution_image": "images/solutions/7-1.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-2",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "easy",
-      "page_book": 546,
-      "page_sol": 546,
-      "question_en": "Determine the shear force and moment at points C and D.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-2.webp",
-      "solution_image": "images/solutions/7-2.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-3",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "easy",
-      "page_book": 547,
-      "page_sol": 547,
-      "question_en": "Determine the internal normal force, shear force, and moment at point C in the simply supported beam. Point C is located just to the right of the 1500-lb ft couple moment. –",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-3.webp",
-      "solution_image": "images/solutions/7-3.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-4",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "easy",
-      "page_book": 548,
-      "page_sol": 548,
-      "question_en": "Determine the internal normal force, shear force, and moment at points E and F in the beam.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-4.webp",
-      "solution_image": "images/solutions/7-4.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-5",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "medium",
-      "page_book": 549,
-      "page_sol": 549,
-      "question_en": "Determine the internal normal force, shear force, and moment at point C.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-5.webp",
-      "solution_image": "images/solutions/7-5.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-6",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "medium",
-      "page_book": 550,
-      "page_sol": 550,
-      "question_en": "Determine the internal normal force, shear force, and moment at point C in the simply supported beam.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-6.webp",
-      "solution_image": "images/solutions/7-6.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-7",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "medium",
-      "page_book": 551,
-      "page_sol": 551,
-      "question_en": "Determine the internal normal force, shear force, and moment at point C in the cantilever beam.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-7.webp",
-      "solution_image": "images/solutions/7-7.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-8",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "medium",
-      "page_book": 552,
-      "page_sol": 552,
-      "question_en": "Determine the internal normal force, shear force, and moment at points C and D in the simply supported beam. Point D is located just to the left of the 5-kN force.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-8.webp",
-      "solution_image": "images/solutions/7-8.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-9",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "hard",
-      "page_book": 553,
-      "page_sol": 553,
-      "question_en": "The bolt shank is subjected to a tension of 80 lb. Determine the internal normal force, shear force, and moment at point C.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-9.webp",
-      "solution_image": "images/solutions/7-9.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "7-10",
-      "chapter": 7,
-      "chapter_name_th": "แรงภายใน",
-      "chapter_name_en": "Internal Forces",
-      "difficulty": "hard",
-      "page_book": 554,
-      "page_sol": 554,
-      "question_en": "Determine the internal normal force, shear force, and moment at point C in the double-overhang beam.",
-      "question_th_summary": "วิเคราะห์หาแรงภายในในคาน (แรงแนวแกน N, แรงเฉือน V, โมเมนต์ดัด M)",
-      "image": "images/problems/7-10.webp",
-      "solution_image": "images/solutions/7-10.webp",
-      "theory_th": "แรงภายในในคาน (แรงแนวแกน \\(N\\), แรงเฉือน \\(V\\), โมเมนต์ดัด \\(M\\)) และความสัมพันธ์ \\(\\frac{dV}{dx} = -w(x), \\frac{dM}{dx} = V\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 7-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 7-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-1",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "easy",
-      "page_book": 683,
-      "page_sol": 683,
-      "question_en": "Determine the minimum horizontal force P required to hold the crate from sliding down the plane. The crate has a mass of 50 kg and the coefficient of static friction between the crate and the plane is . ms = 0.25",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-1.webp",
-      "solution_image": "images/solutions/8-1.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-2",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "easy",
-      "page_book": 684,
-      "page_sol": 684,
-      "question_en": "Determine the minimum force P required to push the crate up the plane.The crate has a mass of 50 kg and the coefficient of static friction between the crate and the plane is . ms = 0.25",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-2.webp",
-      "solution_image": "images/solutions/8-2.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-3",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "easy",
-      "page_book": 685,
-      "page_sol": 685,
-      "question_en": "A horizontal force of is just sufficient to hold the crate from sliding down the plane, and a horizontal force of is required to just push the crate up the plane. Determine the coefficient of static friction between the plane and the crate, and find the mass of the crate. P = 350 N P = 100 N",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-3.webp",
-      "solution_image": "images/solutions/8-3.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-4",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "easy",
-      "page_book": 686,
-      "page_sol": 686,
-      "question_en": "If the coefficient of static friction at A is and the collar at B is smooth so it only exerts a horizontal force on the pipe, determine the minimum distance so that the bracket can support the cylinder of any mass without slipping. Neglect the mass of the bracket. x ms = 0.4",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-4.webp",
-      "solution_image": "images/solutions/8-4.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-5",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "medium",
-      "page_book": 687,
-      "page_sol": 687,
-      "question_en": "The 180-lb man climbs up the ladder and stops at the position shown after he senses that the ladder is on the verge of slipping. Determine the inclination of the ladder if the coefficient of static friction between the friction pad A and the ground is .Assume the wall at B is smooth.The center of gravity for the man is at G.Neglect the weight of the ladder. ms = 0.4 u",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-5.webp",
-      "solution_image": "images/solutions/8-5.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-6",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "medium",
-      "page_book": 688,
-      "page_sol": 688,
-      "question_en": "The 180-lb man climbs up the ladder and stops at the position shown after he senses that the ladder is on the verge of slipping.Determine the coefficient of static friction between the friction pad at A and ground if the inclination of the ladder is and the wall at B is smooth.The center of gravity for the man is at G. Neglect the weight of the ladder. u = 60°",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-6.webp",
-      "solution_image": "images/solutions/8-6.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-7",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "medium",
-      "page_book": 689,
-      "page_sol": 689,
-      "question_en": "The uniform thin pole has a weight of 30 lb and a length of 26 ft. If it is placed against the smooth wall and on the rough floor in the position , will it remain in this position when it is released? The coefficient of static friction is . ms = 0.3 d = 10 ft",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-7.webp",
-      "solution_image": "images/solutions/8-7.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-8",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "medium",
-      "page_book": 690,
-      "page_sol": 690,
-      "question_en": "The uniform pole has a weight of 30 lb and a length of 26 ft. Determine the maximum distance d it can be placed from the smooth wall and not slip. The coefficient of static friction between the floor and the pole is . ms = 0.3",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-8.webp",
-      "solution_image": "images/solutions/8-8.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-9",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "hard",
-      "page_book": 691,
-      "page_sol": 691,
-      "question_en": "If the coefficient of static friction at all contacting surfaces is , determine the inclination at which the identical blocks, each of weight W, begin to slide. u ms",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-9.webp",
-      "solution_image": "images/solutions/8-9.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "8-10",
-      "chapter": 8,
-      "chapter_name_th": "แรงเสียดทาน",
-      "chapter_name_en": "Friction",
-      "difficulty": "hard",
-      "page_book": 692,
-      "page_sol": 692,
-      "question_en": "The uniform 20-lb ladder rests on the rough floor for which the coefficient of static friction is and against the smooth wall at B. Determine the horizontal force P the man must exert on the ladder in order to cause it to move. ms = 0.8",
-      "question_th_summary": "วิเคราะห์แรงเสียดทานสถิตและตรวจสอบสภาวะเริ่มเคลื่อนที่",
-      "image": "images/problems/8-10.webp",
-      "solution_image": "images/solutions/8-10.webp",
-      "theory_th": "กฎของแรงเสียดทานสถิต: \\(F_{\\max} = \\mu_s N\\) และการตรวจสอบสภาวะเริ่มเคลื่อนที่ (Impending Motion)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 8-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 8-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-1",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "easy",
-      "page_book": 815,
-      "page_sol": 815,
-      "question_en": "Determine the mass and the location of the center of mass of the uniform parabolic-shaped rod. The mass per unit length of the rod is . 2 kg>m (x, y)",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-1.webp",
-      "solution_image": "images/solutions/9-1.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-2",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "easy",
-      "page_book": 816,
-      "page_sol": 816,
-      "question_en": "The uniform rod is bent into the shape of a parabola and has a weight per unit length of . Determine the reactions at the fixed support A. 6 lb>ft",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-2.webp",
-      "solution_image": "images/solutions/9-2.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-3",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "easy",
-      "page_book": 817,
-      "page_sol": 817,
-      "question_en": "Determine the distance to the center of mass of the homogeneous rod bent into the shape shown. If the rod has a mass per unit length of , determine the reactions at the fixed support O. 0.5 kg>m x",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-3.webp",
-      "solution_image": "images/solutions/9-3.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-4",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "easy",
-      "page_book": 818,
-      "page_sol": 818,
-      "question_en": "Determine the mass and locate the center of mass of the uniform rod. The mass per unit length of the rod is . 3 kg>m (x, y)",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-4.webp",
-      "solution_image": "images/solutions/9-4.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-5",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "medium",
-      "page_book": 819,
-      "page_sol": 819,
-      "question_en": "Determine the mass and the location of the center of mass of the rod if its mass per unit length is . m = m0(1 + x>L) x",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-5.webp",
-      "solution_image": "images/solutions/9-5.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-6",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "medium",
-      "page_book": 820,
-      "page_sol": 820,
-      "question_en": "Determine the location ( , ) of the centroid of the wire. y x",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-6.webp",
-      "solution_image": "images/solutions/9-6.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-8",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "medium",
-      "page_book": 821,
-      "page_sol": 821,
-      "question_en": "Determine the area and the centroid of the area. (x, y) y x 4 m 4 m y2 \u0002 4x",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-8.webp",
-      "solution_image": "images/solutions/9-8.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-9",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "hard",
-      "page_book": 822,
-      "page_sol": 822,
-      "question_en": "Determine the area and the centroid of the area. (x, y) y 1 m 1 m y2 \u0002 x3 x",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-9.webp",
-      "solution_image": "images/solutions/9-9.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "9-10",
-      "chapter": 9,
-      "chapter_name_th": "จุดศูนย์ถ่วงและเซนทรอยด์",
-      "chapter_name_en": "Center of Gravity and Centroid",
-      "difficulty": "hard",
-      "page_book": 823,
-      "page_sol": 823,
-      "question_en": "Determine the area and the centroid of the area. (x, y) y x 3 ft 3 ft y \u0002      x3 1––9",
-      "question_th_summary": "คำนวณหาตำแหน่งจุดศูนย์ถ่วงหรือเซนทรอยด์ของพื้นที่เชิงประกอบ",
-      "image": "images/problems/9-10.webp",
-      "solution_image": "images/solutions/9-10.webp",
-      "theory_th": "การหาจุดศูนย์ถ่วงและเซนทรอยด์: \\(\\bar{x} = \\frac{\\sum \\tilde{x} A}{\\sum A}, \\quad \\bar{y} = \\frac{\\sum \\tilde{y} A}{\\sum A}, \\quad \\bar{x} = \\frac{\\int_A x\\, dA}{\\int_A dA}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 9-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 9-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-1",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "easy",
-      "page_book": 927,
-      "page_sol": 927,
-      "question_en": "Determine the moment of inertia of the area about the axis. x",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-1.webp",
-      "solution_image": "images/solutions/10-1.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-2",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "easy",
-      "page_book": 928,
-      "page_sol": 928,
-      "question_en": "Determine the moment of inertia of the area about the axis. y",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-2.webp",
-      "solution_image": "images/solutions/10-2.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-3",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "easy",
-      "page_book": 929,
-      "page_sol": 929,
-      "question_en": "Determine the moment of inertia of the area about the axis. x",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-3.webp",
-      "solution_image": "images/solutions/10-3.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-4",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "easy",
-      "page_book": 930,
-      "page_sol": 930,
-      "question_en": "Determine the moment of inertia of the area about the axis. y",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-4.webp",
-      "solution_image": "images/solutions/10-4.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-5",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "medium",
-      "page_book": 931,
-      "page_sol": 931,
-      "question_en": "Determine the moment of inertia of the area about the axis. x",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-5.webp",
-      "solution_image": "images/solutions/10-5.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-6",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "medium",
-      "page_book": 932,
-      "page_sol": 932,
-      "question_en": "Determine the moment of inertia of the area about the axis. y",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-6.webp",
-      "solution_image": "images/solutions/10-6.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-7",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "medium",
-      "page_book": 933,
-      "page_sol": 933,
-      "question_en": "Determine the moment of inertia of the area about the axis. x",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-7.webp",
-      "solution_image": "images/solutions/10-7.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-8",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "medium",
-      "page_book": 934,
-      "page_sol": 934,
-      "question_en": "Determine the moment of inertia of the area about the axis. y",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-8.webp",
-      "solution_image": "images/solutions/10-8.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-9",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "hard",
-      "page_book": 935,
-      "page_sol": 935,
-      "question_en": "Determine the polar moment of inertia of the area about the axis passing through point . O z",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-9.webp",
-      "solution_image": "images/solutions/10-9.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-9):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-9}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "10-10",
-      "chapter": 10,
-      "chapter_name_th": "โมเมนต์ความเฉื่อย",
-      "chapter_name_en": "Moments of Inertia",
-      "difficulty": "hard",
-      "page_book": 936,
-      "page_sol": 936,
-      "question_en": "Determine the moment of inertia of the area about the x axis.",
-      "question_th_summary": "คำนวณหาโมเมนต์ความเฉื่อยของพื้นที่รอบแกนที่กำหนด",
-      "image": "images/problems/10-10.webp",
-      "solution_image": "images/solutions/10-10.webp",
-      "theory_th": "โมเมนต์ความเฉื่อยของพื้นที่และทฤษฎีบทแกนขนาน: \\(I_x = \\bar{I}_{x'} + A d_y^2, \\quad k_x = \\sqrt{\\frac{I_x}{A}}\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 10-10):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 10-10}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-1",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "easy",
-      "page_book": 1034,
-      "page_sol": 1034,
-      "question_en": "The 200-kg crate is on the lift table at the position . Determine the force in the hydraulic cylinder AD for equilibrium. Neglect the mass of the lift table’s components. u = 30° A B C D E H I F 1.2 m 1.2 m u",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-1.webp",
-      "solution_image": "images/solutions/11-1.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-1):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-1}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-2",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "easy",
-      "page_book": 1035,
-      "page_sol": 1035,
-      "question_en": "The uniform rod OA has a weight of 10 lb. When the rod is in a vertical position, , the spring is unstretched. Determine the angle for equilibrium if the end of the spring wraps around the periphery of the disk as the disk turns. u u = 0° O u A k \u0002 30 lb/ft 2 ft 0.5 ft 1035",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-2.webp",
-      "solution_image": "images/solutions/11-2.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-2):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-2}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-3",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "easy",
-      "page_book": 1036,
-      "page_sol": 1036,
-      "question_en": "The “Nuremberg scissors” is subjected to a horizontal force of . Determine the angle for equilibrium. The spring has a stiffness of and is unstretched when . u = 15° k = 15 kN>m u P = 600 N P 200 mm 200 mm A C D E B k u",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-3.webp",
-      "solution_image": "images/solutions/11-3.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-3):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-3}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-4",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "easy",
-      "page_book": 1037,
-      "page_sol": 1037,
-      "question_en": "The “Nuremberg scissors” is subjected to a horizontal force of . Determine the stiffness k of the spring for equilibrium when . The spring is unstretched when . u = 15° u = 60° P = 600 N P 200 mm 200 mm A C D E B k u",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-4.webp",
-      "solution_image": "images/solutions/11-4.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-4):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-4}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-5",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "medium",
-      "page_book": 1038,
-      "page_sol": 1038,
-      "question_en": "Determine the force developed in the spring required to keep the 10 lb uniform rod AB in equilibrium when . u = 35° A u B k \u0002 15 lb/ft 6 ft M = 10 lb \u0003 ft",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-5.webp",
-      "solution_image": "images/solutions/11-5.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-5):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-5}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-6",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "medium",
-      "page_book": 1039,
-      "page_sol": 1039,
-      "question_en": "If a force of is applied to the handle of the mechanism,determine the force the screw exerts on the cork of the bottle.The screw is attached to the pin at A and passes through the collar that is attached to the bottle neck at B. P = 5 lb 3 in. D B A u \u0002 30° P \u0002 5 lb",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-6.webp",
-      "solution_image": "images/solutions/11-6.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-6):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-6}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-7",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "medium",
-      "page_book": 1040,
-      "page_sol": 1040,
-      "question_en": "The pin-connected mechanism is constrained at A by a pin and at B by a roller. If , determine the angle for equilibrium. The spring is unstretched when . Neglect the weight of the members. u = 45° u P = 10 lb 0.5 ft B P A u 0.5 ft 0.5 ft k \u0002 50 lb/ft",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-7.webp",
-      "solution_image": "images/solutions/11-7.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-7):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-7}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
-      ]
-    },
-    {
-      "id": "11-8",
-      "chapter": 11,
-      "chapter_name_th": "งานเสมือน",
-      "chapter_name_en": "Virtual Work",
-      "difficulty": "medium",
-      "page_book": 1041,
-      "page_sol": 1041,
-      "question_en": "The pin-connected mechanism is constrained by a pin at A and a roller at B. Determine the force P that must be applied to the roller to hold the mechanism in equilibrium when . The spring is unstretched when . Neglect the weight of the members. u = 45° u = 30° 0.5 ft B P A u 0.5 ft 0.5 ft k \u0002 50 lb/ft",
-      "question_th_summary": "ประยุกต์ใช้หลักการของงานเสมือน (Virtual Work) ในการหาแรงหรือตำแหน่งสมดุล",
-      "image": "images/problems/11-8.webp",
-      "solution_image": "images/solutions/11-8.webp",
-      "theory_th": "หลักการของงานเสมือนและเสถียรภาพของสมดุล: \\(\\delta U = 0, \\quad \\frac{dV}{d\\theta} = 0, \\quad \\frac{d^2V}{d\\theta^2} > 0\\)",
-      "formatted_steps": [
-        {
-          "type": "header",
-          "text": "วิธีทำอย่างละเอียดตามคู่มืออาจารย์ (Official Solution - Hibbeler Problem 11-8):",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{พิจารณาผังวัตถุอิสระ (Free Body Diagram) และตั้งสมการความสัมพันธ์}",
-          "raw": ""
-        },
-        {
-          "type": "calc",
-          "latex": "\\text{ดูรายละเอียดวิธีทำและผังแรงประกอบในแผนภาพเฉลยอย่างเป็นทางการด้านล่าง}",
-          "raw": ""
-        },
-        {
-          "type": "ans",
-          "latex": "\\text{เฉลยและวิธีทำสมบูรณ์จากคู่มืออาจารย์ ข้อ 11-8}",
-          "raw": ""
-        }
-      ],
-      "final_answers_math": [
-        "\\text{ดูเฉลยละเอียดและคำตอบทางการในรูปภาพด้านล่าง}"
+        "\\theta = 20.9^\\circ"
       ]
     }
   ]

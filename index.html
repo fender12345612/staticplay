@@ -130,7 +130,7 @@
       <!-- Top Pill -->
       <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 dark:bg-slate-800/90 border-2 border-brand-200/60 dark:border-slate-700 shadow-sm text-xs font-bold text-brand-700 dark:text-brand-400 mb-6 animate-bounce">
         <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
-        <span>🎉 อัปเดตใหม่! รวมเฉลยคู่มืออาจารย์ Hibbeler 14th Ed. ครบ 285+ ข้อ</span>
+        <span>🎯 คลังโจทย์สถิตยศาสตร์ Fundamental Problems จาก Hibbeler 14th Ed. ครบ 100% (188 ข้อ)</span>
       </div>
 
       <!-- Main Headline -->
@@ -164,7 +164,7 @@
           <div class="w-12 h-12 rounded-2xl bg-amber-100 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-3 border-2 border-amber-300/60">
             <i class="fa-solid fa-cubes-stacked"></i>
           </div>
-          <span class="font-heading font-bold text-slate-900 dark:text-white text-base">285+ คลังโจทย์</span>
+          <span class="font-heading font-bold text-slate-900 dark:text-white text-base">188 คลังโจทย์</span>
           <span class="text-xs text-slate-500 dark:text-slate-400 mt-1">Fundamental & แบบฝึกหัดท้ายบทครบ</span>
         </div>
 
@@ -250,7 +250,7 @@
             </h3>
           </div>
           <span id="poolCountBadge" class="clay-badge bg-brand-100 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300">
-            285 ข้อในตัวเลือก
+            188 ข้อในตัวเลือก
           </span>
         </div>
 
@@ -261,7 +261,7 @@
           </span>
           <div class="flex flex-wrap items-center gap-2">
             <button id="diffAllBtn" class="clay-btn clay-btn-secondary !py-1.5 !px-3.5 !rounded-xl text-xs">
-              ทั้งหมด (<span id="countAll">285</span>)
+              ทั้งหมด (<span id="countAll">188</span>)
             </button>
             <button id="diffEasyBtn" class="clay-btn clay-badge-easy !py-1.5 !px-3.5 !rounded-xl text-xs">
               🟢 ง่าย (<span id="countEasy">100</span>)
@@ -466,18 +466,7 @@
               </div>
             </div>
 
-            <!-- Official Solution Image Drawer (from Static เฉลย.pdf) -->
-            <div id="manualSolutionContainer" class="hidden mt-2 p-4 rounded-2xl bg-white/90 dark:bg-slate-900 border border-emerald-300/80 dark:border-emerald-800/60 flex flex-col items-center">
-              <div class="w-full flex items-center justify-between mb-2">
-                <span class="text-xs font-heading font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
-                  <i class="fa-solid fa-file-signature text-emerald-600"></i> แผนภาพเฉลยจากคู่มืออาจารย์ (Official Manual Diagram):
-                </span>
-                <span class="text-[11px] text-slate-400">คลิกที่รูปเพื่อขยาย</span>
-              </div>
-              <div class="img-zoom-wrapper max-w-full rounded-xl bg-white p-2 border border-slate-200/60 shadow-xs">
-                <img id="manualSolutionImage" src="" alt="Official Solution Diagram" class="max-h-[420px] w-auto object-contain rounded-lg">
-              </div>
-            </div>
+
 
           </section>
 
@@ -928,6 +917,6 @@
   <!-- Problem Data Script (Runs locally offline without CORS restrictions) -->
   <script src="data/problems.js"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=2.1"></script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>

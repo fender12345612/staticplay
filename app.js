@@ -60,8 +60,6 @@
     finalAnswerContainer: document.getElementById('finalAnswerContainer'),
     finalAnswerList: document.getElementById('finalAnswerList'),
     solutionStepsText: document.getElementById('solutionStepsText'),
-    manualSolutionContainer: document.getElementById('manualSolutionContainer'),
-    manualSolutionImage: document.getElementById('manualSolutionImage'),
     
     // Progress tracking demo
     solvedCounterText: document.getElementById('solvedCounterText'),
@@ -295,7 +293,6 @@
       const p = problems[i];
       if (p) {
         if (p.image) preloadImage(p.image);
-        if (p.solution_image) preloadImage(p.solution_image);
       }
     }
   }
@@ -379,42 +376,6 @@
     ];
   }
 
-  function getSolutionCandidates(rawPath) {
-    if (!rawPath) return [];
-    const cleanPath = (rawPath || '').trim();
-    const fname = cleanPath.split('/').pop();
-    const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
-
-    return [
-      // 1. Root batch folders as uploaded directly on GitHub
-      `4_solutions_batch1_50files/${fname}`,
-      `5_solutions_batch2_49files/${fname}`,
-      `4_solutions_batch1_50files/${altFname}`,
-      `5_solutions_batch2_49files/${altFname}`,
-
-      // 2. Root part folders as uploaded directly on GitHub
-      `solutions/part1/${fname}`,
-      `solutions/part2/${fname}`,
-      `part1/${fname}`,
-      `part2/${fname}`,
-      `part3/${fname}`,
-
-      // 3. Local / GitHub subfolder structure
-      `github-upload-batches/4_solutions_batch1_50files/${fname}`,
-      `github-upload-batches/5_solutions_batch2_49files/${fname}`,
-
-      // 4. Standard images/ path
-      cleanPath,
-      `images/solutions/${fname}`,
-      `images/solutions/${altFname}`,
-      `images/solutions/part1/${fname}`,
-      `images/solutions/part2/${fname}`,
-
-      // 5. Current directory
-      `./${fname}`,
-      `./${altFname}`
-    ];
-  }
 
   // Preload candidates for upcoming problems
   function preloadCandidateProblems(problems, count = 5) {
@@ -429,12 +390,7 @@
             preloadImage(cands[1]);
           }
         }
-        if (p.solution_image) {
-          const sCands = getSolutionCandidates(p.solution_image);
-          if (sCands.length > 0) {
-            preloadImage(sCands[0]);
-          }
-        }
+
       }
     }
   }
@@ -523,54 +479,10 @@
     tryNext();
 
     // Background preloader for solution diagram and next candidates
-    if (problem.solution_image) {
-      const sCands = getSolutionCandidates(problem.solution_image);
-      if (sCands.length > 0) preloadImage(sCands[0]);
-    }
+
     preloadCandidateProblems(state.filteredProblems, 5);
   }
 
-  // Resilient Manual Solution Loader (Zero-Flicker & Multi-Path Discovery)
-  function loadManualSolutionImage(solutionPath) {
-    if (!el.manualSolutionContainer || !el.manualSolutionImage) return;
-    if (!solutionPath) {
-      el.manualSolutionContainer.classList.add('hidden');
-      return;
-    }
-
-    const img = el.manualSolutionImage;
-    const candidates = getSolutionCandidates(solutionPath);
-
-    let idx = 0;
-    el.manualSolutionContainer.classList.add('hidden');
-    img.style.opacity = '0';
-
-    function tryNext() {
-      if (idx >= candidates.length) {
-        el.manualSolutionContainer.classList.add('hidden');
-        return;
-      }
-      const nextUrl = candidates[idx++];
-      if (!nextUrl) {
-        tryNext();
-        return;
-      }
-
-      const probe = new Image();
-      probe.onload = function() {
-        img.src = nextUrl;
-        img.style.opacity = '1';
-        img.onclick = () => openImageModal(img.src);
-        el.manualSolutionContainer.classList.remove('hidden');
-      };
-      probe.onerror = function() {
-        tryNext();
-      };
-      probe.src = nextUrl;
-    }
-
-    tryNext();
-  }
 
   // Display Problem in Card
   function displayProblem(problem) {
@@ -702,8 +614,6 @@
       }
     }
 
-    // Official Solution Image (from Static เฉลย.pdf)
-    loadManualSolutionImage(problem.solution_image);
 
     // Render KaTeX Math across the solution section
     if (el.solutionSection) {

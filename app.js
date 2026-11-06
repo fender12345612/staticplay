@@ -334,48 +334,41 @@
     const fname = cleanPath.split('/').pop();
     const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
 
-    return [
-      // 1. Root batch folders as uploaded directly on GitHub
+    const list = [
+      cleanPath,
+      // Problem 2 base folders
+      `images/problem 2/${fname}`,
+      `problem 2/${fname}`,
+      `images/problems/${fname}`,
+      `images/problems/${altFname}`
+    ];
+
+    // Check all part folders (part1 to part9) across various upload locations
+    for (let i = 1; i <= 9; i++) {
+      list.push(`images/problem 2/part${i}/${fname}`);
+      list.push(`problem 2/part${i}/${fname}`);
+      list.push(`part${i}/${fname}`);
+      list.push(`images/problems/part${i}/${fname}`);
+      list.push(`github-upload-batches/problem 2/part${i}/${fname}`);
+      list.push(`images/problem 2/part${i}/${altFname}`);
+      list.push(`problem 2/part${i}/${altFname}`);
+      list.push(`part${i}/${altFname}`);
+    }
+
+    // Legacy batch folder paths for backward compatibility
+    list.push(
       `1_problems_batch1_98files/${fname}`,
       `2_problems_batch2_98files/${fname}`,
       `3_problems_batch3_81files/${fname}`,
-      `1_problems_batch1_98files/${altFname}`,
-      `2_problems_batch2_98files/${altFname}`,
-      `3_problems_batch3_81files/${altFname}`,
-
-      // 2. Root part folders as uploaded directly on GitHub
-      `part1/${fname}`,
-      `part2/${fname}`,
-      `part3/${fname}`,
-      `part1/${altFname}`,
-      `part2/${altFname}`,
-      `part3/${altFname}`,
-
-      // 3. Local / GitHub subfolder structure
       `github-upload-batches/1_problems_batch1_98files/${fname}`,
       `github-upload-batches/2_problems_batch2_98files/${fname}`,
       `github-upload-batches/3_problems_batch3_81files/${fname}`,
-      `github-upload-batches/1_problems_batch1_98files/${altFname}`,
-      `github-upload-batches/2_problems_batch2_98files/${altFname}`,
-      `github-upload-batches/3_problems_batch3_81files/${altFname}`,
-
-      // 4. Standard images/ path
-      cleanPath,
-      `images/problems/${fname}`,
-      `images/problems/${altFname}`,
-      `images/problems/part1/${fname}`,
-      `images/problems/part2/${fname}`,
-      `images/problems/part3/${fname}`,
-      `images/problems/part1/${altFname}`,
-      `images/problems/part2/${altFname}`,
-      `images/problems/part3/${altFname}`,
-
-      // 5. Current directory
       `./${fname}`,
       `./${altFname}`
-    ];
-  }
+    );
 
+    return [...new Set(list)];
+  }
 
   // Preload candidates for upcoming problems
   function preloadCandidateProblems(problems, count = 5) {

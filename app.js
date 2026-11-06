@@ -336,23 +336,49 @@
 
     const list = [
       cleanPath,
-      // Problem 2 base folders
+      // Problem 2 base folders (all spelling variations: with/without space, with/without s)
       `images/problem 2/${fname}`,
       `problem 2/${fname}`,
+      `images/problems2/${fname}`,
+      `problems2/${fname}`,
+      `images/problem2/${fname}`,
+      `problem2/${fname}`,
       `images/problems/${fname}`,
       `images/problems/${altFname}`
     ];
 
-    // Check all part folders (part1 to part9) across various upload locations
+    // Check all part folders (part1 to part9) across all folder variations
     for (let i = 1; i <= 9; i++) {
+      // 1. Direct root part folders (e.g. part1/, part2/ - Most recommended)
+      list.push(`part${i}/${fname}`);
+
+      // 2. Standard problem 2 subfolders
       list.push(`images/problem 2/part${i}/${fname}`);
       list.push(`problem 2/part${i}/${fname}`);
-      list.push(`part${i}/${fname}`);
+      list.push(`images/problems2/part${i}/${fname}`);
+      list.push(`problems2/part${i}/${fname}`);
+      list.push(`images/problem2/part${i}/${fname}`);
+      list.push(`problem2/part${i}/${fname}`);
       list.push(`images/problems/part${i}/${fname}`);
+
+      // 3. Ready batch folder names
+      list.push(`problem_2_part${i}_92files/${fname}`);
+      list.push(`problem_2_part${i}_60files/${fname}`);
+      list.push(`problem_2_part${i}/${fname}`);
+      list.push(`problems2_part${i}_92files/${fname}`);
+      list.push(`problems2_part${i}_60files/${fname}`);
+      list.push(`problems2_part${i}/${fname}`);
+      list.push(`problem2_part${i}/${fname}`);
+      list.push(`problems_part${i}/${fname}`);
       list.push(`github-upload-batches/problem 2/part${i}/${fname}`);
+
+      // Alt filenames (hyphen vs underscore)
+      list.push(`part${i}/${altFname}`);
       list.push(`images/problem 2/part${i}/${altFname}`);
       list.push(`problem 2/part${i}/${altFname}`);
-      list.push(`part${i}/${altFname}`);
+      list.push(`problems2/part${i}/${altFname}`);
+      list.push(`problem2/part${i}/${altFname}`);
+      list.push(`problem_2_part${i}_92files/${altFname}`);
     }
 
     // Legacy batch folder paths for backward compatibility

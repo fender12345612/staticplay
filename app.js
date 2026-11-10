@@ -1910,26 +1910,135 @@
       `;
 
     } else if (state.selectedLessonTab === 'pdf') {
-      // 3. FULL EMBEDDED PDF VIEWER TAB
+      // 3. FULL EMBEDDED PDF VIEWER TAB (With Smart Fallbacks & 404 Missing Detection)
+      const pdfFileName = data.pdf_file.split('/').pop();
+      const currentFullUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/') + data.pdf_file;
+      const gdocsViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(currentFullUrl)}&embedded=true`;
+
       el.lessonTabContent.innerHTML = `
         <div class="h-full flex flex-col space-y-3">
-          <div class="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-3.5 py-2 rounded-xl text-xs">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-file-pdf text-rose-500 text-sm"></i>
-              <span class="font-bold text-slate-700 dark:text-slate-200">${data.pdf_file.split('/').pop()}</span>
-              <span class="text-slate-400">(${data.pages})</span>
+          <!-- Top PDF Toolbar -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-100 dark:bg-slate-800/90 px-4 py-2.5 rounded-2xl gap-3 border border-slate-200/60 dark:border-slate-700/60 text-xs">
+            <div class="flex items-center gap-2.5">
+              <div class="w-8 h-8 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center text-sm font-bold shrink-0">
+                <i class="fa-solid fa-file-pdf"></i>
+              </div>
+              <div>
+                <p class="font-bold text-slate-800 dark:text-slate-100 font-mono text-xs sm:text-sm truncate max-w-[220px] sm:max-w-none">
+                  ${pdfFileName}
+                </p>
+                <p class="text-[11px] text-slate-400">เนื้อหาตามตำราหลัก Hibbeler 14th Ed. (${data.pages})</p>
+              </div>
             </div>
-            <a href="${data.pdf_file}" download class="clay-btn clay-btn-primary !py-1 !px-3 text-[11px] inline-flex items-center gap-1">
-              <i class="fa-solid fa-download"></i> ดาวน์โหลด PDF
-            </a>
+
+            <!-- PDF Control Actions -->
+            <div class="flex flex-wrap items-center gap-2">
+              <!-- Open Native Full Screen in New Tab -->
+              <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-3 !rounded-xl inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-200">
+                <i class="fa-solid fa-arrow-up-right-from-square text-indigo-500"></i>
+                <span>เปิดอ่านเต็มจอ</span>
+              </a>
+
+              <!-- Google Cloud Docs Viewer Fallback Toggle -->
+              <button id="toggleGDocsBtn" onclick="togglePdfViewerEngine('${gdocsViewerUrl}', '${data.pdf_file}')" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-3 !rounded-xl inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-200">
+                <i class="fa-solid fa-globe text-emerald-500"></i>
+                <span id="toggleGDocsText">ใช้ Cloud Viewer</span>
+              </button>
+
+              <!-- Download Button -->
+              <a href="${data.pdf_file}" download="${pdfFileName}" class="clay-btn clay-btn-primary text-xs !py-1.5 !px-3.5 !rounded-xl inline-flex items-center gap-1.5 shadow-xs">
+                <i class="fa-solid fa-download text-amber-300"></i>
+                <span>ดาวน์โหลด PDF</span>
+              </a>
+            </div>
           </div>
-          <div class="flex-1 min-h-[500px] border-2 border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner bg-slate-900">
-            <iframe src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full h-full min-h-[500px]" frameborder="0"></iframe>
+
+          <!-- Main PDF Viewer Canvas -->
+          <div id="pdfViewerContainer" class="flex-1 min-h-[540px] border-2 border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner bg-slate-900 relative flex flex-col">
+            <object id="pdfObjectTag" data="${data.pdf_file}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[540px]">
+              <iframe id="pdfIframeTag" src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[540px]" frameborder="0">
+                <div class="p-8 text-center text-white">
+                  <p class="mb-2 font-bold">บราวเซอร์ของคุณไม่รองรับการเปิด PDF ภายในแท็บนี้โดยตรง</p>
+                  <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-4 text-xs inline-block">
+                    คลิกที่นี่เพื่อเปิดอ่านเต็มจอในแท็บใหม่
+                  </a>
+                </div>
+              </iframe>
+            </object>
           </div>
         </div>
       `;
+
+      // Smart 404 Missing Detection: Check if file exists on server
+      fetch(data.pdf_file, { method: 'HEAD' })
+        .then(res => {
+          if (res.status === 404) {
+            const container = document.getElementById('pdfViewerContainer');
+            if (container) {
+              container.innerHTML = `
+                <div class="h-full min-h-[520px] flex flex-col items-center justify-center p-6 text-center bg-slate-900 text-white">
+                  <div class="w-16 h-16 rounded-3xl bg-rose-500/20 text-rose-400 border-2 border-rose-500/40 flex items-center justify-center text-3xl mb-4 shadow-lg animate-pulse">
+                    <i class="fa-solid fa-file-circle-xmark"></i>
+                  </div>
+                  <h3 class="font-heading font-bold text-lg sm:text-xl text-white mb-2">
+                    ยังไม่ได้อัปโหลดโฟลเดอร์ pdf_chapters ขึ้น GitHub
+                  </h3>
+                  <p class="text-xs sm:text-sm text-slate-300 max-w-lg mb-6 leading-relaxed">
+                    สาเหตุที่หน้าจอนี้มืด/ว่างเปล่า เพราะใน GitHub Repository ของคุณยังไม่มีไฟล์ <code class="px-2 py-0.5 bg-slate-800 text-amber-300 rounded font-mono">${data.pdf_file}</code>
+                    <br><span class="text-slate-400 text-xs">(บนเครื่อง Drive A เปิดได้ปกติเพราะมีไฟล์อยู่ในเครื่องแล้ว)</span>
+                  </p>
+                  
+                  <div class="p-4 rounded-2xl bg-slate-800/90 border border-slate-700 text-left text-xs max-w-md w-full space-y-2.5 mb-6">
+                    <div class="font-bold text-amber-300 flex items-center gap-1.5 mb-1 text-sm">
+                      <i class="fa-solid fa-cloud-arrow-up"></i> วิธีทำให้เปิดอ่าน PDF ได้บน GitHub:
+                    </div>
+                    <div class="flex items-start gap-2.5 text-slate-200">
+                      <span class="w-5 h-5 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">1</span>
+                      <span>เปิดโฟลเดอร์ <strong>pdf_chapters/</strong> ในเครื่องคอมพิวเตอร์ของคุณ (มีครบ 11 ไฟล์ ขนาดรวม ~35 MB)</span>
+                    </div>
+                    <div class="flex items-start gap-2.5 text-slate-200">
+                      <span class="w-5 h-5 rounded-full bg-brand-500 text-white font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">2</span>
+                      <span>ลากโฟลเดอร์ <strong>pdf_chapters/</strong> ทั้งโฟลเดอร์ไปวางอัปโหลดใน GitHub Repository</span>
+                    </div>
+                  </div>
+
+                  <div class="flex flex-wrap items-center justify-center gap-3">
+                    <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-2.5 !px-4 !rounded-xl inline-flex items-center gap-2">
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i> ลองเปิดอ่านเต็มจอ
+                    </a>
+                    <a href="${data.pdf_file}" download class="clay-btn clay-btn-primary text-xs !py-2.5 !px-4 !rounded-xl inline-flex items-center gap-2">
+                      <i class="fa-solid fa-download"></i> ลองดาวน์โหลดไฟล์
+                    </a>
+                  </div>
+                </div>
+              `;
+            }
+          }
+        })
+        .catch(err => console.log('PDF verification skipped:', err));
     }
   }
+
+  // Helper to toggle between Native PDF Viewer and Google Docs Cloud Viewer
+  window.togglePdfViewerEngine = function(gdocsUrl, nativeUrl) {
+    const container = document.getElementById('pdfViewerContainer');
+    const btnText = document.getElementById('toggleGDocsText');
+    if (!container || !btnText) return;
+
+    if (btnText.textContent.includes('Cloud')) {
+      container.innerHTML = `
+        <iframe src="${gdocsUrl}" class="w-full flex-1 min-h-[540px]" frameborder="0"></iframe>
+      `;
+      btnText.textContent = 'ใช้ Native Viewer';
+    } else {
+      container.innerHTML = `
+        <object data="${nativeUrl}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[540px]">
+          <iframe src="${nativeUrl}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[540px]" frameborder="0"></iframe>
+        </object>
+      `;
+      btnText.textContent = 'ใช้ Cloud Viewer';
+    }
+  };
 
   // Global Helpers for Lessons
 

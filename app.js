@@ -1920,21 +1920,45 @@
       `;
 
     } else if (state.selectedLessonTab === 'pdf') {
-      // 3. FULL EMBEDDED PDF VIEWER TAB (With Smart Fallbacks & 404 Missing Detection)
+      // 3. FULL EMBEDDED PDF VIEWER TAB (With Mobile-First Cloud Viewer & Smart Fallbacks)
       const pdfFileName = data.pdf_file.split('/').pop();
       const currentFullUrl = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/') + data.pdf_file;
-      const gdocsViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(currentFullUrl)}&embedded=true`;
+      const publicPdfUrl = 'https://fender12345612.github.io/staticplay/' + data.pdf_file;
+      const targetUrlForCloud = (window.location.protocol.startsWith('http') && !['localhost', '127.0.0.1'].includes(window.location.hostname)) ? currentFullUrl : publicPdfUrl;
+      const gdocsViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(targetUrlForCloud)}&embedded=true`;
+
+      // Check if user is on phone / mobile screen (< 768px or mobile userAgent)
+      const isMobile = window.innerWidth < 768 || /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      // On phone, default to Cloud Viewer as first choice; on desktop, default to Native Object
+      const initialViewerHtml = isMobile
+        ? `<iframe id="pdfIframeTag" src="${gdocsViewerUrl}" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]" frameborder="0"></iframe>`
+        : `
+          <object id="pdfObjectTag" data="${data.pdf_file}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]">
+            <iframe id="pdfIframeTag" src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]" frameborder="0">
+              <div class="p-6 text-center text-white">
+                <p class="mb-2 font-bold text-xs sm:text-sm">บราวเซอร์ของคุณไม่รองรับการเปิด PDF ภายในแท็บนี้โดยตรง</p>
+                <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-4 text-xs inline-block">
+                  คลิกที่นี่เพื่อเปิดอ่านเต็มจอในแท็บใหม่
+                </a>
+              </div>
+            </iframe>
+          </object>
+        `;
+
+      const initialToggleBtnText = isMobile ? 'Native' : 'Cloud';
+      const initialToggleBtnTitle = isMobile ? 'สลับไปใช้ Native PDF Viewer' : 'สลับไปใช้ Google Cloud Viewer';
 
       el.lessonTabContent.innerHTML = `
         <div class="h-full flex flex-col space-y-3">
           <!-- Mobile Screen Recommended Action Card (Visible on mobile screens) -->
-          <div class="sm:hidden p-3.5 rounded-2xl bg-gradient-to-r from-brand-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-brand-200/80 dark:border-slate-700 text-xs">
-            <div class="flex items-center gap-2 font-bold text-brand-700 dark:text-brand-300 mb-1.5">
-              <i class="fa-solid fa-mobile-screen-button text-sm"></i>
-              <span>แนะนำสำหรับการอ่านบนมือถือ:</span>
+          <div class="sm:hidden p-3 rounded-2xl bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-slate-800 dark:to-slate-800/80 border border-emerald-200/80 dark:border-slate-700 text-xs">
+            <div class="flex items-center gap-2 font-bold text-emerald-700 dark:text-emerald-300 mb-1">
+              <i class="fa-solid fa-cloud-check text-sm text-emerald-500"></i>
+              <span>แสดงผลผ่าน Cloud Viewer อัตโนมัติ (เหมาะกับมือถือ)</span>
             </div>
-            <p class="text-slate-600 dark:text-slate-300 text-[11px] mb-2.5 leading-relaxed">
-              สำหรับสมาร์ทโฟน แนะนำให้กด <strong>"เปิดอ่านเต็มจอ"</strong> เพื่อเปิดด้วย PDF Viewer ของมือถือ ซึ่งจะรองรับการซูมและเลื่อนหน้าได้ลื่นไหลที่สุดครับ
+            <p class="text-slate-600 dark:text-slate-300 text-[11px] mb-2 leading-relaxed">
+              สำหรับโทรศัพท์มือถือ ระบบเปิดผ่าน Google Cloud Viewer ให้อัตโนมัติ หรือแตะ <strong>"อ่านเต็มจอ"</strong> เพื่อเปิดด้วยแอปอ่าน PDF ของเครื่องได้ครับ
             </p>
             <div class="grid grid-cols-2 gap-2">
               <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-3 text-xs font-bold inline-flex items-center justify-center gap-1.5 shadow-xs">
@@ -1965,19 +1989,19 @@
             <!-- PDF Control Actions -->
             <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <!-- Open Native Full Screen in New Tab -->
-              <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-2.5 sm:!px-3 !rounded-xl inline-flex items-center gap-1 text-slate-700 dark:text-slate-200">
+              <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-2.5 sm:!px-3 !rounded-xl inline-flex items-center gap-1 text-slate-700 dark:text-slate-200" title="เปิดอ่านเต็มจอในแท็บใหม่">
                 <i class="fa-solid fa-arrow-up-right-from-square text-indigo-500"></i>
                 <span>เต็มจอ</span>
               </a>
 
               <!-- Google Cloud Docs Viewer Fallback Toggle -->
-              <button id="toggleGDocsBtn" onclick="togglePdfViewerEngine('${gdocsViewerUrl}', '${data.pdf_file}')" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-2.5 sm:!px-3 !rounded-xl inline-flex items-center gap-1 text-slate-700 dark:text-slate-200">
-                <i class="fa-solid fa-globe text-emerald-500"></i>
-                <span id="toggleGDocsText">Cloud</span>
+              <button id="toggleGDocsBtn" onclick="togglePdfViewerEngine('${gdocsViewerUrl}', '${data.pdf_file}')" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-2.5 sm:!px-3 !rounded-xl inline-flex items-center gap-1 text-slate-700 dark:text-slate-200" title="${initialToggleBtnTitle}">
+                <i class="fa-solid fa-repeat text-emerald-500"></i>
+                <span id="toggleGDocsText">${initialToggleBtnText}</span>
               </button>
 
               <!-- Download Button -->
-              <a href="${data.pdf_file}" download="${pdfFileName}" class="clay-btn clay-btn-primary text-xs !py-1.5 !px-3 sm:!px-3.5 !rounded-xl inline-flex items-center gap-1 shadow-xs">
+              <a href="${data.pdf_file}" download="${pdfFileName}" class="clay-btn clay-btn-primary text-xs !py-1.5 !px-3 sm:!px-3.5 !rounded-xl inline-flex items-center gap-1 shadow-xs" title="ดาวน์โหลดไฟล์ PDF เก็บไว้">
                 <i class="fa-solid fa-download text-amber-300"></i>
                 <span>ดาวน์โหลด</span>
               </a>
@@ -1986,16 +2010,7 @@
 
           <!-- Main PDF Viewer Canvas -->
           <div id="pdfViewerContainer" class="flex-1 min-h-[360px] sm:min-h-[540px] border-2 border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner bg-slate-900 relative flex flex-col">
-            <object id="pdfObjectTag" data="${data.pdf_file}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]">
-              <iframe id="pdfIframeTag" src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]" frameborder="0">
-                <div class="p-6 text-center text-white">
-                  <p class="mb-2 font-bold text-xs sm:text-sm">บราวเซอร์ของคุณไม่รองรับการเปิด PDF ภายในแท็บนี้โดยตรง</p>
-                  <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-4 text-xs inline-block">
-                    คลิกที่นี่เพื่อเปิดอ่านเต็มจอในแท็บใหม่
-                  </a>
-                </div>
-              </iframe>
-            </object>
+            ${initialViewerHtml}
           </div>
         </div>
       `;
@@ -2054,20 +2069,34 @@
   window.togglePdfViewerEngine = function(gdocsUrl, nativeUrl) {
     const container = document.getElementById('pdfViewerContainer');
     const btnText = document.getElementById('toggleGDocsText');
+    const btn = document.getElementById('toggleGDocsBtn');
     if (!container || !btnText) return;
 
-    if (btnText.textContent.includes('Cloud')) {
+    const isCurrentlyNative = !!container.querySelector('object');
+
+    if (isCurrentlyNative) {
+      // Switch to Cloud Viewer
       container.innerHTML = `
-        <iframe src="${gdocsUrl}" class="w-full flex-1 min-h-[540px]" frameborder="0"></iframe>
+        <iframe id="pdfIframeTag" src="${gdocsUrl}" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]" frameborder="0"></iframe>
       `;
-      btnText.textContent = 'ใช้ Native Viewer';
+      btnText.textContent = 'Native';
+      if (btn) btn.title = 'สลับกลับเป็น Native PDF Viewer';
     } else {
+      // Switch to Native Viewer
       container.innerHTML = `
-        <object data="${nativeUrl}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[540px]">
-          <iframe src="${nativeUrl}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[540px]" frameborder="0"></iframe>
+        <object id="pdfObjectTag" data="${nativeUrl}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]">
+          <iframe id="pdfIframeTag" src="${nativeUrl}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]" frameborder="0">
+            <div class="p-6 text-center text-white">
+              <p class="mb-2 font-bold text-xs sm:text-sm">บราวเซอร์ของคุณไม่รองรับการเปิด PDF ภายในแท็บนี้โดยตรง</p>
+              <a href="${nativeUrl}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-4 text-xs inline-block">
+                คลิกที่นี่เพื่อเปิดอ่านเต็มจอในแท็บใหม่
+              </a>
+            </div>
+          </iframe>
         </object>
       `;
-      btnText.textContent = 'ใช้ Cloud Viewer';
+      btnText.textContent = 'Cloud';
+      if (btn) btn.title = 'สลับไปใช้ Google Cloud Viewer';
     }
   };
 

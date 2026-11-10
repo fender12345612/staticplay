@@ -1353,7 +1353,8 @@
     "pdf_file": "pdf_chapters/Chapter_06_Structural_Analysis.pdf",
     "review_sheets": [
       "images/lesson_reviews/ch_06_review_p1.webp",
-      "images/lesson_reviews/ch_06_review_p2.webp"
+      "images/lesson_reviews/ch_06_review_p2.webp",
+      "images/lesson_reviews/ch_06_review_p3.webp"
     ],
     "overview": "การวิเคราะห์โครงถักระนาบ (Simple Trusses) วิธีพิจารณาข้อต่อ (Method of Joints) ชิ้นส่วนที่มีแรงเป็นศูนย์ (Zero-Force Members) วิธีตัดหน้าตัด (Method of Sections) โครงสร้างสามมิติ (Space Trusses) และการวิเคราะห์โครงเฟรม (Frames) และเครื่องกล (Machines)",
     "topics": [
@@ -1394,7 +1395,8 @@
     "pdf_file": "pdf_chapters/Chapter_07_Internal_Forces.pdf",
     "review_sheets": [
       "images/lesson_reviews/ch_07_review_p1.webp",
-      "images/lesson_reviews/ch_07_review_p2.webp"
+      "images/lesson_reviews/ch_07_review_p2.webp",
+      "images/lesson_reviews/ch_07_review_p3.webp"
     ],
     "overview": "แรงภายในที่เกิดขึ้นในชิ้นส่วนโครงสร้าง: แรงในแนวแกน (Axial Force N) แรงเฉือน (Shear Force V) และโมเมนต์ดัด (Bending Moment M) การเขียนฟังก์ชันแรงเฉือนและโมเมนต์ดัด แผนภาพแรงเฉือนและโมเมนต์ดัด (SFD & BMD) ความสัมพันธ์เชิงอนุพันธ์ และการวิเคราะห์สายเคเบิลรับแรง",
     "topics": [
@@ -1487,7 +1489,8 @@
     "pdf_file": "pdf_chapters/Chapter_09_Center_of_Gravity_and_Centroid.pdf",
     "review_sheets": [
       "images/lesson_reviews/ch_09_review_p1.webp",
-      "images/lesson_reviews/ch_09_review_p2.webp"
+      "images/lesson_reviews/ch_09_review_p2.webp",
+      "images/lesson_reviews/ch_09_review_p3.webp"
     ],
     "overview": "จุดศูนย์ถ่วงของวัตถุ (Center of Gravity) จุดศูนย์กลางมวล (Center of Mass) เซนทรอยด์ของเส้น พื้นที่ และปริมาตร (Centroid) การอินทิเกรตหาเซนทรอยด์ รูปร่างประกอบ (Composite Bodies) ทฤษฎีบทของพัปพัส-กูลดินัส (Pappus-Guldinus Theorems) และแรงดันของของไหลสถิตบนพื้นผิว (Hydrostatic Pressure)",
     "topics": [

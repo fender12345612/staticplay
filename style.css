@@ -404,3 +404,65 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 2px solid rgba(255, 255, 255, 0.08);
 }
+
+/* ==========================================================================
+   Mobile-First & Touch Device Enhancements
+   ========================================================================== */
+@media (max-width: 640px) {
+  /* Prevent horizontal stretch & accidental zoom jitter */
+  body {
+    -webkit-tap-highlight-color: transparent;
+    padding-bottom: 5.5rem; /* Room for bottom navigation dock */
+  }
+
+  /* Compact Clay Cards on small screens */
+  .clay-card {
+    border-radius: 20px;
+    border-width: 2px;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+  }
+
+  /* Compact header height on mobile */
+  .clay-header {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  /* KaTeX Math scroll container on mobile */
+  .katex-display {
+    margin: 0.4rem 0 !important;
+    padding: 0.35rem 0.25rem !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+
+  /* Smooth pinch-zoom ready image wrapper */
+  .img-zoom-wrapper {
+    touch-action: manipulation;
+  }
+
+  /* Full screen touch modals */
+  #lessonsModal > div,
+  #cheatsheetModal > div {
+    max-height: 94vh !important;
+    height: 94vh !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* Hide scrollbar utility for sleek horizontal chips */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Safe area inset for modern iPhones / Android edge-to-edge */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-bottom-dock {
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+  }
+}
+

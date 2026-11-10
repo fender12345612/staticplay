@@ -2,7 +2,10 @@
 <html lang="th" class="h-full">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#4f46e5">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>StaticsPlay 🚀 แพลตฟอร์มสุ่มโจทย์สถิตยศาสตร์วิศวกรรม | Playful Statics Practice</title>
   
   <!-- Google Fonts: Fredoka (Playful Heading), Nunito (Soft Body), Prompt (Thai), Fira Code (Math) -->
@@ -97,30 +100,29 @@
       </nav>
 
       <!-- Utility Actions -->
-      <div class="flex items-center gap-2 sm:gap-3">
+      <div class="flex items-center gap-1.5 sm:gap-3">
         <!-- Lesson Materials & PDF Viewer Button -->
-        <button id="lessonsBtn" title="เอกสารประกอบการเรียนและสรุปแยกบท 1-11" class="clay-btn clay-btn-primary text-xs !py-2 !px-3.5 !rounded-xl shadow-xs">
+        <button id="lessonsBtn" title="เอกสารประกอบการเรียนและสรุปแยกบท 1-11" class="clay-btn clay-btn-primary text-xs !py-1.5 sm:!py-2 !px-2.5 sm:!px-3.5 !rounded-xl shadow-xs">
           <i class="fa-solid fa-book-bookmark text-amber-300"></i>
-          <span class="font-bold">ดูบทเรียน (1-11)</span>
+          <span class="font-bold hidden sm:inline">ดูบทเรียน (1-11)</span>
+          <span class="font-bold sm:hidden">บทเรียน</span>
         </button>
 
         <!-- Cheatsheet Button -->
-        <button id="cheatsheetBtn" title="สูตรคณิตศาสตร์แท้ๆ ประจำบท" class="clay-btn clay-btn-amber text-xs !py-2 !px-3.5 !rounded-xl">
+        <button id="cheatsheetBtn" title="สูตรคณิตศาสตร์แท้ๆ ประจำบท" class="clay-btn clay-btn-amber text-xs !py-1.5 sm:!py-2 !px-2.5 sm:!px-3.5 !rounded-xl">
           <i class="fa-solid fa-square-root-variable text-sm"></i>
           <span class="hidden sm:inline">สูตรคำนวณ</span>
         </button>
 
-
-
-        <!-- Start Practice Quick CTA -->
-        <a href="#practice" class="clay-btn clay-btn-primary text-xs !py-2 !px-4 !rounded-xl shadow-xs">
+        <!-- Start Practice Quick CTA (Desktop Only) -->
+        <a href="#practice" class="hidden md:inline-flex clay-btn clay-btn-primary text-xs !py-2 !px-4 !rounded-xl shadow-xs">
           <i class="fa-solid fa-bolt text-amber-300"></i>
           <span>เริ่มสุ่มโจทย์</span>
         </a>
 
         <!-- Dark/Light Theme Toggle -->
-        <button id="themeToggleBtn" title="สลับโหมดมืด/สว่าง" class="clay-btn clay-btn-secondary !p-2.5 !rounded-xl text-slate-600 dark:text-slate-200">
-          <i id="themeToggleIcon" class="fa-solid fa-sun text-amber-500 text-base"></i>
+        <button id="themeToggleBtn" title="สลับโหมดมืด/สว่าง" class="clay-btn clay-btn-secondary !p-2 sm:!p-2.5 !rounded-xl text-slate-600 dark:text-slate-200">
+          <i id="themeToggleIcon" class="fa-solid fa-sun text-amber-500 text-sm sm:text-base"></i>
         </button>
       </div>
 
@@ -265,17 +267,17 @@
           <span class="text-xs font-bold text-slate-600 dark:text-slate-400 min-w-[90px]">
             ระดับความยาก:
           </span>
-          <div class="flex flex-wrap items-center gap-2">
-            <button id="diffAllBtn" class="clay-btn clay-btn-secondary !py-1.5 !px-3.5 !rounded-xl text-xs">
+          <div class="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 w-full sm:w-auto">
+            <button id="diffAllBtn" class="clay-btn clay-btn-secondary !py-2 sm:!py-1.5 !px-3 sm:!px-3.5 !rounded-xl text-xs text-center justify-center">
               ทั้งหมด (<span id="countAll">1,020</span>)
             </button>
-            <button id="diffEasyBtn" class="clay-btn clay-badge-easy !py-1.5 !px-3.5 !rounded-xl text-xs">
+            <button id="diffEasyBtn" class="clay-btn clay-badge-easy !py-2 sm:!py-1.5 !px-3 sm:!px-3.5 !rounded-xl text-xs text-center justify-center">
               🟢 ง่าย (<span id="countEasy">100</span>)
             </button>
-            <button id="diffMediumBtn" class="clay-btn clay-badge-medium !py-1.5 !px-3.5 !rounded-xl text-xs">
+            <button id="diffMediumBtn" class="clay-btn clay-badge-medium !py-2 sm:!py-1.5 !px-3 sm:!px-3.5 !rounded-xl text-xs text-center justify-center">
               🟡 ปานกลาง (<span id="countMedium">95</span>)
             </button>
-            <button id="diffHardBtn" class="clay-btn clay-badge-hard !py-1.5 !px-3.5 !rounded-xl text-xs">
+            <button id="diffHardBtn" class="clay-btn clay-badge-hard !py-2 sm:!py-1.5 !px-3 sm:!px-3.5 !rounded-xl text-xs text-center justify-center">
               🔴 ยาก (<span id="countHard">90</span>)
             </button>
           </div>
@@ -843,38 +845,38 @@
     <!-- ========================================================================
        LESSONS & CHAPTER PDF VIEWER MODAL (บทที่ 1 ถึง 11 แบบละเอียด)
        ======================================================================== -->
-  <div id="lessonsModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md items-center justify-center p-2 sm:p-4">
-    <div class="clay-card !bg-white dark:!bg-slate-900 max-w-6xl w-full h-[92vh] max-h-[92vh] overflow-hidden flex flex-col border-2 border-white/80 dark:border-slate-800 shadow-2xl rounded-3xl">
+  <div id="lessonsModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md items-center justify-center p-1.5 sm:p-4">
+    <div class="clay-card !bg-white dark:!bg-slate-900 max-w-6xl w-full h-[95vh] max-h-[95vh] overflow-hidden flex flex-col border-2 border-white/80 dark:border-slate-800 shadow-2xl rounded-2xl sm:rounded-3xl">
       
       <!-- Modal Header -->
-      <div class="px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/70 shrink-0">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-brand-600 text-white flex items-center justify-center text-lg shadow-sm">
+      <div class="px-3.5 sm:px-5 py-2.5 sm:py-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/70 shrink-0">
+        <div class="flex items-center gap-2.5 sm:gap-3 overflow-hidden">
+          <div class="w-8 sm:w-10 h-8 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br from-indigo-500 to-brand-600 text-white flex items-center justify-center text-sm sm:text-lg shadow-sm shrink-0">
             <i class="fa-solid fa-book-bookmark"></i>
           </div>
-          <div>
+          <div class="truncate">
             <div class="flex items-center gap-2">
-              <h3 class="font-heading font-bold text-base sm:text-lg text-slate-900 dark:text-white">คลังเอกสารบทเรียนและสรุปสถิตยศาสตร์ (Hibbeler 14th Ed.)</h3>
-              <span class="px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300 text-[10px] font-bold">11 บทเต็ม</span>
+              <h3 class="font-heading font-bold text-sm sm:text-lg text-slate-900 dark:text-white truncate">คลังเอกสารและสรุปสถิตยศาสตร์</h3>
+              <span class="px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300 text-[10px] font-bold shrink-0">11 บท</span>
             </div>
-            <p class="text-xs text-slate-500 dark:text-slate-400">อ่านสรุปสูตร แผ่นบทเรียนจากตำราจริง และส่งออกไฟล์ PDF แยกบทเรียน (A4) ได้ครบทุกบท</p>
+            <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 hidden sm:block truncate">อ่านสรุปสูตร แผ่นบทเรียนจากตำราจริง และอ่าน PDF แยกบทเรียน (A4) ครบทุกบท</p>
           </div>
         </div>
-        <button id="closeLessonsBtn" class="clay-btn clay-btn-secondary !p-2 !rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
-          <i class="fa-solid fa-xmark text-lg"></i>
+        <button id="closeLessonsBtn" class="clay-btn clay-btn-secondary !p-1.5 sm:!p-2 !rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 shrink-0 ml-2">
+          <i class="fa-solid fa-xmark text-base sm:text-lg"></i>
         </button>
       </div>
 
-      <!-- Modal Body (Two-Column Layout: Sidebar for Chapters + Main Content Area) -->
+      <!-- Modal Body (Two-Column Layout: Swipeable Horizontal Bar on mobile / Vertical Sidebar on desktop) -->
       <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
         
         <!-- Sidebar Chapter Selector -->
-        <div class="w-full md:w-72 lg:w-80 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 flex flex-col overflow-hidden shrink-0">
-          <div class="p-3 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
-            <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">เลือกบทเรียน (1 - 11)</p>
+        <div class="w-full md:w-72 lg:w-80 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/60 flex flex-col shrink-0">
+          <div class="px-3 py-1.5 sm:p-3 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
+            <p class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400">เลือกบทเรียน (1 - 11)</p>
             <span class="text-[10px] text-brand-600 dark:text-brand-400 font-bold">1,020 ข้อในระบบ</span>
           </div>
-          <div id="lessonChapterList" class="flex-1 overflow-y-auto p-2 space-y-1.5 flex md:flex-col flex-row overflow-x-auto">
+          <div id="lessonChapterList" class="flex flex-row md:flex-col overflow-x-auto md:overflow-y-auto p-1.5 sm:p-2 gap-1.5 scrollbar-none shrink-0">
             <!-- Populated dynamically by app.js -->
           </div>
         </div>
@@ -883,21 +885,21 @@
         <div class="flex-1 flex flex-col overflow-hidden bg-white dark:bg-slate-900">
           
           <!-- Chapter Overview & Action Bar -->
-          <div id="lessonHeaderBar" class="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-800/40 shrink-0">
+          <div id="lessonHeaderBar" class="p-3 sm:p-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-800/40 shrink-0">
             <!-- Populated dynamically -->
           </div>
 
           <!-- Lesson Tabs (Formulas & Concepts / Chapter Review Sheets / Full PDF Reader) -->
-          <div class="px-5 pt-2 border-b border-slate-200 dark:border-slate-800 flex gap-2 overflow-x-auto shrink-0 bg-white dark:bg-slate-900">
-            <button id="tabLessonFormulas" class="lesson-tab active px-4 py-2 border-b-2 border-brand-500 font-bold text-xs sm:text-sm text-brand-600 dark:text-brand-400 flex items-center gap-2">
+          <div class="px-3 sm:px-5 pt-1.5 sm:pt-2 border-b border-slate-200 dark:border-slate-800 flex gap-1.5 sm:gap-2 overflow-x-auto shrink-0 bg-white dark:bg-slate-900 scrollbar-none">
+            <button id="tabLessonFormulas" class="lesson-tab active px-3 sm:px-4 py-2 border-b-2 border-brand-500 font-bold text-xs sm:text-sm text-brand-600 dark:text-brand-400 flex items-center gap-1.5 shrink-0 whitespace-nowrap">
               <i class="fa-solid fa-square-root-variable"></i>
               <span>สรุปสูตร & หลักการ</span>
             </button>
-            <button id="tabLessonReviewSheets" class="lesson-tab px-4 py-2 border-b-2 border-transparent font-medium text-xs sm:text-sm text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2">
+            <button id="tabLessonReviewSheets" class="lesson-tab px-3 sm:px-4 py-2 border-b-2 border-transparent font-medium text-xs sm:text-sm text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-1.5 shrink-0 whitespace-nowrap">
               <i class="fa-solid fa-images"></i>
               <span>แผ่นสรุปท้ายบทจากตำรา</span>
             </button>
-            <button id="tabLessonPdfReader" class="lesson-tab px-4 py-2 border-b-2 border-transparent font-medium text-xs sm:text-sm text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2">
+            <button id="tabLessonPdfReader" class="lesson-tab px-3 sm:px-4 py-2 border-b-2 border-transparent font-medium text-xs sm:text-sm text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-1.5 shrink-0 whitespace-nowrap">
               <i class="fa-solid fa-file-pdf"></i>
               <span>เปิดอ่าน PDF ในเว็บ</span>
             </button>
@@ -1102,6 +1104,39 @@
     </div>
   </div>
 
+  <!-- ========================================================================
+       MOBILE FLOATING BOTTOM DOCK (แถบควบคุมลอยสำหรับมือถือ เข้าถึงง่ายด้วยนิ้วโป้ง)
+       ======================================================================== -->
+  <aside class="sm:hidden fixed bottom-0 left-0 right-0 z-40 px-3 py-1.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200/80 dark:border-slate-800 shadow-[0_-8px_25px_rgba(0,0,0,0.12)] mobile-bottom-dock">
+    <div class="max-w-md mx-auto grid grid-cols-4 items-center gap-1.5 text-center">
+      
+      <!-- 1. Lessons Modal -->
+      <button id="mobileLessonsBtn" class="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 active:scale-95 transition-all">
+        <i class="fa-solid fa-book-open text-base text-amber-500"></i>
+        <span class="text-[10px] font-heading font-bold mt-0.5">บทเรียน</span>
+      </button>
+
+      <!-- 2. Primary Random Button (Center Highlighted) -->
+      <button id="mobileRandomBtn" class="flex flex-col items-center justify-center py-1.5 px-1 rounded-2xl bg-gradient-to-r from-brand-600 to-indigo-600 text-white shadow-md active:scale-95 transition-all">
+        <i class="fa-solid fa-dice text-lg text-amber-300"></i>
+        <span class="text-[10px] font-heading font-extrabold mt-0.5">สุ่มข้อใหม่</span>
+      </button>
+
+      <!-- 3. Toggle Solution -->
+      <button id="mobileSolutionBtn" class="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 active:scale-95 transition-all">
+        <i class="fa-solid fa-lightbulb text-base text-emerald-500"></i>
+        <span class="text-[10px] font-heading font-bold mt-0.5">ดูเฉลย</span>
+      </button>
+
+      <!-- 4. Formulas / Cheatsheet -->
+      <button id="mobileCheatsheetBtn" class="flex flex-col items-center justify-center py-1 px-1 rounded-xl text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 active:scale-95 transition-all">
+        <i class="fa-solid fa-square-root-variable text-base text-indigo-500"></i>
+        <span class="text-[10px] font-heading font-bold mt-0.5">สูตรคำนวณ</span>
+      </button>
+
+    </div>
+  </aside>
+
   <!-- FOOTER -->
   <footer class="mt-auto py-8 border-t border-slate-200/80 dark:border-slate-800 text-center text-xs text-slate-500">
     <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -1115,10 +1150,10 @@
   </footer>
 
   <!-- Lessons Data Script -->
-  <script src="data/lessons.js?v=4.7"></script>
+  <script src="data/lessons.js?v=4.8"></script>
   <!-- Problem Data Script (Runs locally offline without CORS restrictions) -->
-  <script src="data/problems.js?v=4.7"></script>
+  <script src="data/problems.js?v=4.8"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=4.7"></script>
+  <script src="app.js?v=4.8"></script>
 </body>
 </html>

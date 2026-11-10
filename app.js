@@ -75,6 +75,10 @@
     bookmarkBtn: document.getElementById('bookmarkBtn'),
     bookmarkIcon: document.getElementById('bookmarkIcon'),
     copyBtn: document.getElementById('copyBtn'),
+    mobileRandomBtn: document.getElementById('mobileRandomBtn'),
+    mobileSolutionBtn: document.getElementById('mobileSolutionBtn'),
+    mobileLessonsBtn: document.getElementById('mobileLessonsBtn'),
+    mobileCheatsheetBtn: document.getElementById('mobileCheatsheetBtn'),
     
     // Filters
     diffAllBtn: document.getElementById('diffAllBtn'),
@@ -1683,25 +1687,25 @@
 
       const isSelected = ch === state.selectedLessonChapter;
       const item = document.createElement('button');
-      item.className = `w-full text-left p-3 rounded-2xl transition-all flex items-center justify-between border-2 select-none ${
+      item.className = `w-auto md:w-full min-w-[125px] sm:min-w-[145px] md:min-w-0 shrink-0 text-left p-2 sm:p-2.5 md:p-3 rounded-xl sm:rounded-2xl transition-all flex items-center justify-between border-2 select-none ${
         isSelected
           ? 'bg-gradient-to-r from-indigo-600 to-brand-600 text-white border-brand-400 shadow-md scale-[1.02]'
           : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200/60 dark:border-slate-700/60 hover:bg-slate-100 dark:hover:bg-slate-750'
       }`;
 
       item.innerHTML = `
-        <div class="flex items-center gap-2.5 overflow-hidden">
-          <div class="w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${
+        <div class="flex items-center gap-2 overflow-hidden">
+          <div class="w-6 sm:w-7 h-6 sm:h-7 rounded-lg sm:rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${
             isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-700 text-brand-600 dark:text-brand-400'
           }">
             ${ch}
           </div>
           <div class="truncate">
             <p class="font-heading font-bold text-xs truncate">${data.title_th}</p>
-            <p class="text-[10px] ${isSelected ? 'text-indigo-100' : 'text-slate-400'} truncate">${data.title_en}</p>
+            <p class="text-[10px] ${isSelected ? 'text-indigo-100' : 'text-slate-400'} truncate hidden sm:block">${data.title_en}</p>
           </div>
         </div>
-        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold shrink-0 ml-1.5 ${
+        <span class="px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-bold shrink-0 ml-1 ${
           isSelected ? 'bg-white/20 text-white' : 'bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-300'
         }">${data.total_problems} ข้อ</span>
       `;
@@ -1713,6 +1717,9 @@
       });
 
       el.lessonChapterList.appendChild(item);
+      if (isSelected && window.innerWidth < 768) {
+        setTimeout(() => item.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }), 50);
+      }
     }
   }
 
@@ -1920,48 +1927,69 @@
 
       el.lessonTabContent.innerHTML = `
         <div class="h-full flex flex-col space-y-3">
+          <!-- Mobile Screen Recommended Action Card (Visible on mobile screens) -->
+          <div class="sm:hidden p-3.5 rounded-2xl bg-gradient-to-r from-brand-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800/80 border border-brand-200/80 dark:border-slate-700 text-xs">
+            <div class="flex items-center gap-2 font-bold text-brand-700 dark:text-brand-300 mb-1.5">
+              <i class="fa-solid fa-mobile-screen-button text-sm"></i>
+              <span>แนะนำสำหรับการอ่านบนมือถือ:</span>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 text-[11px] mb-2.5 leading-relaxed">
+              สำหรับสมาร์ทโฟน แนะนำให้กด <strong>"เปิดอ่านเต็มจอ"</strong> เพื่อเปิดด้วย PDF Viewer ของมือถือ ซึ่งจะรองรับการซูมและเลื่อนหน้าได้ลื่นไหลที่สุดครับ
+            </p>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-3 text-xs font-bold inline-flex items-center justify-center gap-1.5 shadow-xs">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <span>อ่านเต็มจอ</span>
+              </a>
+              <button onclick="switchLessonTab('review')" class="clay-btn clay-btn-secondary !py-2 !px-3 text-xs font-bold inline-flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-images text-brand-500"></i>
+                <span>ดูภาพสรุปย่อ</span>
+              </button>
+            </div>
+          </div>
+
           <!-- Top PDF Toolbar -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-100 dark:bg-slate-800/90 px-4 py-2.5 rounded-2xl gap-3 border border-slate-200/60 dark:border-slate-700/60 text-xs">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-slate-100 dark:bg-slate-800/90 px-3 sm:px-4 py-2 sm:py-2.5 rounded-2xl gap-2.5 border border-slate-200/60 dark:border-slate-700/60 text-xs">
             <div class="flex items-center gap-2.5">
               <div class="w-8 h-8 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-file-pdf"></i>
               </div>
-              <div>
-                <p class="font-bold text-slate-800 dark:text-slate-100 font-mono text-xs sm:text-sm truncate max-w-[220px] sm:max-w-none">
+              <div class="truncate">
+                <p class="font-bold text-slate-800 dark:text-slate-100 font-mono text-xs sm:text-sm truncate max-w-[200px] sm:max-w-none">
                   ${pdfFileName}
                 </p>
-                <p class="text-[11px] text-slate-400">เนื้อหาตามตำราหลัก Hibbeler 14th Ed. (${data.pages})</p>
+                <p class="text-[11px] text-slate-400">เนื้อหาตำรา Hibbeler 14th Ed. (${data.pages})</p>
               </div>
             </div>
 
             <!-- PDF Control Actions -->
-            <div class="flex flex-wrap items-center gap-2">
+            <div class="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <!-- Open Native Full Screen in New Tab -->
-              <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-3 !rounded-xl inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-200">
+              <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-2.5 sm:!px-3 !rounded-xl inline-flex items-center gap-1 text-slate-700 dark:text-slate-200">
                 <i class="fa-solid fa-arrow-up-right-from-square text-indigo-500"></i>
-                <span>เปิดอ่านเต็มจอ</span>
+                <span>เต็มจอ</span>
               </a>
 
               <!-- Google Cloud Docs Viewer Fallback Toggle -->
-              <button id="toggleGDocsBtn" onclick="togglePdfViewerEngine('${gdocsViewerUrl}', '${data.pdf_file}')" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-3 !rounded-xl inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-200">
+              <button id="toggleGDocsBtn" onclick="togglePdfViewerEngine('${gdocsViewerUrl}', '${data.pdf_file}')" class="clay-btn clay-btn-secondary text-xs !py-1.5 !px-2.5 sm:!px-3 !rounded-xl inline-flex items-center gap-1 text-slate-700 dark:text-slate-200">
                 <i class="fa-solid fa-globe text-emerald-500"></i>
-                <span id="toggleGDocsText">ใช้ Cloud Viewer</span>
+                <span id="toggleGDocsText">Cloud</span>
               </button>
 
               <!-- Download Button -->
-              <a href="${data.pdf_file}" download="${pdfFileName}" class="clay-btn clay-btn-primary text-xs !py-1.5 !px-3.5 !rounded-xl inline-flex items-center gap-1.5 shadow-xs">
+              <a href="${data.pdf_file}" download="${pdfFileName}" class="clay-btn clay-btn-primary text-xs !py-1.5 !px-3 sm:!px-3.5 !rounded-xl inline-flex items-center gap-1 shadow-xs">
                 <i class="fa-solid fa-download text-amber-300"></i>
-                <span>ดาวน์โหลด PDF</span>
+                <span>ดาวน์โหลด</span>
               </a>
             </div>
           </div>
 
           <!-- Main PDF Viewer Canvas -->
-          <div id="pdfViewerContainer" class="flex-1 min-h-[540px] border-2 border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner bg-slate-900 relative flex flex-col">
-            <object id="pdfObjectTag" data="${data.pdf_file}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[540px]">
-              <iframe id="pdfIframeTag" src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[540px]" frameborder="0">
-                <div class="p-8 text-center text-white">
-                  <p class="mb-2 font-bold">บราวเซอร์ของคุณไม่รองรับการเปิด PDF ภายในแท็บนี้โดยตรง</p>
+          <div id="pdfViewerContainer" class="flex-1 min-h-[360px] sm:min-h-[540px] border-2 border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner bg-slate-900 relative flex flex-col">
+            <object id="pdfObjectTag" data="${data.pdf_file}#toolbar=1&navpanes=0" type="application/pdf" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]">
+              <iframe id="pdfIframeTag" src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full flex-1 min-h-[360px] sm:min-h-[540px]" frameborder="0">
+                <div class="p-6 text-center text-white">
+                  <p class="mb-2 font-bold text-xs sm:text-sm">บราวเซอร์ของคุณไม่รองรับการเปิด PDF ภายในแท็บนี้โดยตรง</p>
                   <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-primary !py-2 !px-4 text-xs inline-block">
                     คลิกที่นี่เพื่อเปิดอ่านเต็มจอในแท็บใหม่
                   </a>
@@ -2077,6 +2105,23 @@
         state.filters.chapters = [];
         renderChapterFilters();
         applyFilters();
+      });
+    }
+
+    // Mobile Bottom Dock Event Listeners
+    if (el.mobileRandomBtn) {
+      el.mobileRandomBtn.addEventListener('click', () => {
+        getRandomProblem();
+        const card = document.getElementById('problemCard');
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+    if (el.mobileSolutionBtn) el.mobileSolutionBtn.addEventListener('click', toggleSolution);
+    if (el.mobileLessonsBtn) el.mobileLessonsBtn.addEventListener('click', () => openLessonsModal(state.filters.chapters[0] || 1));
+    if (el.mobileCheatsheetBtn && el.cheatsheetModal) {
+      el.mobileCheatsheetBtn.addEventListener('click', () => {
+        el.cheatsheetModal.classList.remove('hidden');
+        renderMath(el.cheatsheetContent);
       });
     }
 

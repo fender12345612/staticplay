@@ -16,6 +16,8 @@
     isSolutionVisible: false,
     history: [],
     historyIndex: -1,
+    selectedLessonChapter: 1,
+    selectedLessonTab: 'formulas',
     bookmarks: new Set(JSON.parse(localStorage.getItem('statics_bookmarks') || '[]')),
     filters: {
       difficulty: 'all',
@@ -90,6 +92,17 @@
     cheatsheetContent: document.getElementById('cheatsheetContent'),
     cheatsheetBtn: document.getElementById('cheatsheetBtn'),
     closeCheatsheetBtn: document.getElementById('closeCheatsheetBtn'),
+
+    // Lesson Viewer Elements
+    lessonsBtn: document.getElementById('lessonsBtn'),
+    lessonsModal: document.getElementById('lessonsModal'),
+    closeLessonsBtn: document.getElementById('closeLessonsBtn'),
+    lessonChapterList: document.getElementById('lessonChapterList'),
+    lessonHeaderBar: document.getElementById('lessonHeaderBar'),
+    lessonTabContent: document.getElementById('lessonTabContent'),
+    tabLessonFormulas: document.getElementById('tabLessonFormulas'),
+    tabLessonReviewSheets: document.getElementById('tabLessonReviewSheets'),
+    tabLessonPdfReader: document.getElementById('tabLessonPdfReader'),
     shortcutsModal: document.getElementById('shortcutsModal'),
     shortcutsBtn: document.getElementById('shortcutsBtn'),
     closeShortcutsBtn: document.getElementById('closeShortcutsBtn'),
@@ -121,6 +134,7 @@
             { left: '$$', right: '$$', display: true },
             { left: '$', right: '$', display: false },
             { left: '\\(', right: '\\)', display: false },
+            { left: '\\\\[', right: '\\\\]', display: true },
             { left: '\\[', right: '\\]', display: true }
           ],
           throwOnError: false
@@ -136,14 +150,24 @@
     loadTheme();
     setupEventListeners();
 
-    if (window.STATICS_DATA) {
-      loadData(window.STATICS_DATA);
-    } else {
-      try {
-        const resp = await fetch('data/problems.json?v=3.0');
-        const data = await resp.json();
-        loadData(data);
-      } catch (err) {
+    detectImageStructure();
+
+    const inlineData = window.PROBLEMS_DATA || window.STATICS_DATA;
+    if (inlineData && Array.isArray(inlineData.problems) && inlineData.problems.length > 0) {
+      console.log('Loaded from inline dataset:', inlineData.problems.length, 'problems');
+      loadData(inlineData);
+      return;
+    }
+
+    try {
+      const resp = await fetch('data/problems.json?v=4.1.' + Date.now());
+      const data = await resp.json();
+      loadData(data);
+    } catch (err) {
+      if (inlineData) {
+        console.warn('Fetch failed, falling back to inline dataset');
+        loadData(inlineData);
+      } else {
         console.error('Failed to load problems data:', err);
         showToast('ไม่สามารถโหลดข้อมูลโจทย์ได้ กรุณาตรวจสอบไฟล์', 'error');
       }
@@ -277,9 +301,165 @@
     if (cAll) cAll.textContent = state.allProblems.length;
   }
 
-  // Image Preloader & Background Cache Engine (Instant 0s Rendering)
-  const imageCache = new Set();
+  // ========================================================================
+  // ULTRA-FAST RESILIENT IMAGE ENGINE (Auto-Path Learning, Concurrent Probing, Preloader)
+  // ========================================================================
+  let learnedProblem2Prefix = null;
+  let learnedFundamentalPrefix = null;
 
+  try {
+    learnedProblem2Prefix = localStorage.getItem('statics_img_p2_prefix') || null;
+    learnedFundamentalPrefix = localStorage.getItem('statics_img_f_prefix') || null;
+  } catch (e) {}
+
+  const imageCache = new Set();
+  let activeImageRequestId = 0;
+
+  // Background Structure Auto-Detector (Fires immediately on startup)
+  function detectImageStructure() {
+    // 1. Problem 2 Structure Probe (part 1)
+    if (!learnedProblem2Prefix) {
+      const p2Probes = [
+        'images/problem 2/part1/2_1.webp',
+        'images/problem%202/part1/2_1.webp',
+        'problem 2/part1/2_1.webp',
+        'problem%202/part1/2_1.webp',
+        'part1/2_1.webp',
+        'problem_2_part1_92files/2_1.webp',
+        'images/problems2/part1/2_1.webp',
+        'problems2/part1/2_1.webp',
+        'images/problem2/part1/2_1.webp',
+        'problem2/part1/2_1.webp',
+        'github-upload-batches/problem 2/part1/2_1.webp',
+        'github-upload-batches/problem_2_part1_92files/2_1.webp'
+      ];
+
+      p2Probes.forEach(url => {
+        const probe = new Image();
+        probe.onload = () => {
+          if (!learnedProblem2Prefix) {
+            const m = url.match(/^(.*?)(part1\/)/i);
+            if (m) {
+              learnedProblem2Prefix = m[1];
+              try { localStorage.setItem('statics_img_p2_prefix', learnedProblem2Prefix); } catch (e) {}
+              console.log('⚡ [Statics Engine] Auto-detected Problem 2 image prefix:', learnedProblem2Prefix);
+            }
+          }
+        };
+        probe.src = url;
+      });
+    }
+
+    // 2. Fundamental Problems Structure Probe
+    if (!learnedFundamentalPrefix) {
+      const fProbes = [
+        'images/problems/F2_1.webp',
+        'problems/F2_1.webp',
+        '1_problems_batch1_98files/F2_1.webp',
+        'github-upload-batches/1_problems_batch1_98files/F2_1.webp',
+        'github-upload-batches/images/problems/F2_1.webp'
+      ];
+
+      fProbes.forEach(url => {
+        const probe = new Image();
+        probe.onload = () => {
+          if (!learnedFundamentalPrefix) {
+            const idx = url.lastIndexOf('F2_1.webp');
+            if (idx !== -1) {
+              learnedFundamentalPrefix = url.substring(0, idx);
+              try { localStorage.setItem('statics_img_f_prefix', learnedFundamentalPrefix); } catch (e) {}
+              console.log('⚡ [Statics Engine] Auto-detected Fundamental image prefix:', learnedFundamentalPrefix);
+            }
+          }
+        };
+        probe.src = url;
+      });
+    }
+  }
+
+  // Generate highly targeted candidate URLs (Eliminates 200+ redundant 404 roundtrips)
+  function getFastCandidates(problem) {
+    if (!problem || !problem.image) return [];
+    const rawPath = (problem.image || '').trim();
+    const fname = rawPath.split('/').pop();
+    if (!fname) return [];
+
+    const candidates = [];
+
+    // Check if this problem belongs to Part 1 - 9 (Hibbeler Chapter Problems)
+    const partMatch = rawPath.match(/part(\d+)/i);
+    if (partMatch) {
+      const partNum = parseInt(partMatch[1], 10);
+      const partStr = `part${partNum}`;
+      const batchStr = partNum === 9 ? 'problem_2_part9_60files' : `problem_2_part${partNum}_92files`;
+
+      // 1. Learned winning prefix (Top priority - succeeds instantaneously)
+      if (learnedProblem2Prefix) {
+        if (learnedProblem2Prefix.endsWith('/')) {
+          candidates.push(`${learnedProblem2Prefix}${partStr}/${fname}`);
+        } else {
+          candidates.push(`${learnedProblem2Prefix}/${partStr}/${fname}`);
+        }
+      }
+
+      // 2. Full standard directory (raw and encoded space)
+      candidates.push(`images/problem 2/${partStr}/${fname}`);
+      candidates.push(`images/problem%202/${partStr}/${fname}`);
+
+      // 3. Direct root part upload (when uploaded directly to GitHub root: part1/, part2/, etc.)
+      candidates.push(`${partStr}/${fname}`);
+
+      // 4. Problem 2 root folder
+      candidates.push(`problem 2/${partStr}/${fname}`);
+      candidates.push(`problem%202/${partStr}/${fname}`);
+
+      // 5. Batch folder names (from github-upload-batches)
+      candidates.push(`${batchStr}/${fname}`);
+      candidates.push(`problems2/${partStr}/${fname}`);
+      candidates.push(`images/problems2/${partStr}/${fname}`);
+      candidates.push(`problem2/${partStr}/${fname}`);
+      candidates.push(`images/problem2/${partStr}/${fname}`);
+
+      // 6. Subfolder under github-upload-batches
+      candidates.push(`github-upload-batches/problem 2/${partStr}/${fname}`);
+      candidates.push(`github-upload-batches/${batchStr}/${fname}`);
+
+    } else {
+      // Fundamental Problem (F-series)
+      const ch = problem.chapter || 2;
+      let batchFolder = '1_problems_batch1_98files';
+      if (ch >= 9) {
+        batchFolder = '3_problems_batch3_81files';
+      } else if (ch >= 5) {
+        batchFolder = '2_problems_batch2_98files';
+      }
+
+      // 1. Learned fundamental prefix
+      if (learnedFundamentalPrefix) {
+        if (learnedFundamentalPrefix.endsWith('/')) {
+          candidates.push(`${learnedFundamentalPrefix}${fname}`);
+        } else {
+          candidates.push(`${learnedFundamentalPrefix}/${fname}`);
+        }
+      }
+
+      // 2. Standard path
+      candidates.push(`images/problems/${fname}`);
+      candidates.push(`problems/${fname}`);
+
+      // 3. Batch folder
+      candidates.push(`${batchFolder}/${fname}`);
+
+      // 4. Under github-upload-batches
+      candidates.push(`github-upload-batches/${batchFolder}/${fname}`);
+      candidates.push(`github-upload-batches/images/problems/${fname}`);
+    }
+
+    // Return deduplicated list
+    return [...new Set(candidates)];
+  }
+
+  // Preload image into browser cache
   function preloadImage(url) {
     if (!url || imageCache.has(url)) return;
     const img = new Image();
@@ -287,15 +467,142 @@
     img.onload = () => imageCache.add(url);
   }
 
-  function preloadCandidateProblems(problems, count = 5) {
+  // Background preloader for upcoming problems (0s display on click)
+  function preloadCandidateProblems(problems, count = 4) {
     if (!Array.isArray(problems) || problems.length === 0) return;
     for (let i = 0; i < Math.min(count, problems.length); i++) {
       const p = problems[i];
-      if (p) {
-        if (p.image) preloadImage(p.image);
+      if (p && p.image) {
+        const cands = getFastCandidates(p);
+        if (cands.length > 0) {
+          preloadImage(cands[0]);
+        }
       }
     }
   }
+
+  // Resilient High-Performance Diagram Loader (Parallel Concurrent Probes)
+  function loadDiagramImage(problem) {
+    if (!el.diagramImage) return;
+
+    // Increment request ID to cancel any pending probes from previously clicked problems
+    const currentRequestId = ++activeImageRequestId;
+
+    if (!problem || !problem.image) {
+      if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
+      if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
+      if (el.diagramHint) el.diagramHint.classList.add('hidden');
+      if (el.imagePlaceholder) {
+        el.imagePlaceholder.classList.remove('hidden');
+        el.imagePlaceholder.innerHTML = `
+          <div class="py-8 px-4 text-center">
+            <i class="fa-regular fa-image text-3xl mb-2 text-slate-400"></i>
+            <p class="text-xs text-slate-400">โจทย์ข้อนี้เป็นการคำนวณตามสูตร (ไม่มีรูปประกอบ)</p>
+          </div>
+        `;
+      }
+      return;
+    }
+
+    const img = el.diagramImage;
+    const fname = (problem.image || '').trim().split('/').pop();
+    const candidates = getFastCandidates(problem);
+
+    if (el.diagramLoader) el.diagramLoader.classList.remove('hidden');
+    if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
+    if (el.imagePlaceholder) el.imagePlaceholder.classList.add('hidden');
+    if (el.diagramHint) el.diagramHint.classList.add('hidden');
+    img.style.opacity = '0';
+    img.alt = `Diagram for problem ${problem.id}`;
+
+    let resolved = false;
+
+    function applySuccess(winningUrl) {
+      if (resolved || currentRequestId !== activeImageRequestId) return;
+      resolved = true;
+
+      // Persist the winning prefix so future problems resolve instantly
+      const partMatch = winningUrl.match(/^(.*?)(part\d+\/)/i);
+      if (partMatch) {
+        learnedProblem2Prefix = partMatch[1];
+        try { localStorage.setItem('statics_img_p2_prefix', learnedProblem2Prefix); } catch (e) {}
+      } else {
+        const idx = winningUrl.lastIndexOf(fname);
+        if (idx !== -1) {
+          learnedFundamentalPrefix = winningUrl.substring(0, idx);
+          try { localStorage.setItem('statics_img_f_prefix', learnedFundamentalPrefix); } catch (e) {}
+        }
+      }
+
+      img.src = winningUrl;
+      img.classList.remove('hidden');
+      img.style.opacity = '1';
+      img.onclick = () => openImageModal(img.src);
+
+      if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
+      if (el.diagramWrapper) el.diagramWrapper.classList.remove('hidden');
+      if (el.imagePlaceholder) el.imagePlaceholder.classList.add('hidden');
+      if (el.diagramHint) el.diagramHint.classList.remove('hidden');
+    }
+
+    function showMissingCard() {
+      if (resolved || currentRequestId !== activeImageRequestId) return;
+      resolved = true;
+
+      if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
+      if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
+      if (el.diagramHint) el.diagramHint.classList.add('hidden');
+      if (el.imagePlaceholder) {
+        el.imagePlaceholder.classList.remove('hidden');
+        el.imagePlaceholder.innerHTML = `
+          <div class="py-6 px-4 text-center">
+            <div class="w-12 h-12 mx-auto rounded-2xl bg-brand-50 dark:bg-slate-800 text-brand-500 flex items-center justify-center text-xl mb-2 border border-brand-200/60 dark:border-slate-700 shadow-xs">
+              <i class="fa-regular fa-image"></i>
+            </div>
+            <p class="text-sm font-bold text-slate-700 dark:text-slate-200">ผังโจทย์ ${problem.id}</p>
+            <p class="text-xs text-slate-400 mt-0.5">หนังสือ Hibbeler 14th Ed. หน้า ${problem.page_book || '-'}</p>
+            <div class="mt-3 flex flex-col items-center gap-1">
+              <span class="px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-[11px] font-mono border border-amber-200 dark:border-amber-800">
+                ไฟล์รูป: ${fname}
+              </span>
+              <span class="text-[10px] text-slate-400">หากเพิ่งอัปเดตไฟล์ขึ้น GitHub ให้กด Ctrl + F5 เพื่อล้างแคชบราวเซอร์</span>
+            </div>
+          </div>
+        `;
+      }
+    }
+
+    // Fast Parallel Probe Engine (Tests up to 4 candidates concurrently)
+    const batchSize = 4;
+    let candidateIndex = 0;
+
+    function probeNextBatch() {
+      if (resolved || currentRequestId !== activeImageRequestId) return;
+      if (candidateIndex >= candidates.length) {
+        showMissingCard();
+        return;
+      }
+
+      const currentBatch = candidates.slice(candidateIndex, candidateIndex + batchSize);
+      candidateIndex += batchSize;
+
+      let failuresInBatch = 0;
+      currentBatch.forEach(url => {
+        const probe = new Image();
+        probe.onload = () => applySuccess(url);
+        probe.onerror = () => {
+          failuresInBatch++;
+          if (failuresInBatch === currentBatch.length && !resolved && currentRequestId === activeImageRequestId) {
+            probeNextBatch();
+          }
+        };
+        probe.src = url;
+      });
+    }
+
+    probeNextBatch();
+  }
+
 
   // Random Problem Selection
   function getRandomProblem() {
@@ -326,182 +633,6 @@
 
     displayProblem(nextProblem);
   }
-
-  // Multi-Path Candidate Resolvers for GitHub Root Uploads & Local Structure
-  function getProblemCandidates(rawPath) {
-    if (!rawPath) return [];
-    const cleanPath = (rawPath || '').trim();
-    const fname = cleanPath.split('/').pop();
-    const altFname = fname.includes('_') ? fname.replace(/_([^_]+)$/, '-$1') : fname.replace(/-([^-]+)$/, '_$1');
-
-    const list = [
-      cleanPath,
-      // Problem 2 base folders (all spelling variations: with/without space, with/without s)
-      `images/problem 2/${fname}`,
-      `problem 2/${fname}`,
-      `images/problems2/${fname}`,
-      `problems2/${fname}`,
-      `images/problem2/${fname}`,
-      `problem2/${fname}`,
-      `images/problems/${fname}`,
-      `images/problems/${altFname}`
-    ];
-
-    // Check all part folders (part1 to part9) across all folder variations
-    for (let i = 1; i <= 9; i++) {
-      // 1. Direct root part folders (e.g. part1/, part2/ - Most recommended)
-      list.push(`part${i}/${fname}`);
-
-      // 2. Standard problem 2 subfolders
-      list.push(`images/problem 2/part${i}/${fname}`);
-      list.push(`problem 2/part${i}/${fname}`);
-      list.push(`images/problems2/part${i}/${fname}`);
-      list.push(`problems2/part${i}/${fname}`);
-      list.push(`images/problem2/part${i}/${fname}`);
-      list.push(`problem2/part${i}/${fname}`);
-      list.push(`images/problems/part${i}/${fname}`);
-
-      // 3. Ready batch folder names
-      list.push(`problem_2_part${i}_92files/${fname}`);
-      list.push(`problem_2_part${i}_60files/${fname}`);
-      list.push(`problem_2_part${i}/${fname}`);
-      list.push(`problems2_part${i}_92files/${fname}`);
-      list.push(`problems2_part${i}_60files/${fname}`);
-      list.push(`problems2_part${i}/${fname}`);
-      list.push(`problem2_part${i}/${fname}`);
-      list.push(`problems_part${i}/${fname}`);
-      list.push(`github-upload-batches/problem 2/part${i}/${fname}`);
-
-      // Alt filenames (hyphen vs underscore)
-      list.push(`part${i}/${altFname}`);
-      list.push(`images/problem 2/part${i}/${altFname}`);
-      list.push(`problem 2/part${i}/${altFname}`);
-      list.push(`problems2/part${i}/${altFname}`);
-      list.push(`problem2/part${i}/${altFname}`);
-      list.push(`problem_2_part${i}_92files/${altFname}`);
-    }
-
-    // Legacy batch folder paths for backward compatibility
-    list.push(
-      `1_problems_batch1_98files/${fname}`,
-      `2_problems_batch2_98files/${fname}`,
-      `3_problems_batch3_81files/${fname}`,
-      `github-upload-batches/1_problems_batch1_98files/${fname}`,
-      `github-upload-batches/2_problems_batch2_98files/${fname}`,
-      `github-upload-batches/3_problems_batch3_81files/${fname}`,
-      `./${fname}`,
-      `./${altFname}`
-    );
-
-    return [...new Set(list)];
-  }
-
-  // Preload candidates for upcoming problems
-  function preloadCandidateProblems(problems, count = 5) {
-    if (!Array.isArray(problems) || problems.length === 0) return;
-    for (let i = 0; i < Math.min(count, problems.length); i++) {
-      const p = problems[i];
-      if (p) {
-        if (p.image) {
-          const cands = getProblemCandidates(p.image);
-          if (cands.length > 0) {
-            preloadImage(cands[0]);
-            preloadImage(cands[1]);
-          }
-        }
-
-      }
-    }
-  }
-
-  // Resilient Diagram Loader (Zero-Flicker & Multi-Path Discovery)
-  function loadDiagramImage(problem) {
-    if (!el.diagramImage) return;
-
-    if (!problem || !problem.image) {
-      if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
-      if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
-      if (el.diagramHint) el.diagramHint.classList.add('hidden');
-      if (el.imagePlaceholder) {
-        el.imagePlaceholder.classList.remove('hidden');
-        el.imagePlaceholder.innerHTML = `
-          <i class="fa-regular fa-image text-3xl mb-2 text-slate-400"></i>
-          <p class="text-xs text-slate-400">โจทย์ข้อนี้เป็นการคำนวณตามสูตร (ไม่มีรูปประกอบ)</p>
-        `;
-      }
-      return;
-    }
-
-    const img = el.diagramImage;
-    const candidates = getProblemCandidates(problem.image);
-    const fname = (problem.image || '').trim().split('/').pop();
-
-    let idx = 0;
-    if (el.diagramLoader) el.diagramLoader.classList.remove('hidden');
-    if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
-    if (el.imagePlaceholder) el.imagePlaceholder.classList.add('hidden');
-    if (el.diagramHint) el.diagramHint.classList.add('hidden');
-    img.style.opacity = '0';
-    img.alt = `Diagram for problem ${problem.id}`;
-
-    function tryNext() {
-      if (idx >= candidates.length) {
-        // All paths failed: show helpful card
-        if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
-        if (el.diagramWrapper) el.diagramWrapper.classList.add('hidden');
-        if (el.diagramHint) el.diagramHint.classList.add('hidden');
-        if (el.imagePlaceholder) {
-          el.imagePlaceholder.classList.remove('hidden');
-          el.imagePlaceholder.innerHTML = `
-            <div class="py-6 px-4 text-center">
-              <div class="w-12 h-12 mx-auto rounded-2xl bg-brand-50 dark:bg-slate-800 text-brand-500 flex items-center justify-center text-xl mb-2 border border-brand-200/60 dark:border-slate-700 shadow-xs">
-                <i class="fa-regular fa-image"></i>
-              </div>
-              <p class="text-sm font-bold text-slate-700 dark:text-slate-200">ผังโจทย์ ${problem.id}</p>
-              <p class="text-xs text-slate-400 mt-0.5">หนังสือ Hibbeler 14th Ed. หน้า ${problem.page_book || '-'}</p>
-              <div class="mt-3 flex flex-col items-center gap-1">
-                <span class="px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-300 text-[11px] font-mono border border-amber-200 dark:border-amber-800">
-                  ไฟล์รูป: ${fname}
-                </span>
-                <span class="text-[10px] text-slate-400">หากเพิ่งอัปเดต app.js ให้กด Ctrl + F5 เพื่อล้างแคช</span>
-              </div>
-            </div>
-          `;
-        }
-        return;
-      }
-
-      const nextUrl = candidates[idx++];
-      if (!nextUrl) {
-        tryNext();
-        return;
-      }
-
-      // In-memory probe to prevent broken-image icon flicker
-      const probe = new Image();
-      probe.onload = function() {
-        img.src = nextUrl;
-        img.classList.remove('hidden');
-        img.style.opacity = '1';
-        img.onclick = () => openImageModal(img.src);
-        if (el.diagramLoader) el.diagramLoader.classList.add('hidden');
-        if (el.diagramWrapper) el.diagramWrapper.classList.remove('hidden');
-        if (el.imagePlaceholder) el.imagePlaceholder.classList.add('hidden');
-        if (el.diagramHint) el.diagramHint.classList.remove('hidden');
-      };
-      probe.onerror = function() {
-        tryNext();
-      };
-      probe.src = nextUrl;
-    }
-
-    tryNext();
-
-    // Background preloader for solution diagram and next candidates
-
-    preloadCandidateProblems(state.filteredProblems, 5);
-  }
-
 
   // Display Problem in Card
   function displayProblem(problem) {
@@ -921,7 +1052,319 @@
     showToast(`🎯 สุ่มโจทย์บทที่ ${chNum} เรียบร้อยแล้ว!`, 'info');
   };
 
-  // Event Listeners
+
+  // ========================================================================
+  // LESSON VIEWER & CHAPTER PDF EXPORTER (บทที่ 1 - 11)
+  // ========================================================================
+  function openLessonsModal(chapter = 1) {
+    if (!el.lessonsModal) return;
+    state.selectedLessonChapter = parseInt(chapter, 10) || 1;
+    el.lessonsModal.classList.remove('hidden');
+    el.lessonsModal.classList.add('flex');
+    renderLessonChapterList();
+    renderLessonContent(state.selectedLessonChapter);
+  }
+
+  function closeLessonsModal() {
+    if (el.lessonsModal) {
+      el.lessonsModal.classList.add('hidden');
+      el.lessonsModal.classList.remove('flex');
+    }
+  }
+
+  function switchLessonTab(tab) {
+    state.selectedLessonTab = tab;
+    
+    // Tab buttons active states
+    const tabs = [
+      { id: 'formulas', btn: el.tabLessonFormulas },
+      { id: 'review', btn: el.tabLessonReviewSheets },
+      { id: 'pdf', btn: el.tabLessonPdfReader }
+    ];
+
+    tabs.forEach(t => {
+      if (!t.btn) return;
+      if (t.id === tab) {
+        t.btn.classList.add('active', 'border-brand-500', 'font-bold', 'text-brand-600', 'dark:text-brand-400');
+        t.btn.classList.remove('border-transparent', 'text-slate-500');
+      } else {
+        t.btn.classList.remove('active', 'border-brand-500', 'font-bold', 'text-brand-600', 'dark:text-brand-400');
+        t.btn.classList.add('border-transparent', 'text-slate-500');
+      }
+    });
+
+    renderLessonTabBody(state.selectedLessonChapter);
+  }
+
+  function renderLessonChapterList() {
+    if (!el.lessonChapterList) return;
+    el.lessonChapterList.innerHTML = '';
+
+    const lessons = window.LESSONS_DATA || {};
+    for (let ch = 1; ch <= 11; ch++) {
+      const data = lessons[ch] || {
+        chapter: ch,
+        title_th: `บทที่ ${ch}`,
+        title_en: '',
+        total_problems: 0
+      };
+
+      const isSelected = ch === state.selectedLessonChapter;
+      const item = document.createElement('button');
+      item.className = `w-full text-left p-3 rounded-2xl transition-all flex items-center justify-between border-2 select-none ${
+        isSelected
+          ? 'bg-gradient-to-r from-indigo-600 to-brand-600 text-white border-brand-400 shadow-md scale-[1.02]'
+          : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200/60 dark:border-slate-700/60 hover:bg-slate-100 dark:hover:bg-slate-750'
+      }`;
+
+      item.innerHTML = `
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <div class="w-7 h-7 rounded-xl flex items-center justify-center text-xs font-bold shrink-0 ${
+            isSelected ? 'bg-white/20 text-white' : 'bg-slate-100 dark:bg-slate-700 text-brand-600 dark:text-brand-400'
+          }">
+            ${ch}
+          </div>
+          <div class="truncate">
+            <p class="font-heading font-bold text-xs truncate">${data.title_th}</p>
+            <p class="text-[10px] ${isSelected ? 'text-indigo-100' : 'text-slate-400'} truncate">${data.title_en}</p>
+          </div>
+        </div>
+        <span class="px-2 py-0.5 rounded-full text-[10px] font-bold shrink-0 ml-1.5 ${
+          isSelected ? 'bg-white/20 text-white' : 'bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-300'
+        }">${data.total_problems} ข้อ</span>
+      `;
+
+      item.addEventListener('click', () => {
+        state.selectedLessonChapter = ch;
+        renderLessonChapterList();
+        renderLessonContent(ch);
+      });
+
+      el.lessonChapterList.appendChild(item);
+    }
+  }
+
+  function renderLessonContent(ch) {
+    const lessons = window.LESSONS_DATA || {};
+    const data = lessons[ch];
+    if (!data) return;
+
+    // 1. Render Header Bar & Action Buttons
+    if (el.lessonHeaderBar) {
+      el.lessonHeaderBar.innerHTML = `
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span class="px-2.5 py-0.5 rounded-md bg-brand-500 text-white font-bold text-[11px]">บทที่ ${ch}</span>
+              <h2 class="font-heading font-bold text-lg sm:text-xl text-slate-900 dark:text-white">${data.title_th}</h2>
+              <span class="text-xs text-slate-400 font-sans hidden sm:inline">(${data.title_en})</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-3">
+              <span><i class="fa-solid fa-book-open mr-1 text-brand-500"></i>${data.pages}</span>
+              <span><i class="fa-solid fa-layer-group mr-1 text-emerald-500"></i>คลังโจทย์ ${data.total_problems} ข้อ</span>
+            </p>
+          </div>
+
+          <!-- Quick Action Buttons -->
+          <div class="flex flex-wrap items-center gap-2 shrink-0">
+            <!-- Download / Export PDF -->
+            <a href="${data.pdf_file}" download="Chapter_${ch.toString().padStart(2, '0')}_${data.title_en.replace(/\s+/g, '_')}.pdf" class="clay-btn clay-btn-primary text-xs !py-2 !px-3.5 !rounded-xl shadow-xs inline-flex items-center gap-1.5">
+              <i class="fa-solid fa-file-arrow-down text-amber-300"></i>
+              <span>Export PDF (${data.pages.split(' ')[0]})</span>
+            </a>
+
+            <!-- Open Full PDF in new tab -->
+            <a href="${data.pdf_file}" target="_blank" class="clay-btn clay-btn-secondary text-xs !py-2 !px-3 !rounded-xl inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <span class="hidden sm:inline">เปิดอ่านเต็มจอ</span>
+            </a>
+
+            <!-- Start Practice this chapter -->
+            <button onclick="filterAndPracticeChapter(${ch}); closeLessonsModal();" class="clay-btn clay-btn-emerald text-xs !py-2 !px-3.5 !rounded-xl shadow-xs inline-flex items-center gap-1.5">
+              <i class="fa-solid fa-bolt"></i>
+              <span>ฝึกทำโจทย์บทนี้</span>
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
+    // 2. Render Tab Body
+    renderLessonTabBody(ch);
+  }
+
+  function renderLessonTabBody(ch) {
+    if (!el.lessonTabContent) return;
+    const lessons = window.LESSONS_DATA || {};
+    const data = lessons[ch];
+    if (!data) return;
+
+    if (state.selectedLessonTab === 'formulas') {
+      // 1. FORMULAS & THEORY TAB
+      let formulasHtml = (data.formulas || []).map((f, idx) => `
+        <div class="p-4 rounded-2xl bg-white dark:bg-slate-800/90 border-2 border-slate-200/80 dark:border-slate-700/80 shadow-xs hover:border-brand-400 dark:hover:border-brand-500 transition-all">
+          <div class="flex items-center justify-between pb-2 mb-2.5 border-b border-slate-100 dark:border-slate-700/60">
+            <p class="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+              <span class="w-6 h-6 rounded-lg bg-brand-100 dark:bg-brand-950/80 text-brand-600 dark:text-brand-300 text-xs font-mono flex items-center justify-center font-bold">
+                ${idx + 1}
+              </span>
+              <span>${f.name}</span>
+            </p>
+            <span class="text-[10px] uppercase font-mono tracking-wider px-2 py-0.5 rounded-md bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 border border-amber-200/60 dark:border-amber-800/50">
+              สมการหลัก
+            </span>
+          </div>
+          <div id="lesson_formula_${ch}_${idx}" class="py-3 px-4 overflow-x-auto text-brand-700 dark:text-brand-300 flex items-center justify-center min-h-[52px] bg-slate-50/80 dark:bg-slate-900/60 rounded-xl border border-slate-100 dark:border-slate-800/80 text-base sm:text-lg">
+            $$ ${f.latex} $$
+          </div>
+        </div>
+      `).join('');
+
+      let topicsHtml = (data.topics || []).map(t => `
+        <li class="flex items-start gap-2 text-xs text-slate-600 dark:text-slate-300">
+          <i class="fa-solid fa-circle-check text-emerald-500 text-[11px] mt-0.5 shrink-0"></i>
+          <span>${t}</span>
+        </li>
+      `).join('');
+
+      let procedureHtml = (data.procedure || []).map((p, idx) => `
+        <li class="flex items-start gap-2.5 text-xs text-slate-600 dark:text-slate-300">
+          <span class="w-5 h-5 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-600 dark:text-brand-300 text-[10px] font-bold flex items-center justify-center shrink-0">
+            ${idx + 1}
+          </span>
+          <span class="leading-relaxed">${p}</span>
+        </li>
+      `).join('');
+
+      el.lessonTabContent.innerHTML = `
+        <div class="space-y-6 max-w-4xl">
+          <!-- Overview Card -->
+          <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-indigo-50 to-brand-50/50 dark:from-slate-800/80 dark:to-slate-800/40 border border-brand-100 dark:border-slate-700">
+            <h4 class="font-heading font-bold text-sm text-brand-800 dark:text-brand-300 mb-2 flex items-center gap-2">
+              <i class="fa-solid fa-lightbulb text-amber-500"></i>
+              ภาพรวมเนื้อหา (Overview)
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">${data.overview}</p>
+          </div>
+
+          <!-- Key Topics Covered -->
+          <div>
+            <h4 class="font-heading font-bold text-sm text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-list-check text-indigo-500"></i>
+              หัวข้อย่อยประจำบทเรียน
+            </h4>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+              ${topicsHtml}
+            </ul>
+          </div>
+
+          <!-- Core Formulas (KaTeX) -->
+          <div>
+            <h4 class="font-heading font-bold text-sm text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-square-root-variable text-amber-500"></i>
+              สูตรคำนวณและสมการหลัก (Key Equations)
+            </h4>
+            <div class="space-y-3">
+              ${formulasHtml}
+            </div>
+          </div>
+
+          <!-- Step-by-Step Procedure -->
+          <div>
+            <h4 class="font-heading font-bold text-sm text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+              <i class="fa-solid fa-shoe-prints text-brand-500"></i>
+              ขั้นตอนการวิเคราะห์โจทย์ (General Procedure for Analysis)
+            </h4>
+            <ul class="space-y-2.5">
+              ${procedureHtml}
+            </ul>
+          </div>
+        </div>
+      `;
+
+      // 1. Direct KaTeX rendering for every formula in this chapter
+      (data.formulas || []).forEach((f, idx) => {
+        const target = document.getElementById(`lesson_formula_${ch}_${idx}`);
+        if (!target) return;
+        if (typeof katex !== 'undefined' && typeof katex.render === 'function') {
+          try {
+            katex.render(f.latex, target, {
+              displayMode: true,
+              throwOnError: false
+            });
+          } catch (err) {
+            console.warn(`KaTeX direct render error on Ch ${ch} formula ${idx}:`, err);
+          }
+        }
+      });
+
+      // 2. Auto-render any math expressions in Overview, Topics, and Procedure
+      renderMath(el.lessonTabContent);
+
+    } else if (state.selectedLessonTab === 'review') {
+      // 2. CHAPTER REVIEW SHEETS TAB (Full visual textbook sheets)
+      const sheets = data.review_sheets || [];
+      if (sheets.length === 0) {
+        el.lessonTabContent.innerHTML = `
+          <div class="py-12 text-center text-slate-400">
+            <i class="fa-regular fa-image text-4xl mb-2"></i>
+            <p class="text-sm">ไม่มีแผ่นสรุปสำหรับบทนี้</p>
+          </div>
+        `;
+        return;
+      }
+
+      let sheetsHtml = sheets.map((src, i) => `
+        <div class="clay-card !p-3 border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 rounded-2xl flex flex-col items-center">
+          <div class="w-full flex items-center justify-between pb-2 mb-2 border-b border-slate-100 dark:border-slate-700/60 text-xs font-bold text-slate-500">
+            <span>แผ่นสรุปท้ายบทหน้าที่ ${i + 1} / ${sheets.length}</span>
+            <a href="${src}" target="_blank" class="text-brand-500 hover:underline inline-flex items-center gap-1">
+              <i class="fa-solid fa-expand"></i> ดูรูปขนาดเต็ม
+            </a>
+          </div>
+          <img src="${src}" alt="Chapter Review ${ch} Page ${i + 1}" class="max-w-full rounded-xl shadow-sm border border-slate-200/60 dark:border-slate-700 cursor-zoom-in" onclick="openImageModal('${src}')" loading="lazy">
+        </div>
+      `).join('');
+
+      el.lessonTabContent.innerHTML = `
+        <div class="space-y-4 max-w-4xl">
+          <div class="p-3.5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200/80 dark:border-amber-800/50 flex items-center gap-3">
+            <i class="fa-solid fa-circle-info text-amber-500 text-base"></i>
+            <p class="text-xs text-amber-900 dark:text-amber-200">
+              ภาพแคปแผ่นสรุปเนื้อหาท้ายบท (Chapter Review) จากตำรา Hibbeler 14th Edition ฉบับจริง คลิกที่รูปเพื่อขยายใหญ่
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            ${sheetsHtml}
+          </div>
+        </div>
+      `;
+
+    } else if (state.selectedLessonTab === 'pdf') {
+      // 3. FULL EMBEDDED PDF VIEWER TAB
+      el.lessonTabContent.innerHTML = `
+        <div class="h-full flex flex-col space-y-3">
+          <div class="flex items-center justify-between bg-slate-100 dark:bg-slate-800 px-3.5 py-2 rounded-xl text-xs">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf text-rose-500 text-sm"></i>
+              <span class="font-bold text-slate-700 dark:text-slate-200">${data.pdf_file.split('/').pop()}</span>
+              <span class="text-slate-400">(${data.pages})</span>
+            </div>
+            <a href="${data.pdf_file}" download class="clay-btn clay-btn-primary !py-1 !px-3 text-[11px] inline-flex items-center gap-1">
+              <i class="fa-solid fa-download"></i> ดาวน์โหลด PDF
+            </a>
+          </div>
+          <div class="flex-1 min-h-[500px] border-2 border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden shadow-inner bg-slate-900">
+            <iframe src="${data.pdf_file}#toolbar=1&navpanes=0" class="w-full h-full min-h-[500px]" frameborder="0"></iframe>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  // Global Helpers for Lessons
+
+// Event Listeners
   function setupEventListeners() {
     if (el.randomBtn) el.randomBtn.addEventListener('click', getRandomProblem);
     if (el.solutionToggleBtn) el.solutionToggleBtn.addEventListener('click', toggleSolution);
@@ -963,6 +1406,18 @@
     if (el.timerToggleBtn) el.timerToggleBtn.addEventListener('click', toggleTimer);
     if (el.timerResetBtn) el.timerResetBtn.addEventListener('click', resetTimer);
 
+    // Lesson Viewer Event Listeners
+    if (el.lessonsBtn) el.lessonsBtn.addEventListener('click', () => openLessonsModal(state.filters.chapters[0] || 1));
+    if (el.closeLessonsBtn) el.closeLessonsBtn.addEventListener('click', closeLessonsModal);
+    if (el.lessonsModal) {
+      el.lessonsModal.addEventListener('click', (e) => {
+        if (e.target === el.lessonsModal) closeLessonsModal();
+      });
+    }
+    if (el.tabLessonFormulas) el.tabLessonFormulas.addEventListener('click', () => switchLessonTab('formulas'));
+    if (el.tabLessonReviewSheets) el.tabLessonReviewSheets.addEventListener('click', () => switchLessonTab('review'));
+    if (el.tabLessonPdfReader) el.tabLessonPdfReader.addEventListener('click', () => switchLessonTab('pdf'));
+
     // Cheatsheet modal
     if (el.cheatsheetBtn && el.cheatsheetModal) {
       el.cheatsheetBtn.addEventListener('click', () => {
@@ -1003,9 +1458,19 @@
         closeImageModal();
         if (el.cheatsheetModal) el.cheatsheetModal.classList.add('hidden');
         if (el.shortcutsModal) el.shortcutsModal.classList.add('hidden');
+        closeLessonsModal();
       }
     });
   }
+
+  // Global helpers exposed to window for HTML triggers
+  window.openLessonsModal = openLessonsModal;
+  window.closeLessonsModal = closeLessonsModal;
+  window.switchLessonTab = switchLessonTab;
+  window.openImageModal = openImageModal;
+  window.closeImageModal = closeImageModal;
+  window.showToast = showToast;
+  window.filterAndPracticeChapter = filterAndPracticeChapter;
 
   // Start app
   if (document.readyState === 'loading') {

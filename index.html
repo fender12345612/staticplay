@@ -91,13 +91,19 @@
         <a href="#practice" class="px-3.5 py-1.5 rounded-xl hover:bg-white/80 dark:hover:bg-slate-800 transition-colors">
           <i class="fa-solid fa-dice mr-1 text-brand-500"></i> สุ่มโจทย์
         </a>
-        <a href="#catalog" class="px-3.5 py-1.5 rounded-xl hover:bg-white/80 dark:hover:bg-slate-800 transition-colors">
+        <a href="javascript:void(0)" onclick="openLessonsModal(1)" class="px-3.5 py-1.5 rounded-xl hover:bg-white/80 dark:hover:bg-slate-800 transition-colors">
           <i class="fa-solid fa-book-open mr-1 text-amber-500"></i> คลังบทเรียน (11 บท)
         </a>
       </nav>
 
       <!-- Utility Actions -->
       <div class="flex items-center gap-2 sm:gap-3">
+        <!-- Lesson Materials & PDF Viewer Button -->
+        <button id="lessonsBtn" title="เอกสารประกอบการเรียนและสรุปแยกบท 1-11" class="clay-btn clay-btn-primary text-xs !py-2 !px-3.5 !rounded-xl shadow-xs">
+          <i class="fa-solid fa-book-bookmark text-amber-300"></i>
+          <span class="font-bold">ดูบทเรียน (1-11)</span>
+        </button>
+
         <!-- Cheatsheet Button -->
         <button id="cheatsheetBtn" title="สูตรคณิตศาสตร์แท้ๆ ประจำบท" class="clay-btn clay-btn-amber text-xs !py-2 !px-3.5 !rounded-xl">
           <i class="fa-solid fa-square-root-variable text-sm"></i>
@@ -150,7 +156,7 @@
           <i class="fa-solid fa-gamepad text-lg mr-1 text-amber-300"></i>
           <span>เข้าห้องสุ่มโจทย์ทันที (Start Practice)</span>
         </a>
-        <a href="#catalog" class="clay-btn clay-btn-secondary text-base sm:text-lg !py-3.5 !px-7 !rounded-2xl">
+        <a href="javascript:void(0)" onclick="openLessonsModal(1)" class="clay-btn clay-btn-secondary text-base sm:text-lg !py-3.5 !px-7 !rounded-2xl">
           <i class="fa-solid fa-layer-group text-brand-500 mr-1"></i>
           <span>ดูคลังหลักสูตร 11 บท</span>
         </a>
@@ -497,13 +503,16 @@
 
       <!-- 11 Chapters Clay Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-        
         <!-- Ch 1 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-easy text-[11px]">บทที่ 1</span>
-              <span class="text-xs text-slate-400 font-mono">21 ข้อ</span>
+              <span class="clay-badge clay-badge-easy text-[11px] font-bold">บทที่ 1</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>14 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">16 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               หลักการทั่วไป (General Principles)
@@ -512,17 +521,28 @@
               ระบบหน่วยเอสไอ (SI Units), คำนำหน้าหน่วย (Prefixes), และการคำนวณน้ำหนัก \(W = mg\)
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(1)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 1
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(1)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(1)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 2 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 2</span>
-              <span class="text-xs text-slate-400 font-mono">43 ข้อ</span>
+              <span class="clay-badge clay-badge-medium text-[11px] font-bold">บทที่ 2</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>70 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">136 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               เวกเตอร์ของแรง (Force Vectors)
@@ -531,17 +551,28 @@
               การรวมแรง 2D/3D, กฎโคไซน์-ไซน์, เวกเตอร์คาร์ทีเซียน, และผลคูณสเกลาร์ (Dot Product)
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(2)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 2
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(2)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(2)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 3 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-easy text-[11px]">บทที่ 3</span>
-              <span class="text-xs text-slate-400 font-mono">21 ข้อ</span>
+              <span class="clay-badge clay-badge-easy text-[11px] font-bold">บทที่ 3</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>34 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">62 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               สมดุลของอนุภาค (Equilibrium of Particle)
@@ -550,36 +581,58 @@
               สมการสมดุล \(\Sigma F = 0\), แรงดึงในเส้นเชือก, สปริง และผังวัตถุอิสระ (FBD)
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(3)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 3
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(3)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(3)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 4 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 4</span>
-              <span class="text-xs text-slate-400 font-mono">54 ข้อ</span>
+              <span class="clay-badge clay-badge-hard text-[11px] font-bold">บทที่ 4</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>86 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">161 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
-              ระบบแรงลัพธ์และโมเมนต์ (Moments & Resultants)
+              ระบบแรงลัพธ์และโมเมนต์ (Force System Resultants)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
               โมเมนต์รอบจุด \(\vec{M} = \vec{r} \times \vec{F}\), โมเมนต์รอบแกน, แรงคู่ควบ, และแรงกระจาย
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(4)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 4
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(4)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(4)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 5 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 5</span>
-              <span class="text-xs text-slate-400 font-mono">22 ข้อ</span>
+              <span class="clay-badge clay-badge-medium text-[11px] font-bold">บทที่ 5</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>66 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">69 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               สมดุลวัตถุเกร็ง (Rigid Body Equilibrium)
@@ -588,125 +641,197 @@
               สมดุล 2 มิติและ 3 มิติ, แรงปฏิกิริยาที่ฐานรองรับ (Roller, Pin, Fixed Support)
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(5)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 5
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(5)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(5)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 6 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 6</span>
-              <span class="text-xs text-slate-400 font-mono">36 ข้อ</span>
+              <span class="clay-badge clay-badge-hard text-[11px] font-bold">บทที่ 6</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>70 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">113 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
-              การวิเคราะห์โครงสร้าง (Trusses & Frames)
+              การวิเคราะห์โครงสร้าง (Structural Analysis)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
               วิธีข้อต่อ (Method of Joints), วิธีตัดหน้าตัด (Sections), และโครงสร้างเฟรม/เครื่องจักรกล
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(6)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 6
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(6)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(6)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 7 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 7</span>
-              <span class="text-xs text-slate-400 font-mono">28 ข้อ</span>
+              <span class="clay-badge clay-badge-hard text-[11px] font-bold">บทที่ 7</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>58 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">109 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               แรงภายในในคาน (Internal Forces)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
-              แรงแนวแกน (N), แรงเฉือน (V), โมเมนต์ดัด (M), และการเขียนแผนภาพ V-x และ M-x
+              แรงแนวแกน (N), แรงเฉือน (V), โมเมนต์ดัด (M), และการเขียนแผนภาพ SFD และ BMD
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(7)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 7
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(7)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(7)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 8 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 8</span>
-              <span class="text-xs text-slate-400 font-mono">19 ข้อ</span>
+              <span class="clay-badge clay-badge-medium text-[11px] font-bold">บทที่ 8</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>64 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">104 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               ความเสียดทาน (Friction)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
-              กฎแรงเสียดทานคูลอมบ์ \(F = \mu_s N\), ลิ่ม (Wedges), สกรู, และสายพานแบน
+              กฎแรงเสียดทานคูลอมบ์ \(F = \mu_s N\), ลิ่ม (Wedges), สกรู, และสายพานส่งกำลัง
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(8)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 8
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(8)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(8)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 9 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 9</span>
-              <span class="text-xs text-slate-400 font-mono">31 ข้อ</span>
+              <span class="clay-badge clay-badge-medium text-[11px] font-bold">บทที่ 9</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>64 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">119 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
-              จุดศูนย์ถ่วงและเซนทรอยด์ (Centroids)
+              จุดศูนย์ถ่วงและเซนทรอยด์ (Centroids & CG)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
               เซนทรอยด์ของเส้น พื้นที่ และปริมาตรเชิงประกอบ, และทฤษฎีบทของปัปปุส-กุลดินัส
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(9)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 9
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(9)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(9)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 10 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-hard text-[11px]">บทที่ 10</span>
-              <span class="text-xs text-slate-400 font-mono">18 ข้อ</span>
+              <span class="clay-badge clay-badge-hard text-[11px] font-bold">บทที่ 10</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>52 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">90 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               โมเมนต์ความเฉื่อย (Moments of Inertia)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
-              โมเมนต์ความเฉื่อยของพื้นที่ \(I = \int y^2 dA\), ทฤษฎีแกนขนาน, และโมเมนต์ขั้ว \(J_O\)
+              โมเมนต์ความเฉื่อยของพื้นที่ \(I_x, I_y\), ทฤษฎีบทแกนขนาน, และรัศมีไจเรชัน
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(10)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 10
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(10)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(10)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
 
         <!-- Ch 11 -->
-        <div class="clay-card p-5 flex flex-col justify-between group">
+        <div class="clay-card p-5 flex flex-col justify-between group hover:shadow-lg transition-all">
           <div>
             <div class="flex items-center justify-between mb-3">
-              <span class="clay-badge clay-badge-medium text-[11px]">บทที่ 11</span>
-              <span class="text-xs text-slate-400 font-mono">14 ข้อ</span>
+              <span class="clay-badge clay-badge-hard text-[11px] font-bold">บทที่ 11</span>
+              <div class="flex items-center gap-1.5 text-xs text-slate-400 font-mono">
+                <span>36 หน้า</span>
+                <span>•</span>
+                <span class="text-brand-600 dark:text-brand-400 font-bold">41 ข้อ</span>
+              </div>
             </div>
             <h4 class="font-heading font-bold text-base text-slate-900 dark:text-white group-hover:text-brand-600 transition-colors">
               งานเสมือน (Virtual Work)
             </h4>
             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 line-clamp-2">
-              หลักการของงานเสมือน \(\delta U = 0\) และฟังก์ชันพลังงานศักย์เพื่อตรวจสอบเสถียรภาพ
+              หลักการของงานเสมือน \(\delta U = 0\), พลังงานศักย์ และการวิเคราะห์เสถียรภาพของสมดุล
             </p>
           </div>
-          <button onclick="filterAndPracticeChapter(11)" class="clay-btn clay-btn-secondary !py-2 !px-3 !rounded-xl text-xs font-bold mt-4 w-full">
-            <i class="fa-solid fa-play text-brand-500 mr-1"></i> สุ่มโจทย์บทที่ 11
-          </button>
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800">
+            <button onclick="openLessonsModal(11)" class="clay-btn clay-btn-primary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-book-open text-amber-300"></i>
+              <span>ดูบทเรียน</span>
+            </button>
+            <button onclick="filterAndPracticeChapter(11)" class="clay-btn clay-btn-secondary !py-2 !px-2.5 !rounded-xl text-xs font-bold inline-flex items-center justify-center gap-1">
+              <i class="fa-solid fa-play text-brand-500"></i>
+              <span>สุ่มโจทย์</span>
+            </button>
+          </div>
         </div>
-
       </div>
 
     </div>
@@ -715,7 +840,82 @@
 <!-- ========================================================================
        8. CHEATSHEET MODAL (สมการคณิตศาสตร์แท้ 11 บทเรียน)
        ======================================================================== -->
-  <div id="cheatsheetModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <!-- ========================================================================
+       LESSONS & CHAPTER PDF VIEWER MODAL (บทที่ 1 ถึง 11 แบบละเอียด)
+       ======================================================================== -->
+  <div id="lessonsModal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md items-center justify-center p-2 sm:p-4">
+    <div class="clay-card !bg-white dark:!bg-slate-900 max-w-6xl w-full h-[92vh] max-h-[92vh] overflow-hidden flex flex-col border-2 border-white/80 dark:border-slate-800 shadow-2xl rounded-3xl">
+      
+      <!-- Modal Header -->
+      <div class="px-5 py-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-800/70 shrink-0">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-indigo-500 to-brand-600 text-white flex items-center justify-center text-lg shadow-sm">
+            <i class="fa-solid fa-book-bookmark"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-heading font-bold text-base sm:text-lg text-slate-900 dark:text-white">คลังเอกสารบทเรียนและสรุปสถิตยศาสตร์ (Hibbeler 14th Ed.)</h3>
+              <span class="px-2 py-0.5 rounded-full bg-brand-100 text-brand-700 dark:bg-brand-950/60 dark:text-brand-300 text-[10px] font-bold">11 บทเต็ม</span>
+            </div>
+            <p class="text-xs text-slate-500 dark:text-slate-400">อ่านสรุปสูตร แผ่นบทเรียนจากตำราจริง และส่งออกไฟล์ PDF แยกบทเรียน (A4) ได้ครบทุกบท</p>
+          </div>
+        </div>
+        <button id="closeLessonsBtn" class="clay-btn clay-btn-secondary !p-2 !rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Two-Column Layout: Sidebar for Chapters + Main Content Area) -->
+      <div class="flex-1 flex flex-col md:flex-row overflow-hidden">
+        
+        <!-- Sidebar Chapter Selector -->
+        <div class="w-full md:w-72 lg:w-80 border-b md:border-b-0 md:border-r border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/60 flex flex-col overflow-hidden shrink-0">
+          <div class="p-3 border-b border-slate-200/60 dark:border-slate-800/60 flex items-center justify-between">
+            <p class="text-[11px] font-bold uppercase tracking-wider text-slate-400">เลือกบทเรียน (1 - 11)</p>
+            <span class="text-[10px] text-brand-600 dark:text-brand-400 font-bold">1,020 ข้อในระบบ</span>
+          </div>
+          <div id="lessonChapterList" class="flex-1 overflow-y-auto p-2 space-y-1.5 flex md:flex-col flex-row overflow-x-auto">
+            <!-- Populated dynamically by app.js -->
+          </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col overflow-hidden bg-white dark:bg-slate-900">
+          
+          <!-- Chapter Overview & Action Bar -->
+          <div id="lessonHeaderBar" class="p-4 sm:p-5 border-b border-slate-200 dark:border-slate-800 bg-slate-50/40 dark:bg-slate-800/40 shrink-0">
+            <!-- Populated dynamically -->
+          </div>
+
+          <!-- Lesson Tabs (Formulas & Concepts / Chapter Review Sheets / Full PDF Reader) -->
+          <div class="px-5 pt-2 border-b border-slate-200 dark:border-slate-800 flex gap-2 overflow-x-auto shrink-0 bg-white dark:bg-slate-900">
+            <button id="tabLessonFormulas" class="lesson-tab active px-4 py-2 border-b-2 border-brand-500 font-bold text-xs sm:text-sm text-brand-600 dark:text-brand-400 flex items-center gap-2">
+              <i class="fa-solid fa-square-root-variable"></i>
+              <span>สรุปสูตร & หลักการ</span>
+            </button>
+            <button id="tabLessonReviewSheets" class="lesson-tab px-4 py-2 border-b-2 border-transparent font-medium text-xs sm:text-sm text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-images"></i>
+              <span>แผ่นสรุปท้ายบทจากตำรา</span>
+            </button>
+            <button id="tabLessonPdfReader" class="lesson-tab px-4 py-2 border-b-2 border-transparent font-medium text-xs sm:text-sm text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>เปิดอ่าน PDF ในเว็บ</span>
+            </button>
+          </div>
+
+          <!-- Tab Content Display -->
+          <div class="flex-1 overflow-y-auto p-4 sm:p-6" id="lessonTabContent">
+            <!-- Populated dynamically based on selected tab -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+<div id="cheatsheetModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="clay-card !bg-white dark:!bg-slate-900 max-w-4xl w-full max-h-[88vh] overflow-hidden flex flex-col border-2 border-white/80">
       
       <!-- Header -->
@@ -914,9 +1114,11 @@
     </div>
   </footer>
 
+  <!-- Lessons Data Script -->
+  <script src="data/lessons.js?v=4.4"></script>
   <!-- Problem Data Script (Runs locally offline without CORS restrictions) -->
-  <script src="data/problems.js?v=3.0"></script>
+  <script src="data/problems.js?v=4.4"></script>
   <!-- Application Logic -->
-  <script src="app.js?v=3.0"></script>
+  <script src="app.js?v=4.4"></script>
 </body>
 </html>
